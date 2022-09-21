@@ -34,14 +34,14 @@ public class FrontServletInitializer implements ServletContainerInitializer {
     }
 
     private ProcessorRequest createProcessorRequest(){
-//        ConfigLoader configLoader = new ConfigLoader();
-//        configLoader.loadConfigurations("app.yaml");
-//        List<Placeholder>placeholders = new ArrayList<>();
-//        ObjectMapper objectMapper = new ObjectMapper();
-//        RequestParameterMapper requestParameterMapper = new RequestParameterMapper(objectMapper);
-//
-//
-//
+        ConfigLoader configLoader = new ConfigLoader();
+        configLoader.loadConfigurations("app.yaml");
+        List<Placeholder>placeholders = new ArrayList<>();
+        ObjectMapper objectMapper = new ObjectMapper();
+        RequestParameterMapper requestParameterMapper = new RequestParameterMapper(objectMapper);
+
+
+
         return null;
     }
 
