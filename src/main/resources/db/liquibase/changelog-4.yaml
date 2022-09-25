@@ -1,0 +1,48 @@
+databaseChangeLog:
+  - changeSet:
+      id: 4
+      author: Serhii_Sentiurin
+      changes:
+        - createTable:
+            tableName: order
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: type
+                  type: VARCHAR(60)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: weight
+                  type: DECIMAL(19,2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: volume
+                  type: DECIMAL(19,2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: delivery_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: isConfirmed
+                  type: BOOLEAN
+                  defaultValue: false
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            baseColumnNames: delivery_id
+            baseTableName: order
+            constraintName: fk_delivery_id
+            onDelete: CASCADE
+            referencedColumnNames: id
+            referencedTableName: delivery

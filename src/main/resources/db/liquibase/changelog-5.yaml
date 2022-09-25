@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: 5
+      author: Serhii_Sentiurin
+      changes:
+        - createTable:
+            tableName: invoice
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: pice
+                  type: DECIMAL(19,2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: isPaid
+                  type: BOOLEAN
+                  defaultValue: false
+                  constraints:
+                    nullable: false

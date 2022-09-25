@@ -1,0 +1,4 @@
+db.url: jdbc:mysql://localhost:3306/cargo?createDatabaseIfNotExist=true
+db.username: root
+db.password: 12345
+change_log_file: /db/liquibase/changelog-master.yaml

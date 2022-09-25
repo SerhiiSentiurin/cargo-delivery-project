@@ -1,0 +1,52 @@
+databaseChangeLog:
+  - changeSet:
+      id: 6
+      author: Serhii_Sentiurin
+      changes:
+        - createTable:
+            tableName: client
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: amount
+                  type: DECIMAL(19,2)
+                  defaultValue: 0
+                  constraints:
+                    nullable: false
+              - column:
+                  name: order_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: invoice_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            baseColumnNames: id
+            baseTableName: client
+            constraintName: fk_user_id
+            onDelete: CASCADE
+            referencedColumnNames: id
+            referencedTableName: user
+        - addForeignKeyConstraint:
+            baseColumnNames: order_id
+            baseTableName: client
+            constraintName: fk_order_id
+            onDelete: CASCADE
+            referencedColumnNames: id
+            referencedTableName: order
+        - addForeignKeyConstraint:
+            baseColumnNames: invoice_id
+            baseTableName: client
+            constraintName: fk_invoice_id
+            onDelete: CASCADE
+            referencedColumnNames: id
+            referencedTableName: invoice

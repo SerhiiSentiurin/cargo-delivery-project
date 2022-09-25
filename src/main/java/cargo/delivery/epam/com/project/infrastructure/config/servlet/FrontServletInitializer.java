@@ -1,14 +1,22 @@
 package cargo.delivery.epam.com.project.infrastructure.config.servlet;
 
 import cargo.delivery.epam.com.project.infrastructure.config.ConfigLoader;
+import cargo.delivery.epam.com.project.infrastructure.config.db.ConfigDataSource;
+import cargo.delivery.epam.com.project.infrastructure.config.db.ConfigLiquibase;
 import cargo.delivery.epam.com.project.infrastructure.web.*;
 import cargo.delivery.epam.com.project.infrastructure.web.exception.ExceptionHandler;
+import cargo.delivery.epam.com.project.logic.controllers.UserController;
+import cargo.delivery.epam.com.project.logic.dao.UserDAO;
+import cargo.delivery.epam.com.project.logic.entity.UserRole;
+import cargo.delivery.epam.com.project.logic.services.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.*;
 import lombok.extern.log4j.Log4j2;
 
+import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 @Log4j2
@@ -19,30 +27,42 @@ public class FrontServletInitializer implements ServletContainerInitializer {
         // add listener
 
         FrontServlet frontServlet = createFrontServlet();
-        ServletRegistration.Dynamic dynamic = ctx.addServlet(frontServlet.getServletName(),frontServlet);
+        ServletRegistration.Dynamic dynamic = ctx.addServlet("frontServlet", frontServlet);
         dynamic.setLoadOnStartup(0);
         dynamic.addMapping("/cargo/*");
         log.info("Front Servlet was started");
 
     }
 
-    private FrontServlet createFrontServlet(){
+    private FrontServlet createFrontServlet() {
         ProcessorRequest processorRequest = createProcessorRequest();
         ProcessorModelAndView processorModelAndView = new ProcessorModelAndView();
         ExceptionHandler exceptionHandler = new ExceptionHandler();
-        return new FrontServlet("frontServlet",processorRequest,processorModelAndView,exceptionHandler);
+        return new FrontServlet("frontServlet", processorRequest, processorModelAndView, exceptionHandler);
     }
 
-    private ProcessorRequest createProcessorRequest(){
+    private ProcessorRequest createProcessorRequest() {
         ConfigLoader configLoader = new ConfigLoader();
         configLoader.loadConfigurations("app.yaml");
-        List<Placeholder>placeholders = new ArrayList<>();
+        List<Placeholder> placeholders = new ArrayList<>();
         ObjectMapper objectMapper = new ObjectMapper();
         RequestParameterMapper requestParameterMapper = new RequestParameterMapper(objectMapper);
 
+        DataSource dataSource = new ConfigDataSource().createDataSource(configLoader);
+        ConfigLiquibase configLiquibase = new ConfigLiquibase(dataSource);
+        configLiquibase.updateDatabase(configLoader);
 
+        UserController userController = createUserController(requestParameterMapper,dataSource);
+        placeholders.add(new Placeholder("POST", "login", userController::login));
 
-        return null;
+        return new ProcessorRequest(placeholders);
+    }
+
+    private UserController createUserController(RequestParameterMapper requestParameterMapper, DataSource dataSource){
+        Map<UserRole, String> mapView = Map.of(UserRole.MANAGER,"/manager/managerHome.jsp", UserRole.CLIENT, "/client/clientHome.jsp");
+        UserDAO userDAO = new UserDAO(dataSource);
+        UserService userService = new UserService(userDAO);
+        return new UserController(userService,requestParameterMapper,mapView);
     }
 
 

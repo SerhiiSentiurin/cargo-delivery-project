@@ -20,6 +20,13 @@ public class FrontServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.service(req, resp);
+        log.info("start processing request");
+        ModelAndView modelAndView;
+        try {
+            modelAndView = processorRequest.processRequest(req);
+        }catch (Exception e){
+            modelAndView = exceptionHandler.handle(e);
+        }
+        processorModelAndView.crateModelAndView(req,resp,modelAndView,this);
     }
 }
