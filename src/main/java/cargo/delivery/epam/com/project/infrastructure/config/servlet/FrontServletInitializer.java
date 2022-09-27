@@ -5,9 +5,12 @@ import cargo.delivery.epam.com.project.infrastructure.config.db.ConfigDataSource
 import cargo.delivery.epam.com.project.infrastructure.config.db.ConfigLiquibase;
 import cargo.delivery.epam.com.project.infrastructure.web.*;
 import cargo.delivery.epam.com.project.infrastructure.web.exception.ExceptionHandler;
+import cargo.delivery.epam.com.project.logic.controllers.ClientController;
 import cargo.delivery.epam.com.project.logic.controllers.UserController;
+import cargo.delivery.epam.com.project.logic.dao.ClientDAO;
 import cargo.delivery.epam.com.project.logic.dao.UserDAO;
 import cargo.delivery.epam.com.project.logic.entity.UserRole;
+import cargo.delivery.epam.com.project.logic.services.ClientService;
 import cargo.delivery.epam.com.project.logic.services.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.*;
@@ -54,6 +57,10 @@ public class FrontServletInitializer implements ServletContainerInitializer {
 
         UserController userController = createUserController(requestParameterMapper,dataSource);
         placeholders.add(new Placeholder("POST", "login", userController::login));
+        placeholders.add(new Placeholder("POST", "logout", userController::logout));
+
+        ClientController clientController = createClientController(requestParameterMapper, dataSource);
+        placeholders.add(new Placeholder("POST","client/create",clientController::createNewClient));
 
         return new ProcessorRequest(placeholders);
     }
@@ -63,6 +70,15 @@ public class FrontServletInitializer implements ServletContainerInitializer {
         UserDAO userDAO = new UserDAO(dataSource);
         UserService userService = new UserService(userDAO);
         return new UserController(userService,requestParameterMapper,mapView);
+    }
+
+    private ClientController createClientController(RequestParameterMapper requestParameterMapper, DataSource dataSource){
+        ClientDAO clientDAO = new ClientDAO(dataSource);
+        ClientService clientService = new ClientService(clientDAO);
+        return new ClientController(clientService,requestParameterMapper);
+
+
+
     }
 
 

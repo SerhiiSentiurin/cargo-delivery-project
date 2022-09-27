@@ -1,6 +1,5 @@
 package cargo.delivery.epam.com.project.logic.entity;
 
-import liquibase.pro.packaged.A;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

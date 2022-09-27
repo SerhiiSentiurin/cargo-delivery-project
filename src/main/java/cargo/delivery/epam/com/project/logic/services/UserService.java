@@ -13,15 +13,15 @@ public class UserService {
     private final UserDAO userDAO;
 
     public User getUserByLogin(UserDto userDto) {
-        log.info("trying to enter user wih login" + userDto.getLogin());
+        log.info("trying to enter user with login: " + userDto.getLogin());
 
         User user = userDAO.getUserByLogin(userDto.getLogin())
-                .orElseThrow(() -> new AppException("User with this login doesn not exist!"));
+                .orElseThrow(() -> new AppException("User with this login does not exist!"));
        if (!user.getPassword().equals(userDto.getPassword())){
-            throw new AppException("Password is incorrect");
+            throw new AppException("Password is incorrect!");
        }
 
-       log.info("User with login "+ userDto.getLogin()+"was entered");
+       log.info("User with login: "+ userDto.getLogin()+", was entered");
        return user;
     }
 }

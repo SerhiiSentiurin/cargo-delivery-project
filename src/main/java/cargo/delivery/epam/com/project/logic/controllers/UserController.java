@@ -28,4 +28,15 @@ public class UserController {
         modelAndView.setRedirect(true);
         return modelAndView;
     }
+
+    public ModelAndView logout(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            session.invalidate();
+        }
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setView("/index.jsp");
+        modelAndView.setRedirect(true);
+        return modelAndView;
+    }
 }

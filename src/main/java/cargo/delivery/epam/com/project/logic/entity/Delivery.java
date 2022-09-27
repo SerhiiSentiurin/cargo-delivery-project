@@ -4,12 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Delivery {
     private Long id;
-    private String departureDate;
-    private String arrivingDate;
+    private LocalDate departureDate;
+    private LocalDate arrivingDate;
     private Route route;
 }
