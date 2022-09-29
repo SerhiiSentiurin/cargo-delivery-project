@@ -1,9 +1,7 @@
 package cargo.delivery.epam.com.project.infrastructure.web;
 
 import cargo.delivery.epam.com.project.infrastructure.web.exception.AppException;
-import com.fasterxml.jackson.databind.type.PlaceholderForType;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;

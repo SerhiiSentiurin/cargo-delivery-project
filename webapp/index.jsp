@@ -5,19 +5,31 @@
         <title>Welcome page</title>
         <meta charset="UTF-8">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-        <h1>
+        <h1 align = "center">
             Welcome to Cargo application!
         </h1>
     </head>
     <body>
-        <form action = "/app/cargo/login" method = "POST">
-            <label for="name">Login</label><br>
-            <input type="text" name="login" pattern=".{3,}" title='Three or more characters required' required ><br><br>
-            <label for="pass">Password</label><br>
-            <input type="password" name="password" pattern="(?=.*\d)(?=.*[a-zа-яії])(?=.*[A-ZА-ЯІЇ]).{8,}" title='Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters' required><br><br>
-            <input type = "submit" style="width: 8%" class="btn btn-primary" value='Log in'>
-            <br><br>
-            <input type = "submit" style="width: 8%" class="btn btn-primary" formaction="/app/cargo/client/create" value='Sign up'>
-        </form>
+        <div align = "center">
+            <form action = "/app/cargo/login" method = "POST" >
+                <label for="name" >Login</label><br>
+                <input type="text" name="login" pattern=".{3,}" title='Three or more characters required' required ><br><br>
+                <label for="pass">Password</label><br>
+                <input type="password" name="password" pattern="(?=.*\d)(?=.*[a-zа-яії])(?=.*[A-ZА-ЯІЇ]).{8,}" title='Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters' required><br><br>
+                <input type = "submit" style="width: 8%" class="btn btn-primary" value='Log in'>
+                <br><br>
+                <input type = "submit" style="width: 8%" class="btn btn-primary" formaction="/app/cargo/client/create" value='Sign up'>
+            </form>
+        </div>
+        <br><br>
+        <div align = "center">
+            <h3>
+                Get delivery cost without registration
+            </h3>
+            <form action = "/app/cargo/chooseCargoParameters" method = "GET">
+            <input type = "submit" class = "btn btn-secondary" value = 'Get cost!'>
+            </form>
+
+        </div>
     </body>
 </html>
