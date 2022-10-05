@@ -14,7 +14,7 @@ databaseChangeLog:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: pice
+                  name: price
                   type: DECIMAL(19,2)
                   constraints:
                     nullable: false

@@ -3,7 +3,7 @@ package cargo.delivery.epam.com.project.logic.services;
 import cargo.delivery.epam.com.project.infrastructure.web.exception.AppException;
 import cargo.delivery.epam.com.project.logic.dao.OrderDAO;
 import cargo.delivery.epam.com.project.logic.entity.Route;
-import cargo.delivery.epam.com.project.logic.entity.dto.OrderDto;
+import cargo.delivery.epam.com.project.logic.entity.dto.ClientOrderDto;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
@@ -16,39 +16,41 @@ public class OrderService {
         return orderDAO.getRoute(senderCity, recipientCity);
     }
 
-    public List<Route> getAllRoutes(){
-        return orderDAO.getAllRoutes();
-    }
+//    public List<Route> getAllRoutes() {
+//        return orderDAO.getAllRoutes();
+//    }
 
-    public List<Route> getDistinctSenderCities(){
+    public List<Route> getDistinctSenderCities() {
         return orderDAO.getDistinctSenderCities();
     }
 
-    public List<Route> getDistinctRecipientCities(){
+    public List<Route> getDistinctRecipientCities() {
         return orderDAO.getDistinctRecipientCities();
     }
 
-    public OrderDto getDeliveryCost(String senderCity, String recipientCity, Double weight, Double volume){
-        Route route = orderDAO.getRoute(senderCity, recipientCity);
+    public ClientOrderDto calculateDeliveryCost(ClientOrderDto dto) {
+        Route route = orderDAO.getRoute(dto.getSenderCity(), dto.getRecipientCity());
         double distance = route.getDistance();
-        double deliveryCost = calculateTax(weight,volume,distance);
-        return new OrderDto(senderCity,recipientCity,distance,deliveryCost);
+        double deliveryCost = calculateTax(dto.getWeight(),dto.getVolume(), distance);
+        dto.setDistance(distance);
+        dto.setDeliveryCost(deliveryCost);
+        return dto;
     }
 
 
-    private double calculateTax(Double weight, Double volume, Double distance){
+    private double calculateTax(Double weight, Double volume, Double distance) {
         final double fuelCostPerKilometer = 7.5d;
         final double volumeTax = getVolumeTax(volume);
         final double weightTax = getWeightTax(weight);
 
-        return (fuelCostPerKilometer*distance)+ (volumeTax*volume)+(weightTax*weight);
+        return (fuelCostPerKilometer * distance) + (volumeTax * volume) + (weightTax * weight);
     }
 
 
     private double getVolumeTax(Double volume) {
-        if (volume > 0d && volume <= 25d){
+        if (volume > 0d && volume <= 25d) {
             return 50d;
-        }else {
+        } else {
             throw new AppException("Illegal volume for transportation");
         }
     }

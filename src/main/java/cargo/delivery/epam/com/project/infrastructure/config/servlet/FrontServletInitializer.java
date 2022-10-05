@@ -17,7 +17,6 @@ import cargo.delivery.epam.com.project.logic.services.OrderService;
 import cargo.delivery.epam.com.project.logic.services.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.*;
-import liquibase.pro.packaged.P;
 import lombok.extern.log4j.Log4j2;
 
 import javax.sql.DataSource;
@@ -59,37 +58,42 @@ public class FrontServletInitializer implements ServletContainerInitializer {
         ConfigLiquibase configLiquibase = new ConfigLiquibase(dataSource);
         configLiquibase.updateDatabase(configLoader);
 
-        UserController userController = createUserController(requestParameterMapper,dataSource);
+        UserController userController = createUserController(requestParameterMapper, dataSource);
         ClientController clientController = createClientController(requestParameterMapper, dataSource);
-        OrderController orderController = createOrderController(requestParameterMapper,dataSource);
+        OrderController orderController = createOrderController(requestParameterMapper, dataSource);
 
 
         placeholders.add(new Placeholder("POST", "login", userController::login));
         placeholders.add(new Placeholder("POST", "logout", userController::logout));
-        placeholders.add(new Placeholder("POST","client/create",clientController::createNewClient));
-        placeholders.add(new Placeholder("GET", "chooseCargoParameters", orderController::getAllRoutes));
+        placeholders.add(new Placeholder("POST", "client/create", clientController::createNewClient));
+        placeholders.add(new Placeholder("GET", "client/getWalletInfo", clientController::getWalletInfo));
+        placeholders.add(new Placeholder("POST", "client/topUpWallet", clientController::topUpClientWallet));
+        placeholders.add(new Placeholder("GET", "client/getInfoToOder", orderController::getInfoToOder));
+        placeholders.add(new Placeholder("GET", "client/calculateDelivery", orderController::getDeliveryCost));
+        placeholders.add(new Placeholder("POST", "client/createOrder",orderController::createOrder));
+        placeholders.add(new Placeholder("GET", "getInfoToOder", orderController::getInfoToOder));
         placeholders.add(new Placeholder("GET", "calculateDelivery", orderController::getDeliveryCost));
 
         return new ProcessorRequest(placeholders);
     }
 
-    private UserController createUserController(RequestParameterMapper requestParameterMapper, DataSource dataSource){
-        Map<UserRole, String> mapView = Map.of(UserRole.MANAGER,"/manager/managerHome.jsp", UserRole.CLIENT, "/client/clientHome.jsp");
+    private UserController createUserController(RequestParameterMapper requestParameterMapper, DataSource dataSource) {
+        Map<UserRole, String> mapView = Map.of(UserRole.MANAGER, "/manager/managerHome.jsp", UserRole.CLIENT, "/client/clientHome.jsp");
         UserDAO userDAO = new UserDAO(dataSource);
         UserService userService = new UserService(userDAO);
-        return new UserController(userService,requestParameterMapper,mapView);
+        return new UserController(userService, requestParameterMapper, mapView);
     }
 
-    private ClientController createClientController(RequestParameterMapper requestParameterMapper, DataSource dataSource){
+    private ClientController createClientController(RequestParameterMapper requestParameterMapper, DataSource dataSource) {
         ClientDAO clientDAO = new ClientDAO(dataSource);
         ClientService clientService = new ClientService(clientDAO);
-        return new ClientController(clientService,requestParameterMapper);
+        return new ClientController(clientService, requestParameterMapper);
     }
 
-    private OrderController createOrderController(RequestParameterMapper requestParameterMapper, DataSource dataSource){
+    private OrderController createOrderController(RequestParameterMapper requestParameterMapper, DataSource dataSource) {
         OrderDAO orderDAO = new OrderDAO(dataSource);
         OrderService orderService = new OrderService(orderDAO);
-        return new OrderController(orderService,requestParameterMapper);
+        return new OrderController(orderService, requestParameterMapper);
     }
 
 

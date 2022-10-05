@@ -9,8 +9,20 @@ import lombok.RequiredArgsConstructor;
 public class ClientService {
     private final ClientDAO clientDAO;
 
-    public void createNewClient(ClientCreateDto dto){
+    public void createNewClient(ClientCreateDto dto) {
         clientDAO.createNewClient(dto);
+    }
+
+    public Client getClientById(Long clientId) {
+        return clientDAO.getClientById(clientId);
+    }
+
+    public void topUpClientWallet(Double amount, Long clientId) {
+        clientDAO.topUpClientWallet(amount, clientId);
+    }
+
+    public Double getWalletInfo(Long clientId) {
+        return clientDAO.getClientById(clientId).getAmount();
     }
 
 

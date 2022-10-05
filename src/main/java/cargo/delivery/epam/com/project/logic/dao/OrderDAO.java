@@ -1,6 +1,7 @@
 package cargo.delivery.epam.com.project.logic.dao;
 
 import cargo.delivery.epam.com.project.logic.entity.Route;
+import cargo.delivery.epam.com.project.logic.entity.dto.ClientOrderDto;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 
@@ -35,24 +36,24 @@ public class OrderDAO {
         return route;
     }
 
-    @SneakyThrows
-    public List<Route> getAllRoutes() {
-        String sql = "SELECT * FROM route";
-        List<Route> routesList = new ArrayList<>();
-        try (Connection connection = dataSource.getConnection();
-             Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery(sql);) {
-            while (resultSet.next()) {
-                 long id = resultSet.getLong("id");
-                 double distance = resultSet.getDouble("distance");
-                 String senderCity = resultSet.getString("sender_city");
-                 String recipientCity = resultSet.getString("recipient_city");
-                 Route route = new Route(id,distance,senderCity,recipientCity);
-                 routesList.add(route);
-            }
-        }
-        return routesList;
-    }
+//    @SneakyThrows
+//    public List<Route> getAllRoutes() {
+//        String sql = "SELECT * FROM route";
+//        List<Route> routesList = new ArrayList<>();
+//        try (Connection connection = dataSource.getConnection();
+//             Statement statement = connection.createStatement();
+//             ResultSet resultSet = statement.executeQuery(sql);) {
+//            while (resultSet.next()) {
+//                 long id = resultSet.getLong("id");
+//                 double distance = resultSet.getDouble("distance");
+//                 String senderCity = resultSet.getString("sender_city");
+//                 String recipientCity = resultSet.getString("recipient_city");
+//                 Route route = new Route(id,distance,senderCity,recipientCity);
+//                 routesList.add(route);
+//            }
+//        }
+//        return routesList;
+//    }
 
     @SneakyThrows
     public List<Route> getDistinctSenderCities(){
@@ -86,5 +87,10 @@ public class OrderDAO {
             }
         }
         return routesList;
+    }
+
+    @SneakyThrows
+    public void createOrder(ClientOrderDto dto){
+
     }
 }

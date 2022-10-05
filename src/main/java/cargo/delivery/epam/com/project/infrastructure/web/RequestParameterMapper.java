@@ -1,5 +1,6 @@
 package cargo.delivery.epam.com.project.infrastructure.web;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +21,7 @@ public class RequestParameterMapper {
             String valueOfParameter = request.getParameter(nameOfParameter);
             parameters.put(nameOfParameter, valueOfParameter);
         }
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         return objectMapper.convertValue(parameters,tClass);
 
     }

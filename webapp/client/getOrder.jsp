@@ -5,15 +5,8 @@
         <head>
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
             <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places&key=AIzaSyAyM6orVGgY2a7NzZPgLnYm2FmyrqFcQYc"></script>
+            <%@ include file="/view/header.jsp" %>
         </head>
-        <div align = "left">
-            <c:if test = "${user.id == null}">
-                <button class = "btn btn-primary" onclick="location.href='/app/index.jsp'">Back to registration</button>
-            </c:if>
-            <h2 align = "center">
-                Calculate the delivery cost!
-            </h2>
-        </div>
 
         <div class="input-group mb-3">
             <label class="input-group-text" for="senderCity">Choose departure city</label>
@@ -37,7 +30,7 @@
 
         <div class="input-group mb-3">
             <label class="input-group-text" for="type">Choose cargo type</label>
-            <select class="form-select"  name = "type" form = "calculateCost" required>
+            <select class="form-select"  name = "type" form = "calculateCost"  required>
                 <option value="" selected>Choose...</option>
                 <option value="metal products">metalwork</option>
                 <option value="wood products">woodwork</option>
@@ -49,15 +42,13 @@
             </select>
         </div>
 
-
         <table class="table table-striped">
             <td align = "center">
-                <form action = "/app/cargo/calculateDelivery" method = "GET" id = "calculateCost">
+                <form action = "/app/cargo/client/calculateDelivery" method = "GET" id = "calculateCost">
                     <label for = "Weight" >Weight (kg)</label>
-                    <input type = "number" min = "0" max= "5000" step = 0.01 name="weight" id = "Weight" required><br><br>
+                    <input type = "number" min = "0" max= "5000" step = 0.01 name="weight" id = "Weight" required/><br><br>
                     <label for = "Volume">Volume (m³)</label>
-                    <input type = "number" min = "0" max= "25" step = 0.01 name="volume" id = "Volume" required><br><br>
-
+                    <input type = "number" min = "0" max= "25" step = 0.01 name="volume" id = "Volume" required/><br><br>
                     <input type = "hidden" name = "userId" value = "${user.id}"/>
                     <button type = "submit"  class = "btn btn-secondary">Get cost!</button>
                 </form>
@@ -73,27 +64,28 @@
                         <h5>Delivery cost: ${order.deliveryCost} (UAH)</h5>
                         <h5>Cargo type: ${order.type}</h5>
 
-                        <input type = "hidden" id = "from" value = "${order.senderCity}">
-                        <input type = "hidden" id = "to" value = "${order.recipientCity}">
+                        <input type = "hidden" id = "from" value = "${order.senderCity}"/>
+                        <input type = "hidden" id = "to" value = "${order.recipientCity}"/>
                         <button type = "submit" onclick="calcRoutee()" class = "btn btn-secondary">Build a route</button>
                     </div>
+
+                    <br></br>
+                    <form action = "/app/cargo/client/createOrder" method = "POST" id = "createOrder">
+                        <input type = "hidden" name = "senderCity" value = "${order.senderCity}"/>
+                        <input type = "hidden" name = "recipientCity" value = "${order.recipientCity}"/>
+                        <input type = "hidden" name = "distance" value = "${order.distance}"/>
+                        <input type = "hidden" name = "deliveryCost" value = "${order.deliveryCost}"/>
+                        <input type = "hidden" name = "type" value = "${order.type}"/>
+                        <input type = "hidden" name = "weight" value = "${order.weight}" />
+                        <input type = "hidden" name = "volume" value = "${order.volume}" />
+                        <button type = "submit"  class = "btn btn-primary">Get delivery order</button>
+                    </form>
                 </c:if>
             </td>
-            <c:if test = "${user.id == null}">
-                <td align = "center">
-                    <div id="mapa"> </div>
-                </td>
-                <td>
-                    <h5>
-                        Some rules how to use this application...
-                    </h5>
-                </td>
-            </c:if>
-            <c:if test = "${user.id != null}">
-                <td align = "right">
-                    <div id="mapa"> </div>
-                </td>
-            </c:if>
+
+            <td align = "right">
+                <div id="mapa"> </div>
+            </td>
         </table>
         <br>
 
