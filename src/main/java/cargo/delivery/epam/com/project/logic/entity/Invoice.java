@@ -10,5 +10,5 @@ import lombok.NoArgsConstructor;
 public class Invoice {
     private Long id;
     private Double price;
-    private boolean isPaid;
+    private Boolean isPaid;
 }

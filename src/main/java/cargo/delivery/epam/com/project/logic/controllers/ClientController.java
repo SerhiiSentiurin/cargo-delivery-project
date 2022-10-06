@@ -45,4 +45,15 @@ public class ClientController {
         return modelAndView;
     }
 
+    // /app/cargo/client/getClientOrders
+    public ModelAndView getClientOrders(HttpServletRequest request){
+        Long clientId = Long.parseLong(request.getParameter("clientId"));
+        Client client = clientService.getClientById(clientId);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setView("/client/clientOrders.jsp");
+        modelAndView.addAttribute("client",client);
+
+        return modelAndView;
+    }
+
 }

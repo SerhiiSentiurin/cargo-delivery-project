@@ -12,6 +12,6 @@ import java.time.LocalDate;
 public class Delivery {
     private Long id;
     private LocalDate departureDate;
-    private LocalDate arrivingDate;
+    private LocalDate arrivalDate;
     private Route route;
 }

@@ -98,6 +98,29 @@ public class ClientDAO {
         return route;
     }
 
+
+//          cannot set null in LocalDate????????
+//    @SneakyThrows
+//    public Delivery getDeliveryById(Long deliveryId) {
+//        String sql = "SELECT * FROM delivery where id = ?";
+//        Delivery delivery = new Delivery();
+//        try (Connection connection = dataSource.getConnection();
+//             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+//            preparedStatement.setLong(1, deliveryId);
+//            ResultSet resultSet = preparedStatement.executeQuery();
+//            if (resultSet.next()) {
+//                delivery.setId(deliveryId);
+//                Optional<Date> departureDate = Optional.of(resultSet.getDate("departure_date"));
+//                Optional<Date> arrivalDate = Optional.of(resultSet.getDate("arrival_date"));
+//                delivery.setDepartureDate(departureDate.get().toLocalDate());
+//                delivery.setArrivingDate(arrivalDate.get().toLocalDate());
+//                Route route = getRouteById(resultSet.getLong("route_id"));
+//                delivery.setRoute(route);
+//            }
+//        }
+//        return delivery;
+//    }
+
     @SneakyThrows
     public Delivery getDeliveryById(Long deliveryId) {
         String sql = "SELECT * FROM delivery where id = ?";
@@ -115,9 +138,9 @@ public class ClientDAO {
                 }
 
                 if (resultSet.getDate("arrival_date") == null) {
-                    delivery.setArrivingDate(null);
+                    delivery.setArrivalDate(null);
                 } else {
-                    delivery.setArrivingDate(resultSet.getDate("arrival_date").toLocalDate());
+                    delivery.setArrivalDate(resultSet.getDate("arrival_date").toLocalDate());
                 }
                 Route route = getRouteById(resultSet.getLong("route_id"));
                 delivery.setRoute(route);
@@ -139,7 +162,7 @@ public class ClientDAO {
                 order.setType(resultSet.getString("type"));
                 order.setWeight(resultSet.getDouble("weight"));
                 order.setVolume(resultSet.getDouble("volume"));
-                order.setConfirmed(resultSet.getBoolean("isConfirmed"));
+                order.setIsConfirmed(resultSet.getBoolean("isConfirmed"));
                 Delivery delivery = getDeliveryById(resultSet.getLong("delivery_id"));
                 order.setDelivery(delivery);
             }
@@ -158,7 +181,7 @@ public class ClientDAO {
             if (resultSet.next()) {
                 invoice.setId(invoiceId);
                 invoice.setPrice(resultSet.getDouble("price"));
-                invoice.setPaid(resultSet.getBoolean("isPaid"));
+                invoice.setIsPaid(resultSet.getBoolean("isPaid"));
             }
         }
         return invoice;

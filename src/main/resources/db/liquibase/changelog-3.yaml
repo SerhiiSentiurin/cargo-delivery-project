@@ -17,12 +17,12 @@ databaseChangeLog:
                   name: departure_date
                   type: DATE
                   constraints:
-                    nullable: false
+                    nullable: true
               - column:
                   name: arrival_date
                   type: DATE
                   constraints:
-                    nullable: false
+                    nullable: true
               - column:
                   name: route_id
                   type: BIGINT

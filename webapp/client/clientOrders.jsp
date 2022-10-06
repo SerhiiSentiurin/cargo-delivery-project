@@ -8,7 +8,39 @@
             <%@ include file="/view/header.jsp" %>
         </head>
 
-      <h3>here is all clients orders</h3>
+        <table class="table table-striped">
+            <caption>Your orders</caption>
+                <tr>
+                    <th>Cargo type</th>
+                    <th>Cargo weight</th>
+                    <th>Cargo volume</th>
+                    <th>Delivery from</th>
+                    <th>Delivery to</th>
+                    <th>Distance</th>
+                    <th>Departure date</th>
+                    <th>Arrival date</th>
+                    <th>Price</th>
+                    <th>Confirmation</th>
+                    <th>Payment</th>
+
+                </tr>
+
+                <tr>
+                    <td>${client.order.type}</td>
+                    <td>${client.order.weight}</td>
+                    <td>${client.order.volume}</td>
+                    <td>${client.order.delivery.route.senderCity}</td>
+                    <td>${client.order.delivery.route.recipientCity}</td>
+                    <td>${client.order.delivery.route.distance}</td>
+                    <td>${client.order.delivery.departureDate}</td>
+                    <td>${client.order.delivery.arrivalDate}</td>
+                    <td>${client.invoice.price}</td>
+                    <td>${client.order.isConfirmed}</td>
+                    <td>${client.invoice.isPaid}</td>
+                </tr>
+
+
+        </table>
 
 
     </body>

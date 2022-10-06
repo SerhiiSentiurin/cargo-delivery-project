@@ -20,9 +20,9 @@ public class OrderController {
     public ModelAndView getInfoToOder(HttpServletRequest request) {
         List<Route> senderCities = orderService.getDistinctSenderCities();
         List<Route> recipientCities = orderService.getDistinctRecipientCities();
-        String userId = request.getParameter("userId");
+        String clientId = request.getParameter("clientId");
         ModelAndView modelAndView = new ModelAndView();
-        if (userId.isEmpty()){
+        if (clientId.isEmpty()){
             modelAndView.setView("/all/getCost.jsp");
         }else {
             modelAndView.setView("/client/getOrder.jsp");
@@ -36,10 +36,9 @@ public class OrderController {
     // /app/cargo/client/calculateDelivery
     public ModelAndView getDeliveryCost(HttpServletRequest request){
         ClientOrderDto dto = requestParameterMapper.handleRequest(request,ClientOrderDto.class);
-        String userId = request.getParameter("userId");
         ClientOrderDto newOrderDto = orderService.calculateDeliveryCost(dto);
         ModelAndView modelAndView;
-        if (userId.isEmpty()){
+        if (dto.getClientId()==null){
             modelAndView = ModelAndView.withView("/cargo/getInfoToOder");
         }else {
             modelAndView = ModelAndView.withView("/cargo/client/getInfoToOder");
@@ -51,12 +50,13 @@ public class OrderController {
     // app/cargo/client/createOrder
     public ModelAndView createOrder(HttpServletRequest request){
         ClientOrderDto dto = requestParameterMapper.handleRequest(request,ClientOrderDto.class);
-
-
-        ModelAndView modelAndView = ModelAndView.withView("/cargo/client/getInfoToOder");
-
+        ModelAndView modelAndView = ModelAndView.withView("/cargo/client/getClientOrders?clientId="+dto.getClientId());
+        orderService.createOrder(dto);
+        modelAndView.setRedirect(true);
         return modelAndView;
     }
+
+
 
 
 }

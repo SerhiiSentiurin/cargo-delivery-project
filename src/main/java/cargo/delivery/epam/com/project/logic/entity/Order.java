@@ -13,5 +13,5 @@ public class Order {
     private Double weight;
     private Double volume;
     private Delivery delivery;
-    private boolean isConfirmed;
+    private Boolean isConfirmed;
 }

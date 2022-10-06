@@ -70,7 +70,8 @@ public class FrontServletInitializer implements ServletContainerInitializer {
         placeholders.add(new Placeholder("POST", "client/topUpWallet", clientController::topUpClientWallet));
         placeholders.add(new Placeholder("GET", "client/getInfoToOder", orderController::getInfoToOder));
         placeholders.add(new Placeholder("GET", "client/calculateDelivery", orderController::getDeliveryCost));
-        placeholders.add(new Placeholder("POST", "client/createOrder",orderController::createOrder));
+        placeholders.add(new Placeholder("POST", "client/createOrder", orderController::createOrder));
+        placeholders.add(new Placeholder("GET", "client/getClientOrders", clientController::getClientOrders));
         placeholders.add(new Placeholder("GET", "getInfoToOder", orderController::getInfoToOder));
         placeholders.add(new Placeholder("GET", "calculateDelivery", orderController::getDeliveryCost));
 

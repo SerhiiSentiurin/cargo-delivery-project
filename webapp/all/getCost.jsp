@@ -58,7 +58,7 @@
                     <label for = "Volume">Volume (m³)</label>
                     <input type = "number" min = "0" max= "25" step = 0.01 name="volume" id = "Volume" required><br><br>
 
-                    <input type = "hidden" name = "userId" value = "${user.id}"/>
+                    <input type = "hidden" name = "clientId" value = "${user.id}"/>
                     <button type = "submit"  class = "btn btn-secondary">Get cost!</button>
                 </form>
 

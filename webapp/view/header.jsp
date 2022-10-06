@@ -24,7 +24,7 @@
 
                     <c:if test = "${user.userRole == 'CLIENT'}">
                         <form action ="/app/cargo/client/getInfoToOder" method = "GET">
-                            <input type = "hidden" name = "userId" value = "${user.id}"/>
+                            <input type = "hidden" name = "clientId" value = "${sessionScope.user.id}"/>
                             <input type = "submit" class="btn btn-primary" value = ' Place an order for delivery '/>
                         </form>
                     </c:if>
@@ -44,7 +44,8 @@
                     </c:if>
 
                     <c:if test = "${user.userRole == 'CLIENT'}">
-                        <form action ="/app/client/clientOrders.jsp" method = "GET">
+                        <form action ="/app/cargo/client/getClientOrders" method = "GET">
+                            <input type = "hidden" name="clientId" value = "${sessionScope.user.id}"/>
                             <input type = "submit" class="btn btn-primary" value = ' My orders '/>
                         </form>
                     </c:if>

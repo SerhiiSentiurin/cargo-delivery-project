@@ -20,6 +20,10 @@ public class OrderService {
 //        return orderDAO.getAllRoutes();
 //    }
 
+    public void createOrder(ClientOrderDto dto){
+        orderDAO.createOrder(dto);
+    }
+
     public List<Route> getDistinctSenderCities() {
         return orderDAO.getDistinctSenderCities();
     }

@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ClientOrderDto {
+    private Long clientId;
     private String type;
     private Double weight;
     private Double volume;
