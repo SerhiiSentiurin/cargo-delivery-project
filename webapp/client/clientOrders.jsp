@@ -16,6 +16,7 @@
         <table class="table caption-top">
             <caption>Your orders</caption>
                 <tr>
+                    <th>Order <br> number</th>
                     <th>Cargo type</th>
                     <th>Cargo weight (kg)</th>
                     <th>Cargo volume (m³)</th>
@@ -32,6 +33,7 @@
                 </tr>
                 <c:forEach items="${orders}" var="order">
                 <tr>
+                    <td>${order.id}</td>
                     <td>${order.type}</td>
                     <td>${order.weight}</td>
                     <td>${order.volume}</td>

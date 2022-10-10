@@ -65,7 +65,7 @@ public class ClientDAO {
 
     @SneakyThrows
     public Client getClientById(Long clientId) {
-        String sql = "SELECT * FROM client WHERE id = ?";
+        String sql = "SELECT amount, login FROM user join client on user.id= client.id WHERE client.id = ?";
         Client client = new Client();
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
@@ -74,6 +74,7 @@ public class ClientDAO {
             if (resultSet.next()) {
                 client.setId(clientId);
                 client.setAmount(resultSet.getDouble("amount"));
+                client.setLogin(resultSet.getString("login"));
             }
         }
         return client;
@@ -81,7 +82,7 @@ public class ClientDAO {
 
     @SneakyThrows
     public List<Order> getOrdersByClientId(Long clientId) {
-        String sql = "select orders.id, type, weight, volume, delivery_id, invoice_id, isConfirmed from orders join report on orders.id= report.order_id join invoice on orders.invoice_id=invoice.id where client_id = ? order by isPaid, isConfirmed";
+        String sql = "select orders.id, type, weight, volume, delivery_id, invoice_id, isConfirmed from orders join report on orders.id= report.order_id join invoice on orders.invoice_id=invoice.id where client_id = ? order by isConfirmed, isPaid";
         List<Order> clientOrders = new ArrayList<>();
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
