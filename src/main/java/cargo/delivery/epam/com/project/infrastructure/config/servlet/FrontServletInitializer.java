@@ -7,13 +7,16 @@ import cargo.delivery.epam.com.project.infrastructure.web.*;
 import cargo.delivery.epam.com.project.infrastructure.web.exception.ExceptionHandler;
 import cargo.delivery.epam.com.project.logic.controllers.ClientController;
 import cargo.delivery.epam.com.project.logic.controllers.OrderController;
+import cargo.delivery.epam.com.project.logic.controllers.ReportController;
 import cargo.delivery.epam.com.project.logic.controllers.UserController;
 import cargo.delivery.epam.com.project.logic.dao.ClientDAO;
 import cargo.delivery.epam.com.project.logic.dao.OrderDAO;
+import cargo.delivery.epam.com.project.logic.dao.ReportDAO;
 import cargo.delivery.epam.com.project.logic.dao.UserDAO;
 import cargo.delivery.epam.com.project.logic.entity.UserRole;
 import cargo.delivery.epam.com.project.logic.services.ClientService;
 import cargo.delivery.epam.com.project.logic.services.OrderService;
+import cargo.delivery.epam.com.project.logic.services.ReportService;
 import cargo.delivery.epam.com.project.logic.services.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.*;
@@ -61,6 +64,7 @@ public class FrontServletInitializer implements ServletContainerInitializer {
         UserController userController = createUserController(requestParameterMapper, dataSource);
         ClientController clientController = createClientController(requestParameterMapper, dataSource);
         OrderController orderController = createOrderController(requestParameterMapper, dataSource);
+        ReportController reportController = createReportController(requestParameterMapper,dataSource);
 
 
         placeholders.add(new Placeholder("POST", "login", userController::login));
@@ -72,6 +76,9 @@ public class FrontServletInitializer implements ServletContainerInitializer {
         placeholders.add(new Placeholder("GET", "client/calculateDelivery", orderController::getDeliveryCost));
         placeholders.add(new Placeholder("POST", "client/createOrder", orderController::createOrder));
         placeholders.add(new Placeholder("GET", "client/getClientOrders", clientController::getClientOrders));
+        placeholders.add(new Placeholder("GET", "client/getInvoice", clientController::getOrderForInvoice));
+        placeholders.add(new Placeholder("POST", "client/payInvoice", clientController::payInvoice));
+        placeholders.add(new Placeholder("GET", "manager/getAllOrders", reportController::getAllOrders));
         placeholders.add(new Placeholder("GET", "getInfoToOder", orderController::getInfoToOder));
         placeholders.add(new Placeholder("GET", "calculateDelivery", orderController::getDeliveryCost));
 
@@ -95,6 +102,13 @@ public class FrontServletInitializer implements ServletContainerInitializer {
         OrderDAO orderDAO = new OrderDAO(dataSource);
         OrderService orderService = new OrderService(orderDAO);
         return new OrderController(orderService, requestParameterMapper);
+    }
+
+    private ReportController createReportController(RequestParameterMapper requestParameterMapper, DataSource dataSource){
+        ReportDAO reportDAO = new ReportDAO(dataSource);
+        ClientDAO clientDAO = new ClientDAO(dataSource);
+        ReportService reportService = new ReportService(reportDAO,clientDAO);
+        return new ReportController(reportService,requestParameterMapper);
     }
 
 

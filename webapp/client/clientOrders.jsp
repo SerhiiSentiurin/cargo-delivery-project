@@ -8,40 +8,76 @@
             <%@ include file="/view/header.jsp" %>
         </head>
 
-        <table class="table table-striped">
+        <c:if test = "${orders.size() == 0}">
+            <h3>Sorry, you have not orders yet :( </h3>
+        </c:if>
+
+        <c:if test = "${orders.size() > 0}">
+        <table class="table caption-top">
             <caption>Your orders</caption>
                 <tr>
                     <th>Cargo type</th>
-                    <th>Cargo weight</th>
-                    <th>Cargo volume</th>
+                    <th>Cargo weight (kg)</th>
+                    <th>Cargo volume (m³)</th>
                     <th>Delivery from</th>
                     <th>Delivery to</th>
-                    <th>Distance</th>
+                    <th>Distance (km)</th>
                     <th>Departure date</th>
                     <th>Arrival date</th>
-                    <th>Price</th>
+                    <th>Price (UAH)</th>
                     <th>Confirmation</th>
                     <th>Payment</th>
+                    <th>Pay</th>
 
                 </tr>
-
+                <c:forEach items="${orders}" var="order">
                 <tr>
-                    <td>${client.order.type}</td>
-                    <td>${client.order.weight}</td>
-                    <td>${client.order.volume}</td>
-                    <td>${client.order.delivery.route.senderCity}</td>
-                    <td>${client.order.delivery.route.recipientCity}</td>
-                    <td>${client.order.delivery.route.distance}</td>
-                    <td>${client.order.delivery.departureDate}</td>
-                    <td>${client.order.delivery.arrivalDate}</td>
-                    <td>${client.invoice.price}</td>
-                    <td>${client.order.isConfirmed}</td>
-                    <td>${client.invoice.isPaid}</td>
+                    <td>${order.type}</td>
+                    <td>${order.weight}</td>
+                    <td>${order.volume}</td>
+                    <td>${order.delivery.route.senderCity}</td>
+                    <td>${order.delivery.route.recipientCity}</td>
+                    <td>${order.delivery.route.distance}</td>
+                    <td>${order.delivery.departureDate}</td>
+                    <td>${order.delivery.arrivalDate}</td>
+                    <td>${order.invoice.price}</td>
+                    <td>
+                        <c:if test="${order.isConfirmed == false}">
+                            <h6 style = "color:red">Not confirmed</h6>
+                        </c:if>
+                        <c:if test="${order.isConfirmed == true}">
+                            <h6 style = "color:green">Confirmed</h6>
+                        </c:if>
+                    </td>
+                    <td>
+                        <c:if test="${order.invoice.isPaid == false}">
+                            <h6 style = "color:red">Not paid :( </h6>
+                        </c:if>
+                        <c:if test="${order.invoice.isPaid == true}">
+                            <h6 style = "color:green">Paid :) </h6>
+                        </c:if>
+                    </td>
+                    <c:if test = "${order.isConfirmed == true}">
+                    <c:if test= "${order.invoice.isPaid == false}">
+                    <td>
+                        <form action ="/app/cargo/client/getInvoice" method = "GET">
+                            <input type = "hidden" name = "clientId" value = "${sessionScope.user.id}" />
+                            <input type = "hidden" name = "orderId" value = "${order.id}" />
+                            <button type = "submit"  class = "btn btn-secondary">Get invoice</button>
+                        </form>
+                    </td>
+                    </c:if>
+                    </c:if>
+
+                    <c:if test = "${order.isConfirmed == false}">
+                    <c:if test = "${order.invoice.isPaid == true}">
+                    <td></td>
+                    </c:if>
+                    </c:if>
                 </tr>
-
-
+                </c:forEach>
         </table>
 
-
+        </c:if>
     </body>
 </html>

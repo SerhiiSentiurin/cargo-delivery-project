@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Report {
-    private Long id;
+//    private Long id;
     private Client client;
-    private Delivery delivery;
+    private Order order;
 
 }

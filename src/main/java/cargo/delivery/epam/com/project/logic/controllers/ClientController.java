@@ -3,16 +3,22 @@ package cargo.delivery.epam.com.project.logic.controllers;
 import cargo.delivery.epam.com.project.infrastructure.web.ModelAndView;
 import cargo.delivery.epam.com.project.infrastructure.web.RequestParameterMapper;
 import cargo.delivery.epam.com.project.logic.entity.Client;
+import cargo.delivery.epam.com.project.logic.entity.Order;
 import cargo.delivery.epam.com.project.logic.entity.dto.ClientCreateDto;
 import cargo.delivery.epam.com.project.logic.services.ClientService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+
+import java.sql.Date;
+import java.time.LocalDate;
+import java.util.List;
 
 
 @RequiredArgsConstructor
 public class ClientController {
     private final ClientService clientService;
     private final RequestParameterMapper requestParameterMapper;
+    private final static Long DAYS_FOR_DELIVERY = 3L;
 
 
     // /app/cargo/client/create
@@ -48,11 +54,38 @@ public class ClientController {
     // /app/cargo/client/getClientOrders
     public ModelAndView getClientOrders(HttpServletRequest request){
         Long clientId = Long.parseLong(request.getParameter("clientId"));
-        Client client = clientService.getClientById(clientId);
+        List<Order> clientOrders = clientService.getOrdersByClientId(clientId);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setView("/client/clientOrders.jsp");
-        modelAndView.addAttribute("client",client);
+        modelAndView.addAttribute("orders", clientOrders);
 
+        return modelAndView;
+    }
+
+    // /app/cargo/client/getInvoice
+    public ModelAndView getOrderForInvoice(HttpServletRequest request){
+        Long clientId = Long.parseLong(request.getParameter("clientId"));
+        Long orderId = Long.parseLong(request.getParameter("orderId"));
+        Order order = clientService.getOrderForInvoice(clientId,orderId);
+        LocalDate date = LocalDate.now();
+
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setView("/client/clientInvoice.jsp");
+        modelAndView.addAttribute("order", order);
+        modelAndView.addAttribute("date", date);
+
+        return modelAndView;
+    }
+
+    // /app/cargo/client/payInvoice
+    public ModelAndView payInvoice(HttpServletRequest request){
+        Long orderId = Long.parseLong(request.getParameter("orderId"));
+        Long clientId = Long.parseLong(request.getParameter("clientId"));
+        LocalDate arrivalDate = Date.valueOf(request.getParameter("arrivalDate")).toLocalDate();
+        LocalDate departureDate = arrivalDate.minusDays(DAYS_FOR_DELIVERY);
+        clientService.payInvoice(orderId,clientId,departureDate,arrivalDate);
+        ModelAndView modelAndView = ModelAndView.withView("/cargo/client/getClientOrders?clientId="+clientId);
+        modelAndView.setRedirect(true);
         return modelAndView;
     }
 

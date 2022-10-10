@@ -12,7 +12,7 @@ databaseChangeLog:
                   constraints:
                     nullable: false
               - column:
-                  name: delivery_id
+                  name: order_id
                   type: BIGINT
                   constraints:
                     nullable: false
@@ -24,12 +24,12 @@ databaseChangeLog:
             referencedColumnNames: id
             referencedTableName: client
         - addForeignKeyConstraint:
-            baseColumnNames: delivery_id
+            baseColumnNames: order_id
             baseTableName: report
-            constraintName: delivery_id_fk
+            constraintName: order_id_fk
             onDelete: CASCADE
             referencedColumnNames: id
-            referencedTableName: delivery
+            referencedTableName: orders
         - addPrimaryKey:
-            columnNames: client_id, delivery_id
+            columnNames: client_id, order_id
             tableName: report

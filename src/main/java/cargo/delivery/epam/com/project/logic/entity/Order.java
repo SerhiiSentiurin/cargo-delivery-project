@@ -13,5 +13,6 @@ public class Order {
     private Double weight;
     private Double volume;
     private Delivery delivery;
+    private Invoice invoice;
     private Boolean isConfirmed;
 }

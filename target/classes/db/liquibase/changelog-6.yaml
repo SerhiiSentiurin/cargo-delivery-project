@@ -19,16 +19,6 @@ databaseChangeLog:
                   defaultValue: 0
                   constraints:
                     nullable: false
-              - column:
-                  name: order_id
-                  type: BIGINT
-                  constraints:
-                    nullable: true
-              - column:
-                  name: invoice_id
-                  type: BIGINT
-                  constraints:
-                    nullable: true
         - addForeignKeyConstraint:
             baseColumnNames: id
             baseTableName: client
@@ -36,17 +26,3 @@ databaseChangeLog:
             onDelete: CASCADE
             referencedColumnNames: id
             referencedTableName: user
-        - addForeignKeyConstraint:
-            baseColumnNames: order_id
-            baseTableName: client
-            constraintName: fk_order_id
-            onDelete: CASCADE
-            referencedColumnNames: id
-            referencedTableName: orders
-        - addForeignKeyConstraint:
-            baseColumnNames: invoice_id
-            baseTableName: client
-            constraintName: fk_invoice_id
-            onDelete: CASCADE
-            referencedColumnNames: id
-            referencedTableName: invoice

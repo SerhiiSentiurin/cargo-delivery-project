@@ -8,6 +8,10 @@
             This is manager home page! user id: ${user.id}
         </h2>
 
+        <form action = "/app/cargo/manager/getAllOrders" method "GET">
+            <input type = "submit" class="btn btn-primary" value = 'Get all orders'/>
+        </form>
+
 
     </body>
 </html>

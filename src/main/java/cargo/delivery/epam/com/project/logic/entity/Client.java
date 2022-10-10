@@ -7,8 +7,6 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class Client extends User{
     private Double amount;
-    private Order order;
-    private Invoice invoice;
 
     public Client(){
         this.setUserRole(UserRole.CLIENT);
