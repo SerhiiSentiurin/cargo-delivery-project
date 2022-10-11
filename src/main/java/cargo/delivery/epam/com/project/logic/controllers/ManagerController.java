@@ -3,7 +3,9 @@ package cargo.delivery.epam.com.project.logic.controllers;
 import cargo.delivery.epam.com.project.infrastructure.web.ModelAndView;
 import cargo.delivery.epam.com.project.infrastructure.web.RequestParameterMapper;
 import cargo.delivery.epam.com.project.logic.entity.Report;
+import cargo.delivery.epam.com.project.logic.entity.dto.SortingDto;
 import cargo.delivery.epam.com.project.logic.services.ManagerService;
+import cargo.delivery.epam.com.project.logic.services.SortingService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 
@@ -12,6 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ManagerController {
     private final ManagerService managerService;
+    private final SortingService sortingService;
     private final RequestParameterMapper requestParameterMapper;
 
 
@@ -40,6 +43,15 @@ public class ManagerController {
         managerService.confirmOrder(orderId);
         ModelAndView modelAndView = ModelAndView.withView("/cargo/manager/getNotConfirmedOrders");
         modelAndView.setRedirect(true);
+        return modelAndView;
+    }
+
+    // app/cargo/manager/allOrders/sort
+    public ModelAndView sort(HttpServletRequest request){
+        SortingDto dto = requestParameterMapper.handleRequest(request, SortingDto.class);
+        List<Report> reportList = sortingService.sort(dto);
+        ModelAndView modelAndView = ModelAndView.withView("/manager/allOrders.jsp");
+        modelAndView.addAttribute("reports", reportList);
         return modelAndView;
     }
 

@@ -8,85 +8,58 @@
         </head>
 
         <table class="table table-bordered caption-top">
-            <caption>All orders</caption>
+            <caption>
+                <form action = "/app/cargo/manager/sort" method = "GET" id = "sort">
+                    <button type = "submit"  class="btn btn-dark btn-sm">Find Order</button>
+                </form>
+            </caption>
             <tr>
                 <th>
-                    <form action = "/.../findOrderByNumber" method = "GET">
-                        <input type = "number" name = "orderId" min= "1" size = "3" required />
-                        <button type = "submit"  class="btn btn-dark btn-sm">Find</button>
-                    </form>
+                        <input type = "number" name = "orderId" min= "1" size = "3" form = "sort" /><br>
                 </th>
                 <th>
-                    <form action = "/.../findOrderByNumber" method = "GET">
-                        <input type = "number" name = "orderId" required />
-                        <button type = "submit"  class="btn btn-dark btn-sm">Find</button>
-                    </form>
+                        <input type = "text" name = "login" size = "5" form = "sort" /><br>
                 </th>
                 <th>
-                    <form action = "/.../findOrderByNumber" method = "GET">
-                        <input type = "number" name = "orderId" required />
-                        <button type = "submit"  class="btn btn-dark btn-sm">Find</button>
-                    </form>
+                        <input type = "text" name = "type" size = "12" form ="sort" /><br>
                 </th>
                 <th>
-                    <form action = "/.../findOrderByNumber" method = "GET">
-                        <input type = "number" name = "orderId" required />
-                        <button type = "submit"  class="btn btn-dark btn-sm">Find</button>
-                    </form>
+                        <input type = "number" name = "weight" min= "1" size = "12" form = "sort" /><br>
                 </th>
                 <th>
-                    <form action = "/.../findOrderByNumber" method = "GET">
-                        <input type = "number" name = "orderId" required />
-                        <button type = "submit"  class="btn btn-dark btn-sm">Find</button>
-                    </form>
+                        <input type = "number" name = "volume" min= "1" size = "12" form = "sort"  /><br>
                 </th>
                 <th>
-                    <form action = "/.../findOrderByNumber" method = "GET">
-                        <input type = "number" name = "orderId" required />
-                        <button type = "submit"  class="btn btn-dark btn-sm">Find</button>
-                    </form>
+                        <input type = "text" name = "senderCity" size = "8" form = "sort" /><br>
                 </th>
                 <th>
-                    <form action = "/.../findOrderByNumber" method = "GET">
-                        <input type = "number" name = "orderId" required />
-                        <button type = "submit"  class="btn btn-dark btn-sm">Find</button>
-                    </form>
+                        <input type = "text" name = "recipientCity" size = "8" form = "sort" /><br>
                 </th>
                 <th>
-                    <form action = "/.../findOrderByNumber" method = "GET">
-                        <input type = "number" name = "orderId" required />
-                        <button type = "submit"  class="btn btn-dark btn-sm">Find</button>
-                    </form>
+                        <input type = "number" name = "distance" size = "8" form = "sort" /><br>
                 </th>
                 <th>
-                    <form action = "/.../findOrderByNumber" method = "GET">
-                        <input type = "number" name = "orderId" required />
-                        <button type = "submit"  class="btn btn-dark btn-sm">Find</button>
-                    </form>
+                        <input type = "text" name = "departureDate" size = "10" form = "sort" /><br>
                 </th>
                 <th>
-                    <form action = "/.../findOrderByNumber" method = "GET">
-                        <input type = "number" name = "orderId" required />
-                        <button type = "submit"  class="btn btn-dark btn-sm">Find</button>
-                    </form>
+                        <input type = "text" name = "arrivalDate" size = "10" form = "sort" /><br>
                 </th>
                 <th>
-                    <form action = "/.../findOrderByNumber" method = "GET">
-                        <input type = "number" name = "orderId" required />
-                        <button type = "submit"  class="btn btn-dark btn-sm">Find</button>
-                    </form>
+                        <input type = "number" name = "price" size = "5" min= "0" form = "sort" /><br>
                 </th>
                 <th>
-                    <form action = "/.../findOrderByNumber" method = "GET">
-                        <input type = "number" name = "orderId" required />
-                        <button type = "submit"  class="btn btn-dark btn-sm">Find</button>
-                    </form>
+                        <select name = "isConfirmed" form = "sort" >
+                            <option value="" selected>Choose...</option>
+                            <option value="true">Confirmed</option>
+                            <option value="false">Not confirmed</option>
+                        </select>
                 </th>
                 <th>
-                    <form action = "/.../findOrderByNumber" method = "GET">
-                        <input type = "number" name = "orderId" required />
-                        <button type = "submit"  class="btn btn-dark btn-sm">Find</button>
-                    </form>
+                        <select name = "isPaid" form = "sort" >
+                            <option value="" selected>Choose...</option>
+                            <option value='true'>Paid</option>
+                            <option value='false'>Not paid</option>
+                        </select>
                 </th>
             </tr>
             <tr>

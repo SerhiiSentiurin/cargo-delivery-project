@@ -1,7 +1,6 @@
 package cargo.delivery.epam.com.project.logic.dao;
 
 import cargo.delivery.epam.com.project.logic.entity.*;
-import com.mysql.cj.protocol.ResultsetRow;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;
