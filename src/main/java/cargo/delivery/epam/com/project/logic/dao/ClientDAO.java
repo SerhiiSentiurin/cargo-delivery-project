@@ -18,6 +18,7 @@ import java.util.List;
 public class ClientDAO {
     private final DataSource dataSource;
 
+    // divide at several methods!!!
     public void createNewClient(ClientCreateDto dto) {
         String insertIntoUser = "INSERT INTO user (login, password, role) VALUES (?,?,?)";
         String insertIntoClient = "INSERT INTO client (id, amount) VALUES(?, 0)";
@@ -88,7 +89,7 @@ public class ClientDAO {
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setLong(1, clientId);
             ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 Long orderId = resultSet.getLong("orders.id");
                 String type = resultSet.getString("type");
                 Double weight = resultSet.getDouble("weight");
@@ -98,7 +99,7 @@ public class ClientDAO {
                 Boolean isConfirmed = resultSet.getBoolean("isConfirmed");
                 Delivery delivery = getDeliveryById(deliveryId);
                 Invoice invoice = getInvoiceById(invoiceId);
-                Order order = new Order(orderId,type,weight,volume,delivery,invoice,isConfirmed);
+                Order order = new Order(orderId, type, weight, volume, delivery, invoice, isConfirmed);
                 clientOrders.add(order);
             }
         }
@@ -106,14 +107,14 @@ public class ClientDAO {
     }
 
     @SneakyThrows
-    public Order getOrderById(Long orderId){
+    public Order getOrderById(Long orderId) {
         String sql = "select * from orders where id = ?";
         Order order = new Order();
-        try(Connection connection = dataSource.getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement(sql)){
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setLong(1, orderId);
             ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()){
+            if (resultSet.next()) {
                 order.setId(orderId);
                 order.setType(resultSet.getString("type"));
                 order.setWeight(resultSet.getDouble("weight"));
@@ -129,15 +130,15 @@ public class ClientDAO {
     }
 
     @SneakyThrows
-    public Order getOrderForInvoice(Long clientId, Long orderId){
+    public Order getOrderForInvoice(Long clientId, Long orderId) {
         String sql = "select orders.id, type, weight,volume, delivery_id, invoice_id, isConfirmed from report join orders on report.order_id=orders.id where report.client_id = ? and report.order_id = ?";
         Order order = new Order();
-        try(Connection connection = dataSource.getConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement(sql)){
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setLong(1, clientId);
             preparedStatement.setLong(2, orderId);
             ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()){
+            if (resultSet.next()) {
                 order.setId(orderId);
                 order.setType(resultSet.getString("type"));
                 order.setWeight(resultSet.getDouble("weight"));
@@ -215,58 +216,64 @@ public class ClientDAO {
         return invoice;
     }
 
-    // divide in three methods ( send connection as a parameter)
     @SneakyThrows
-    public void payInvoice(Long orderId, Long clientId, LocalDate departureDate, LocalDate arrivalDate){
-        String updateDelivery = "update delivery join orders on delivery.id = orders.delivery_id set departure_date = ?, arrival_date = ? where orders.id = ?";
-        String updateInvoice = "update invoice join orders on invoice.id = orders.invoice_id set isPaid=true where orders.id = ?";
-        String updateClient = "update client set amount = ? where id = ?";
-        Double amountAfterPaid = checkWalletAmount(clientId,orderId);
+    public void payInvoice(Long orderId, Long clientId, LocalDate departureDate, LocalDate arrivalDate) {
         Connection connection = null;
-        PreparedStatement preparedStatementDelivery = null;
-        PreparedStatement preparedStatementInvoice = null;
-        PreparedStatement preparedStatementClient = null;
         try {
             connection = dataSource.getConnection();
             connection.setAutoCommit(false);
-            preparedStatementDelivery = connection.prepareStatement(updateDelivery);
+            updateDelivery(connection, orderId, departureDate, arrivalDate);
+            updateInvoice(connection, orderId);
+            updateClient(connection, orderId, clientId);
+            connection.commit();
+        } catch (Exception e) {
+            rollback(connection);
+            log.error(e.getMessage());
+            throw new AppException("Transaction failed with paid operation!");
+        } finally {
+            close(connection);
+        }
+    }
+
+    @SneakyThrows
+    private void updateDelivery(Connection connection, Long orderId, LocalDate departureDate, LocalDate arrivalDate) {
+        String updateDelivery = "update delivery join orders on delivery.id = orders.delivery_id set departure_date = ?, arrival_date = ? where orders.id = ?";
+        try (PreparedStatement preparedStatementDelivery = connection.prepareStatement(updateDelivery)) {
             preparedStatementDelivery.setDate(1, Date.valueOf(departureDate));
             preparedStatementDelivery.setDate(2, Date.valueOf(arrivalDate));
             preparedStatementDelivery.setLong(3, orderId);
             preparedStatementDelivery.execute();
+        }
+    }
 
-            preparedStatementInvoice = connection.prepareStatement(updateInvoice);
+    @SneakyThrows
+    private void updateInvoice(Connection connection, Long orderId) {
+        String updateInvoice = "update invoice join orders on invoice.id = orders.invoice_id set isPaid=true where orders.id = ?";
+        try (PreparedStatement preparedStatementInvoice = connection.prepareStatement(updateInvoice)) {
             preparedStatementInvoice.setLong(1, orderId);
             preparedStatementInvoice.execute();
+        }
+    }
 
-            preparedStatementClient = connection.prepareStatement(updateClient);
+    @SneakyThrows
+    private void updateClient(Connection connection, Long orderId, Long clientId) {
+        String updateClient = "update client set amount = ? where id = ?";
+        Double amountAfterPaid = checkWalletAmount(clientId, orderId);
+        try (PreparedStatement preparedStatementClient = connection.prepareStatement(updateClient)) {
             preparedStatementClient.setDouble(1, amountAfterPaid);
             preparedStatementClient.setLong(2, clientId);
             preparedStatementClient.execute();
-
-            connection.commit();
-        }catch (Exception e){
-            rollback(connection);
-            log.error(e.getMessage());
-            throw new AppException("Transaction failed with paid operation!");
-        }finally {
-            close(preparedStatementDelivery);
-            close(preparedStatementInvoice);
-            close(preparedStatementClient);
-            close(connection);
         }
-
-
     }
 
-    private Double checkWalletAmount(Long clientId, Long orderId){
+    private Double checkWalletAmount(Long clientId, Long orderId) {
         Client client = getClientById(clientId);
         Order order = getOrderById(orderId);
         Double clientAmount = client.getAmount();
         Double orderCost = order.getInvoice().getPrice();
         if (clientAmount >= orderCost) {
             return clientAmount - orderCost;
-        }else {
+        } else {
             throw new AppException("Not enough money!");
         }
     }

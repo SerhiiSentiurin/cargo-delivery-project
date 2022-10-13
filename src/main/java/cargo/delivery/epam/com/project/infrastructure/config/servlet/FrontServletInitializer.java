@@ -66,8 +66,8 @@ public class FrontServletInitializer implements ServletContainerInitializer {
         placeholders.add(new Placeholder("POST", "client/create", clientController::createNewClient));
         placeholders.add(new Placeholder("GET", "client/getWalletInfo", clientController::getWalletInfo));
         placeholders.add(new Placeholder("POST", "client/topUpWallet", clientController::topUpClientWallet));
-        placeholders.add(new Placeholder("GET", "client/getInfoToOder", orderController::getInfoToOder));
-        placeholders.add(new Placeholder("GET", "client/calculateDelivery", orderController::getDeliveryCost));
+        placeholders.add(new Placeholder("GET", "client/routes", orderController::getRoutesForRegisterUser));
+        placeholders.add(new Placeholder("GET", "client/calculateDelivery", orderController::getDeliveryCostForRegisteredUser));
         placeholders.add(new Placeholder("POST", "client/createOrder", orderController::createOrder));
         placeholders.add(new Placeholder("GET", "client/getClientOrders", clientController::getClientOrders));
         placeholders.add(new Placeholder("GET", "client/getInvoice", clientController::getOrderForInvoice));
@@ -75,9 +75,9 @@ public class FrontServletInitializer implements ServletContainerInitializer {
         placeholders.add(new Placeholder("GET", "manager/getAllOrders", managerController::getAllOrders));
         placeholders.add(new Placeholder("GET", "manager/getNotConfirmedOrders", managerController::getNotConfirmedOrders));
         placeholders.add(new Placeholder("POST", "manager/confirmOrder", managerController::confirmOrder));
-        placeholders.add(new Placeholder("GET","manager/sort",managerController::sort));
-        placeholders.add(new Placeholder("GET", "getInfoToOder", orderController::getInfoToOder));
-        placeholders.add(new Placeholder("GET", "calculateDelivery", orderController::getDeliveryCost));
+        placeholders.add(new Placeholder("GET","manager/getAllOrders/select",managerController::select));
+        placeholders.add(new Placeholder("GET", "routes", orderController::getRoutesForNonRegisterUser));
+        placeholders.add(new Placeholder("GET", "calculateDelivery", orderController::getDeliveryCostForNotRegisteredUser));
 
         return new ProcessorRequest(placeholders);
     }

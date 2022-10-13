@@ -14,9 +14,9 @@ public class SortingService {
     private final SortingDAO sortingDAO;
     private final ClientDAO clientDAO;
 
-    public List<Report> sort(SortingDto dto){
+    public List<Report> select(SortingDto dto){
         List<Report> reportList = new ArrayList<>();
-        List<Report> sortedReportList = sortingDAO.sort(dto);
+        List<Report> sortedReportList = sortingDAO.select(dto);
         for(Report report:sortedReportList){
             report.setOrder(clientDAO.getOrderById(report.getOrder().getId()));
             report.setClient(clientDAO.getClientById(report.getClient().getId()));

@@ -46,10 +46,10 @@ public class ManagerController {
         return modelAndView;
     }
 
-    // app/cargo/manager/allOrders/sort
-    public ModelAndView sort(HttpServletRequest request){
+    // app/cargo/manager/allOrders/select
+    public ModelAndView select(HttpServletRequest request){
         SortingDto dto = requestParameterMapper.handleRequest(request, SortingDto.class);
-        List<Report> reportList = sortingService.sort(dto);
+        List<Report> reportList = sortingService.select(dto);
         ModelAndView modelAndView = ModelAndView.withView("/manager/allOrders.jsp");
         modelAndView.addAttribute("reports", reportList);
         return modelAndView;

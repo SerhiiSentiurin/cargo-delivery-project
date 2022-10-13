@@ -17,7 +17,7 @@ public class SortingDAO {
     private final DataSource dataSource;
 
     @SneakyThrows
-    public List<Report> sort(SortingDto dto) {
+    public List<Report> select(SortingDto dto) {
 
         List<Report> reportList = new ArrayList<>();
         String departureDateInQuery = checkDtoDepartureDate(dto);
@@ -29,7 +29,7 @@ public class SortingDAO {
                 "join delivery on orders.delivery_id=delivery.id join invoice on orders.invoice_id=invoice.id join route on delivery.route_id=route.id " +
                 "where orders.id like ? and user.login like ? and orders.type like ? and orders.weight like ? and orders.volume like ? and route.sender_city like ? " +
                 "and route.recipient_city like ? and route.distance like ? and " + departureDateInQuery + " and " + arrivalDateInQuery + " and invoice.price like ? " +
-                "and orders.isConfirmed " + isConformedInQuery + " and invoice.isPaid " + isPaidInQuery;
+                "and orders.isConfirmed " + isConformedInQuery + " and invoice.isPaid " + isPaidInQuery + " order by orders.id desc";
 
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
@@ -57,7 +57,7 @@ public class SortingDAO {
         if (dto.getIsPaid() == null) {
             isPaidInQuery = "like '%%'";
         }
-        if (dto.getIsPaid() != null){
+        if (dto.getIsPaid() != null) {
             isPaidInQuery = "= ?";
         }
         return isPaidInQuery;
@@ -69,7 +69,7 @@ public class SortingDAO {
         if (dto.getIsConfirmed() == null) {
             isConformedInQuery = "like '%%'";
         }
-        if (dto.getIsConfirmed() != null){
+        if (dto.getIsConfirmed() != null) {
             isConformedInQuery = "= ?";
         }
         return isConformedInQuery;
@@ -77,16 +77,10 @@ public class SortingDAO {
 
     private String checkDtoArrivalDate(SortingDto dto) {
         String arrivalDateInQuery = null;
-        if (dto.getDepartureDate().isEmpty() && dto.getArrivalDate().isEmpty()) {
+        if (dto.getArrivalDate().isEmpty()) {
             arrivalDateInQuery = "(delivery.arrival_date like '%%' or delivery.arrival_date is null)";
         }
-        if (dto.getDepartureDate().isEmpty() && !dto.getArrivalDate().isEmpty()) {
-            arrivalDateInQuery = "delivery.arrival_date = ?";
-        }
-        if (!dto.getDepartureDate().isEmpty() && dto.getArrivalDate().isEmpty()) {
-            arrivalDateInQuery = "(delivery.arrival_date like '%%' or delivery.arrival_date is null)";
-        }
-        if(!dto.getDepartureDate().isEmpty() && !dto.getArrivalDate().isEmpty()) {
+        if (!dto.getArrivalDate().isEmpty()) {
             arrivalDateInQuery = "delivery.arrival_date = ?";
         }
         return arrivalDateInQuery;
@@ -94,16 +88,10 @@ public class SortingDAO {
 
     private String checkDtoDepartureDate(SortingDto dto) {
         String departureDateInQuery = null;
-        if (dto.getDepartureDate().isEmpty() && dto.getArrivalDate().isEmpty()) {
+        if (dto.getDepartureDate().isEmpty()) {
             departureDateInQuery = "(delivery.departure_date like '%%' or delivery.departure_date is null)";
         }
-        if (dto.getDepartureDate().isEmpty() && !dto.getArrivalDate().isEmpty()) {
-            departureDateInQuery = "(delivery.departure_date like '%%' or delivery.departure_date is null)";
-        }
-        if (!dto.getDepartureDate().isEmpty() && dto.getArrivalDate().isEmpty()) {
-            departureDateInQuery = "delivery.departure_date = ?";
-        }
-        if (!dto.getDepartureDate().isEmpty() && !dto.getArrivalDate().isEmpty()){
+        if (!dto.getDepartureDate().isEmpty()) {
             departureDateInQuery = "delivery.departure_date = ?";
         }
         return departureDateInQuery;
@@ -118,12 +106,15 @@ public class SortingDAO {
         if (dto.getOrderId() != null) {
             preparedStatement.setString(++index, dto.getOrderId().toString());
         }
-        if (dto.getLogin().isEmpty()) {
+
+
+        if (dto.getLogin() == null || dto.getLogin().isEmpty()) {
             preparedStatement.setString(++index, "%%");
-        }
-        if (!dto.getLogin().isEmpty()) {
+        }else {
             preparedStatement.setString(++index, "%" + dto.getLogin() + "%");
         }
+
+
         if (dto.getType().isEmpty()) {
             preparedStatement.setString(++index, "%%");
         }
@@ -134,7 +125,7 @@ public class SortingDAO {
             preparedStatement.setString(++index, "%%");
         }
         if (dto.getWeight() != null) {
-            preparedStatement.setString(++index, "%" + dto.getWeight().toString() + "%");
+            preparedStatement.setString(++index, "%" + dto.getWeight() + "%");
         }
         if (dto.getVolume() == null) {
             preparedStatement.setString(++index, "%%");

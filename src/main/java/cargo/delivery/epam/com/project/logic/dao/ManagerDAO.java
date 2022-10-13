@@ -20,7 +20,7 @@ public class ManagerDAO {
 
     @SneakyThrows
     public List<Report> getAllOrders() {
-        String sql = "select * from report";
+        String sql = "select * from report order by order_id desc";
         List<Report> reportList = new ArrayList<>();
         try (Connection connection = dataSource.getConnection();
              Statement statement = connection.createStatement();

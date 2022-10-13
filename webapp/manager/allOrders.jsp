@@ -9,7 +9,7 @@
 
         <table class="table table-bordered caption-top">
             <caption>
-                <form action = "/app/cargo/manager/sort" method = "GET" id = "sort">
+                <form action = "/app/cargo/manager/getAllOrders/select" method = "GET" id = "sort">
                     <button type = "submit"  class="btn btn-dark btn-sm">Find Order</button>
                 </form>
             </caption>

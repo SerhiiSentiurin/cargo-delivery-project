@@ -23,8 +23,7 @@
                     </c:if>
 
                     <c:if test = "${user.userRole == 'CLIENT'}">
-                        <form action ="/app/cargo/client/getInfoToOder" method = "GET">
-                            <input type = "hidden" name = "clientId" value = "${sessionScope.user.id}"/>
+                        <form action ="/app/cargo/client/routes" method = "GET">
                             <input type = "submit" class="btn btn-primary" value = ' Place an order for delivery '/>
                         </form>
                     </c:if>

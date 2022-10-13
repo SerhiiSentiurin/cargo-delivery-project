@@ -26,8 +26,7 @@
             <h3>
                 Get delivery cost without registration
             </h3>
-            <form action = "/app/cargo/getInfoToOder" method = "GET">
-            <input type = "hidden"  name = "userId" value = "${user.id}"/>
+            <form action = "/app/cargo/routes" method = "GET">
             <input type = "submit" class = "btn btn-secondary" value = 'Get cost!'/>
             </form>
 
