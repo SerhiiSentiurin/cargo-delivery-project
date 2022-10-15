@@ -1,8 +1,6 @@
 package cargo.delivery.epam.com.project.logic.dao;
 
-import cargo.delivery.epam.com.project.logic.entity.Client;
-import cargo.delivery.epam.com.project.logic.entity.Order;
-import cargo.delivery.epam.com.project.logic.entity.Report;
+import cargo.delivery.epam.com.project.logic.entity.*;
 import cargo.delivery.epam.com.project.logic.entity.dto.SortingDto;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
@@ -49,6 +47,109 @@ public class SortingDAO {
             }
         }
         return reportList;
+    }
+
+    @SneakyThrows
+    public Client getClientById(Long clientId) {
+        String sql = "SELECT amount, login FROM user join client on user.id= client.id WHERE client.id = ?";
+        Client client = new Client();
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setLong(1, clientId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                client.setId(clientId);
+                client.setAmount(resultSet.getDouble("amount"));
+                client.setLogin(resultSet.getString("login"));
+            }
+        }
+        return client;
+    }
+
+    @SneakyThrows
+    public Route getRouteById(Long routeId) {
+        String sql = "SELECT * FROM route WHERE id = ?";
+        Route route = new Route();
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setLong(1, routeId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                route.setId(routeId);
+                route.setDistance(resultSet.getDouble("distance"));
+                route.setSenderCity(resultSet.getString("sender_city"));
+                route.setRecipientCity(resultSet.getString("recipient_city"));
+            }
+        }
+        return route;
+    }
+
+    @SneakyThrows
+    public Delivery getDeliveryById(Long deliveryId) {
+        String sql = "SELECT * FROM delivery where id = ?";
+        Delivery delivery = new Delivery();
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setLong(1, deliveryId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                delivery.setId(deliveryId);
+                if (resultSet.getDate("departure_date") == null) {
+                    delivery.setDepartureDate(null);
+                } else {
+                    delivery.setDepartureDate(resultSet.getDate("departure_date").toLocalDate());
+                }
+
+                if (resultSet.getDate("arrival_date") == null) {
+                    delivery.setArrivalDate(null);
+                } else {
+                    delivery.setArrivalDate(resultSet.getDate("arrival_date").toLocalDate());
+                }
+                Route route = getRouteById(resultSet.getLong("route_id"));
+                delivery.setRoute(route);
+            }
+        }
+        return delivery;
+    }
+
+    @SneakyThrows
+    public Order getOrderById(Long orderId) {
+        String sql = "select * from orders where id = ?";
+        Order order = new Order();
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setLong(1, orderId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                order.setId(orderId);
+                order.setType(resultSet.getString("type"));
+                order.setWeight(resultSet.getDouble("weight"));
+                order.setVolume(resultSet.getDouble("volume"));
+                order.setIsConfirmed(resultSet.getBoolean("isConfirmed"));
+                Delivery delivery = getDeliveryById(resultSet.getLong("delivery_id"));
+                Invoice invoice = getInvoiceById(resultSet.getLong("invoice_id"));
+                order.setDelivery(delivery);
+                order.setInvoice(invoice);
+            }
+        }
+        return order;
+    }
+
+    @SneakyThrows
+    public Invoice getInvoiceById(Long invoiceId) {
+        String sql = "SELECT * FROM invoice WHERE id = ?";
+        Invoice invoice = new Invoice();
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setLong(1, invoiceId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                invoice.setId(invoiceId);
+                invoice.setPrice(resultSet.getDouble("price"));
+                invoice.setIsPaid(resultSet.getBoolean("isPaid"));
+            }
+        }
+        return invoice;
     }
 
     private String checkDtoIsPaid(SortingDto dto) {

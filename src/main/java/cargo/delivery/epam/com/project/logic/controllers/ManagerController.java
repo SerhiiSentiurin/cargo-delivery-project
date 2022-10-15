@@ -5,7 +5,6 @@ import cargo.delivery.epam.com.project.infrastructure.web.RequestParameterMapper
 import cargo.delivery.epam.com.project.logic.entity.Report;
 import cargo.delivery.epam.com.project.logic.entity.dto.SortingDto;
 import cargo.delivery.epam.com.project.logic.services.ManagerService;
-import cargo.delivery.epam.com.project.logic.services.SortingService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 
@@ -14,7 +13,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ManagerController {
     private final ManagerService managerService;
-    private final SortingService sortingService;
     private final RequestParameterMapper requestParameterMapper;
 
 
@@ -49,7 +47,7 @@ public class ManagerController {
     // app/cargo/manager/allOrders/select
     public ModelAndView select(HttpServletRequest request){
         SortingDto dto = requestParameterMapper.handleRequest(request, SortingDto.class);
-        List<Report> reportList = sortingService.select(dto);
+        List<Report> reportList = managerService.select(dto);
         ModelAndView modelAndView = ModelAndView.withView("/manager/allOrders.jsp");
         modelAndView.addAttribute("reports", reportList);
         return modelAndView;

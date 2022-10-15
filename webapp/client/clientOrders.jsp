@@ -8,11 +8,11 @@
             <%@ include file="/view/header.jsp" %>
         </head>
 
-        <c:if test = "${orders.size() == 0}">
+        <c:if test = "${reports.size() == 0}">
             <h3>Sorry, you have not orders yet :( </h3>
         </c:if>
 
-        <c:if test = "${orders.size() > 0}">
+        <c:if test = "${reports.size() > 0}">
         <table class="table caption-top">
             <caption>Your orders</caption>
                 <tr>
@@ -31,48 +31,48 @@
                     <th>Pay</th>
 
                 </tr>
-                <c:forEach items="${orders}" var="order">
+                <c:forEach items="${reports}" var="report">
                 <tr>
-                    <td>${order.id}</td>
-                    <td>${order.type}</td>
-                    <td>${order.weight}</td>
-                    <td>${order.volume}</td>
-                    <td>${order.delivery.route.senderCity}</td>
-                    <td>${order.delivery.route.recipientCity}</td>
-                    <td>${order.delivery.route.distance}</td>
-                    <td>${order.delivery.departureDate}</td>
-                    <td>${order.delivery.arrivalDate}</td>
-                    <td>${order.invoice.price}</td>
+                    <td>${report.order.id}</td>
+                    <td>${report.order.type}</td>
+                    <td>${report.order.weight}</td>
+                    <td>${report.order.volume}</td>
+                    <td>${report.order.delivery.route.senderCity}</td>
+                    <td>${report.order.delivery.route.recipientCity}</td>
+                    <td>${report.order.delivery.route.distance}</td>
+                    <td>${report.order.delivery.departureDate}</td>
+                    <td>${report.order.delivery.arrivalDate}</td>
+                    <td>${report.order.invoice.price}</td>
                     <td>
-                        <c:if test="${order.isConfirmed == false}">
+                        <c:if test="${report.order.isConfirmed == false}">
                             <h6 style = "color:red">Not confirmed</h6>
                         </c:if>
-                        <c:if test="${order.isConfirmed == true}">
+                        <c:if test="${report.order.isConfirmed == true}">
                             <h6 style = "color:green">Confirmed</h6>
                         </c:if>
                     </td>
                     <td>
-                        <c:if test="${order.invoice.isPaid == false}">
+                        <c:if test="${report.order.invoice.isPaid == false}">
                             <h6 style = "color:red">Not paid :( </h6>
                         </c:if>
-                        <c:if test="${order.invoice.isPaid == true}">
+                        <c:if test="${report.order.invoice.isPaid == true}">
                             <h6 style = "color:green">Paid :) </h6>
                         </c:if>
                     </td>
-                    <c:if test = "${order.isConfirmed == true}">
-                    <c:if test= "${order.invoice.isPaid == false}">
+                    <c:if test = "${report.order.isConfirmed == true}">
+                    <c:if test= "${report.order.invoice.isPaid == false}">
                     <td>
                         <form action ="/app/cargo/client/getInvoice" method = "GET">
                             <input type = "hidden" name = "clientId" value = "${sessionScope.user.id}" />
-                            <input type = "hidden" name = "orderId" value = "${order.id}" />
+                            <input type = "hidden" name = "orderId" value = "${report.order.id}" />
                             <button type = "submit"  class = "btn btn-secondary">Get invoice</button>
                         </form>
                     </td>
                     </c:if>
                     </c:if>
 
-                    <c:if test = "${order.isConfirmed == false}">
-                    <c:if test = "${order.invoice.isPaid == true}">
+                    <c:if test = "${report.order.isConfirmed == false}">
+                    <c:if test = "${report.order.invoice.isPaid == true}">
                     <td></td>
                     </c:if>
                     </c:if>

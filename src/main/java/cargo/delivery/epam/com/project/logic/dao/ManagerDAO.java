@@ -41,7 +41,7 @@ public class ManagerDAO {
 
     @SneakyThrows
     public List<Report> getNotConfirmedOrders() {
-        String sql = "select client.id,orders.id from report join client on report.client_id=client.id join orders on report.order_id=orders.id join delivery on orders.delivery_id=delivery.id join invoice on orders.invoice_id=invoice.id join route on delivery.route_id=route.id where orders.isConfirmed = false";
+        String sql = "select client_id, order_id from report join orders on report.order_id=orders.id where orders.isConfirmed = false";
         List<Report> reportList = new ArrayList<>();
         try (Connection connection = dataSource.getConnection();
              Statement statement = connection.createStatement();

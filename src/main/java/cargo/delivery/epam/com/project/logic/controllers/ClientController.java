@@ -4,6 +4,7 @@ import cargo.delivery.epam.com.project.infrastructure.web.ModelAndView;
 import cargo.delivery.epam.com.project.infrastructure.web.RequestParameterMapper;
 import cargo.delivery.epam.com.project.logic.entity.Client;
 import cargo.delivery.epam.com.project.logic.entity.Order;
+import cargo.delivery.epam.com.project.logic.entity.Report;
 import cargo.delivery.epam.com.project.logic.entity.dto.ClientCreateDto;
 import cargo.delivery.epam.com.project.logic.services.ClientService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -54,19 +55,18 @@ public class ClientController {
     // /app/cargo/client/getClientOrders
     public ModelAndView getClientOrders(HttpServletRequest request){
         Long clientId = Long.parseLong(request.getParameter("clientId"));
-        List<Order> clientOrders = clientService.getOrdersByClientId(clientId);
+        List<Report> clientOrders = clientService.getOrdersByClientId(clientId);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setView("/client/clientOrders.jsp");
-        modelAndView.addAttribute("orders", clientOrders);
+        modelAndView.addAttribute("reports", clientOrders);
 
         return modelAndView;
     }
 
     // /app/cargo/client/getInvoice
     public ModelAndView getOrderForInvoice(HttpServletRequest request){
-        Long clientId = Long.parseLong(request.getParameter("clientId"));
         Long orderId = Long.parseLong(request.getParameter("orderId"));
-        Order order = clientService.getOrderForInvoice(clientId,orderId);
+        Order order = clientService.getOrderForInvoice(orderId);
         LocalDate date = LocalDate.now();
 
         ModelAndView modelAndView = new ModelAndView();

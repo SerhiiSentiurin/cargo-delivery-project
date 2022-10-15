@@ -54,177 +54,48 @@ public class ClientDAO {
     }
 
     @SneakyThrows
-    public void topUpClientWallet(Double amount, Long clientId) {
+    public void topUpClientWallet(Double amountForTopUp, Long clientId, Double clientAmount) {
         String sql = "UPDATE client SET amount = ? where id = ?";
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.setDouble(1, amount + getClientById(clientId).getAmount());
+            preparedStatement.setDouble(1, amountForTopUp + clientAmount);
             preparedStatement.setLong(2, clientId);
             preparedStatement.execute();
         }
     }
 
     @SneakyThrows
-    public Client getClientById(Long clientId) {
-        String sql = "SELECT amount, login FROM user join client on user.id= client.id WHERE client.id = ?";
-        Client client = new Client();
-        try (Connection connection = dataSource.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.setLong(1, clientId);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                client.setId(clientId);
-                client.setAmount(resultSet.getDouble("amount"));
-                client.setLogin(resultSet.getString("login"));
-            }
-        }
-        return client;
-    }
-
-    @SneakyThrows
-    public List<Order> getOrdersByClientId(Long clientId) {
-        String sql = "select orders.id, type, weight, volume, delivery_id, invoice_id, isConfirmed from orders join report on orders.id= report.order_id join invoice on orders.invoice_id=invoice.id where client_id = ? order by isConfirmed, isPaid";
-        List<Order> clientOrders = new ArrayList<>();
+    public List<Report> getReportsByClientId(Long clientId) {
+        String sql = "select client_id, order_id from report join orders on report.order_id=orders.id join invoice on orders.invoice_id=invoice.id where client_id = ? order by isConfirmed asc, isPaid asc, order_id desc";
+        List<Report> clientOrders = new ArrayList<>();
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setLong(1, clientId);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                Long orderId = resultSet.getLong("orders.id");
-                String type = resultSet.getString("type");
-                Double weight = resultSet.getDouble("weight");
-                Double volume = resultSet.getDouble("volume");
-                Long deliveryId = resultSet.getLong("delivery_id");
-                Long invoiceId = resultSet.getLong("invoice_id");
-                Boolean isConfirmed = resultSet.getBoolean("isConfirmed");
-                Delivery delivery = getDeliveryById(deliveryId);
-                Invoice invoice = getInvoiceById(invoiceId);
-                Order order = new Order(orderId, type, weight, volume, delivery, invoice, isConfirmed);
-                clientOrders.add(order);
+                Report report = new Report();
+                Client client = new Client();
+                Order order = new Order();
+                Long orderId1 = resultSet.getLong("order_id");
+                client.setId(clientId);
+                order.setId(orderId1);
+                report.setClient(client);
+                report.setOrder(order);
+                clientOrders.add(report);
             }
         }
         return clientOrders;
     }
 
     @SneakyThrows
-    public Order getOrderById(Long orderId) {
-        String sql = "select * from orders where id = ?";
-        Order order = new Order();
-        try (Connection connection = dataSource.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.setLong(1, orderId);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                order.setId(orderId);
-                order.setType(resultSet.getString("type"));
-                order.setWeight(resultSet.getDouble("weight"));
-                order.setVolume(resultSet.getDouble("volume"));
-                order.setIsConfirmed(resultSet.getBoolean("isConfirmed"));
-                Delivery delivery = getDeliveryById(resultSet.getLong("delivery_id"));
-                Invoice invoice = getInvoiceById(resultSet.getLong("invoice_id"));
-                order.setDelivery(delivery);
-                order.setInvoice(invoice);
-            }
-        }
-        return order;
-    }
-
-    @SneakyThrows
-    public Order getOrderForInvoice(Long clientId, Long orderId) {
-        String sql = "select orders.id, type, weight,volume, delivery_id, invoice_id, isConfirmed from report join orders on report.order_id=orders.id where report.client_id = ? and report.order_id = ?";
-        Order order = new Order();
-        try (Connection connection = dataSource.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.setLong(1, clientId);
-            preparedStatement.setLong(2, orderId);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                order.setId(orderId);
-                order.setType(resultSet.getString("type"));
-                order.setWeight(resultSet.getDouble("weight"));
-                order.setVolume(resultSet.getDouble("volume"));
-                order.setIsConfirmed(resultSet.getBoolean("isConfirmed"));
-                Delivery delivery = getDeliveryById(resultSet.getLong("delivery_id"));
-                Invoice invoice = getInvoiceById(resultSet.getLong("invoice_id"));
-                order.setDelivery(delivery);
-                order.setInvoice(invoice);
-            }
-        }
-        return order;
-    }
-
-    @SneakyThrows
-    public Route getRouteById(Long routeId) {
-        String sql = "SELECT * FROM route WHERE id = ?";
-        Route route = new Route();
-        try (Connection connection = dataSource.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.setLong(1, routeId);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                route.setId(routeId);
-                route.setDistance(resultSet.getDouble("distance"));
-                route.setSenderCity(resultSet.getString("sender_city"));
-                route.setRecipientCity(resultSet.getString("recipient_city"));
-            }
-        }
-        return route;
-    }
-
-    @SneakyThrows
-    public Delivery getDeliveryById(Long deliveryId) {
-        String sql = "SELECT * FROM delivery where id = ?";
-        Delivery delivery = new Delivery();
-        try (Connection connection = dataSource.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.setLong(1, deliveryId);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                delivery.setId(deliveryId);
-                if (resultSet.getDate("departure_date") == null) {
-                    delivery.setDepartureDate(null);
-                } else {
-                    delivery.setDepartureDate(resultSet.getDate("departure_date").toLocalDate());
-                }
-
-                if (resultSet.getDate("arrival_date") == null) {
-                    delivery.setArrivalDate(null);
-                } else {
-                    delivery.setArrivalDate(resultSet.getDate("arrival_date").toLocalDate());
-                }
-                Route route = getRouteById(resultSet.getLong("route_id"));
-                delivery.setRoute(route);
-            }
-        }
-        return delivery;
-    }
-
-    @SneakyThrows
-    public Invoice getInvoiceById(Long invoiceId) {
-        String sql = "SELECT * FROM invoice WHERE id = ?";
-        Invoice invoice = new Invoice();
-        try (Connection connection = dataSource.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.setLong(1, invoiceId);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                invoice.setId(invoiceId);
-                invoice.setPrice(resultSet.getDouble("price"));
-                invoice.setIsPaid(resultSet.getBoolean("isPaid"));
-            }
-        }
-        return invoice;
-    }
-
-    @SneakyThrows
-    public void payInvoice(Long orderId, Long clientId, LocalDate departureDate, LocalDate arrivalDate) {
+    public void payInvoice(Long orderId, Long clientId, LocalDate departureDate, LocalDate arrivalDate, Double amountAfterPaid) {
         Connection connection = null;
         try {
             connection = dataSource.getConnection();
             connection.setAutoCommit(false);
             updateDelivery(connection, orderId, departureDate, arrivalDate);
             updateInvoice(connection, orderId);
-            updateClient(connection, orderId, clientId);
+            updateClient(connection, orderId, clientId, amountAfterPaid);
             connection.commit();
         } catch (Exception e) {
             rollback(connection);
@@ -256,25 +127,12 @@ public class ClientDAO {
     }
 
     @SneakyThrows
-    private void updateClient(Connection connection, Long orderId, Long clientId) {
+    private void updateClient(Connection connection, Long orderId, Long clientId, Double amountAfterPaid) {
         String updateClient = "update client set amount = ? where id = ?";
-        Double amountAfterPaid = checkWalletAmount(clientId, orderId);
         try (PreparedStatement preparedStatementClient = connection.prepareStatement(updateClient)) {
             preparedStatementClient.setDouble(1, amountAfterPaid);
             preparedStatementClient.setLong(2, clientId);
             preparedStatementClient.execute();
-        }
-    }
-
-    private Double checkWalletAmount(Long clientId, Long orderId) {
-        Client client = getClientById(clientId);
-        Order order = getOrderById(orderId);
-        Double clientAmount = client.getAmount();
-        Double orderCost = order.getInvoice().getPrice();
-        if (clientAmount >= orderCost) {
-            return clientAmount - orderCost;
-        } else {
-            throw new AppException("Not enough money!");
         }
     }
 

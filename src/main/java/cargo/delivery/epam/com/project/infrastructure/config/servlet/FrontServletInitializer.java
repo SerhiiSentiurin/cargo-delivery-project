@@ -91,7 +91,8 @@ public class FrontServletInitializer implements ServletContainerInitializer {
 
     private ClientController createClientController(RequestParameterMapper requestParameterMapper, DataSource dataSource) {
         ClientDAO clientDAO = new ClientDAO(dataSource);
-        ClientService clientService = new ClientService(clientDAO);
+        SortingDAO sortingDAO = new SortingDAO(dataSource);
+        ClientService clientService = new ClientService(clientDAO, sortingDAO);
         return new ClientController(clientService, requestParameterMapper);
     }
 
@@ -103,11 +104,9 @@ public class FrontServletInitializer implements ServletContainerInitializer {
 
     private ManagerController createManagerController(RequestParameterMapper requestParameterMapper, DataSource dataSource){
         ManagerDAO managerDAO = new ManagerDAO(dataSource);
-        ClientDAO clientDAO = new ClientDAO(dataSource);
         SortingDAO sortingDAO = new SortingDAO(dataSource);
-        SortingService sortingService = new SortingService(sortingDAO,clientDAO);
-        ManagerService managerService = new ManagerService(managerDAO,clientDAO);
-        return new ManagerController(managerService, sortingService, requestParameterMapper);
+        ManagerService managerService = new ManagerService(managerDAO,sortingDAO);
+        return new ManagerController(managerService, requestParameterMapper);
     }
 
 
