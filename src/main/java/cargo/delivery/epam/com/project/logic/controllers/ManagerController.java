@@ -8,6 +8,8 @@ import cargo.delivery.epam.com.project.logic.services.ManagerService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -44,12 +46,24 @@ public class ManagerController {
         return modelAndView;
     }
 
-    // app/cargo/manager/allOrders/select
-    public ModelAndView select(HttpServletRequest request){
+    // app/cargo/manager/allOrders/filter
+    public ModelAndView filterReports(HttpServletRequest request) {
         SortingDto dto = requestParameterMapper.handleRequest(request, SortingDto.class);
-        List<Report> reportList = managerService.select(dto);
+        List<Report> reportList = managerService.filterReports(dto);
         ModelAndView modelAndView = ModelAndView.withView("/manager/allOrders.jsp");
         modelAndView.addAttribute("reports", reportList);
+        return modelAndView;
+    }
+
+    // /app/cargo/manager/getReport
+    public ModelAndView getReportByDayAndDirection(HttpServletRequest request) {
+        String arrivalDate = request.getParameter("arrivalDate");
+        String senderCity = request.getParameter("senderCity");
+        String recipientCity = request.getParameter("recipientCity");
+        List<Report> reports = managerService.getReportByDayAndDirection(arrivalDate, senderCity, recipientCity);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setView("/manager/managerHome.jsp");
+        modelAndView.addAttribute("reports", reports);
         return modelAndView;
     }
 

@@ -7,11 +7,19 @@
     </head>
     <body>
         <h2>
-            This is Client home page! user id: ${user.id}
+            Hello, ${sessionScope.user.login}
         </h2>
 
+        <div>
+            <img src="https://dnepr-more.com/wp-content/uploads/2018/02/gruzoperevozki.jpg" alt="Зимняя равнина" style="float:left; margin-right:10px;" />
+                <h1>About Cargo Application</h1>
+                <b>
+                    Some rules how to use it.....
+                </b>
+        </div>
 
 
-        <%@ include file="/view/footer.jsp" %>
+
+
     </body>
 </html>

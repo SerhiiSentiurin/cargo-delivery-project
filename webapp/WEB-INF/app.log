@@ -5219,3 +5219,670 @@
 2022-10-13 23:28:10,643 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-4] start processing request
 2022-10-13 23:28:15,957 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-7] start processing request
 2022-10-13 23:28:45,842 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-8] start processing request
+2022-10-15 19:34:22,151 INFO c.d.e.c.p.i.c.ConfigLoader [main] Properties was loaded successfully
+2022-10-15 19:34:22,324 INFO c.d.e.c.p.i.c.d.ConfigDataSource [main] connection pool created
+2022-10-15 19:34:29,926 INFO c.d.e.c.p.i.c.d.ConfigLiquibase [main] Update database
+2022-10-15 19:34:29,952 INFO c.d.e.c.p.i.c.s.FrontServletInitializer [main] Front Servlet was started
+2022-10-15 19:34:30,344 INFO c.d.e.c.p.l.Application [main] start application --> org.apache.catalina.startup.Tomcat@56803e70
+2022-10-15 19:34:43,987 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-15 19:34:44,098 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] trying to enter user with login: manager
+2022-10-15 19:34:44,263 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] User with login: manager, was entered
+2022-10-15 19:34:46,850 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-15 19:34:55,258 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-15 19:36:32,858 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-8] start processing request
+2022-10-15 19:38:57,465 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-10] start processing request
+2022-10-15 19:39:19,105 INFO c.d.e.c.p.i.c.ConfigLoader [main] Properties was loaded successfully
+2022-10-15 19:39:19,337 INFO c.d.e.c.p.i.c.d.ConfigDataSource [main] connection pool created
+2022-10-15 19:39:27,526 INFO c.d.e.c.p.i.c.d.ConfigLiquibase [main] Update database
+2022-10-15 19:39:28,322 INFO c.d.e.c.p.i.c.s.FrontServletInitializer [main] Front Servlet was started
+2022-10-15 19:39:29,167 INFO c.d.e.c.p.l.Application [main] start application --> org.apache.catalina.startup.Tomcat@618cfd1
+2022-10-15 19:39:57,314 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-15 19:39:57,490 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-1] trying to enter user with login: manager
+2022-10-15 19:39:57,498 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-1] User with login: manager, was entered
+2022-10-15 19:39:59,716 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-15 19:40:04,772 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-4] start processing request
+2022-10-15 19:51:23,709 INFO c.d.e.c.p.i.c.ConfigLoader [main] Properties was loaded successfully
+2022-10-15 19:51:23,893 INFO c.d.e.c.p.i.c.d.ConfigDataSource [main] connection pool created
+2022-10-15 19:51:28,187 INFO c.d.e.c.p.i.c.d.ConfigLiquibase [main] Update database
+2022-10-15 19:51:28,215 INFO c.d.e.c.p.i.c.s.FrontServletInitializer [main] Front Servlet was started
+2022-10-15 19:51:28,572 INFO c.d.e.c.p.l.Application [main] start application --> org.apache.catalina.startup.Tomcat@28a210fb
+2022-10-15 19:51:39,059 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-2] start processing request
+2022-10-15 19:51:39,173 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-2] trying to enter user with login: manager
+2022-10-15 19:51:39,181 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-2] User with login: manager, was entered
+2022-10-15 19:51:40,710 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-4] start processing request
+2022-10-15 19:51:45,754 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-15 19:51:50,725 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-15 19:51:56,241 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-7] start processing request
+2022-10-15 19:52:02,140 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-8] start processing request
+2022-10-15 19:52:04,660 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-9] start processing request
+2022-10-15 19:52:14,178 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-10] start processing request
+2022-10-15 19:53:18,828 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-2] start processing request
+2022-10-15 19:53:24,522 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-15 19:53:26,237 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-4] start processing request
+2022-10-15 19:53:37,679 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-15 20:06:06,745 INFO c.d.e.c.p.i.c.ConfigLoader [main] Properties was loaded successfully
+2022-10-15 20:06:06,916 INFO c.d.e.c.p.i.c.d.ConfigDataSource [main] connection pool created
+2022-10-15 20:06:10,786 INFO c.d.e.c.p.i.c.d.ConfigLiquibase [main] Update database
+2022-10-15 20:06:10,817 INFO c.d.e.c.p.i.c.s.FrontServletInitializer [main] Front Servlet was started
+2022-10-15 20:06:11,342 INFO c.d.e.c.p.l.Application [main] start application --> org.apache.catalina.startup.Tomcat@7553ad52
+2022-10-15 20:06:25,380 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-2] start processing request
+2022-10-15 20:06:25,466 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-2] trying to enter user with login: manager
+2022-10-15 20:06:25,479 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-2] User with login: manager, was entered
+2022-10-15 20:06:27,356 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-4] start processing request
+2022-10-15 20:06:32,627 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-15 20:06:41,900 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-15 20:06:45,167 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-7] start processing request
+2022-10-15 20:06:46,998 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-8] start processing request
+2022-10-15 20:06:52,430 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-9] start processing request
+2022-10-15 20:07:01,609 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-10] start processing request
+2022-10-15 20:07:08,235 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-15 20:07:17,928 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-2] start processing request
+2022-10-15 20:07:21,435 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-15 20:07:32,498 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-4] start processing request
+2022-10-15 20:07:40,525 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-15 20:07:45,135 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-15 20:08:18,648 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-7] start processing request
+2022-10-15 20:08:22,398 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-8] start processing request
+2022-10-15 20:08:27,558 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-9] start processing request
+2022-10-15 20:11:16,622 INFO c.d.e.c.p.i.c.ConfigLoader [main] Properties was loaded successfully
+2022-10-15 20:11:16,793 INFO c.d.e.c.p.i.c.d.ConfigDataSource [main] connection pool created
+2022-10-15 20:11:21,017 INFO c.d.e.c.p.i.c.d.ConfigLiquibase [main] Update database
+2022-10-15 20:11:21,045 INFO c.d.e.c.p.i.c.s.FrontServletInitializer [main] Front Servlet was started
+2022-10-15 20:11:21,367 INFO c.d.e.c.p.l.Application [main] start application --> org.apache.catalina.startup.Tomcat@28a210fb
+2022-10-15 20:11:27,709 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-15 20:11:31,044 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-15 20:11:31,131 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] trying to enter user with login: manager
+2022-10-15 20:11:31,140 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] User with login: manager, was entered
+2022-10-15 20:11:33,509 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-15 20:11:38,366 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-15 20:11:45,144 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-7] start processing request
+2022-10-15 20:11:51,058 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-8] start processing request
+2022-10-15 20:12:44,619 INFO c.d.e.c.p.i.c.ConfigLoader [main] Properties was loaded successfully
+2022-10-15 20:12:44,778 INFO c.d.e.c.p.i.c.d.ConfigDataSource [main] connection pool created
+2022-10-15 20:12:49,083 INFO c.d.e.c.p.i.c.d.ConfigLiquibase [main] Update database
+2022-10-15 20:12:49,111 INFO c.d.e.c.p.i.c.s.FrontServletInitializer [main] Front Servlet was started
+2022-10-15 20:12:49,480 INFO c.d.e.c.p.l.Application [main] start application --> org.apache.catalina.startup.Tomcat@8cc7489
+2022-10-15 20:12:54,432 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-15 20:12:56,945 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-15 20:12:57,025 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] trying to enter user with login: manager
+2022-10-15 20:12:57,037 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] User with login: manager, was entered
+2022-10-15 20:12:58,465 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-15 20:13:04,745 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-15 20:13:06,592 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-7] start processing request
+2022-10-15 20:13:09,198 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-8] start processing request
+2022-10-15 20:13:14,632 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-9] start processing request
+2022-10-15 20:13:42,080 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-10] start processing request
+2022-10-15 20:14:27,509 INFO c.d.e.c.p.i.c.ConfigLoader [main] Properties was loaded successfully
+2022-10-15 20:14:27,690 INFO c.d.e.c.p.i.c.d.ConfigDataSource [main] connection pool created
+2022-10-15 20:14:31,429 INFO c.d.e.c.p.i.c.d.ConfigLiquibase [main] Update database
+2022-10-15 20:14:31,459 INFO c.d.e.c.p.i.c.s.FrontServletInitializer [main] Front Servlet was started
+2022-10-15 20:14:31,791 INFO c.d.e.c.p.l.Application [main] start application --> org.apache.catalina.startup.Tomcat@5cfadadc
+2022-10-15 20:14:39,213 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-2] start processing request
+2022-10-15 20:14:39,304 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-2] trying to enter user with login: manager
+2022-10-15 20:14:39,320 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-2] User with login: manager, was entered
+2022-10-15 20:14:40,741 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-4] start processing request
+2022-10-15 20:14:43,952 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-15 20:14:44,864 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-15 20:14:47,331 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-7] start processing request
+2022-10-15 20:14:56,077 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-8] start processing request
+2022-10-15 20:15:00,708 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-9] start processing request
+2022-10-15 20:15:05,785 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-10] start processing request
+2022-10-15 20:15:09,032 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-15 20:15:12,416 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-2] start processing request
+2022-10-15 20:15:19,770 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-15 20:15:27,079 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-4] start processing request
+2022-10-15 20:15:30,945 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-15 20:15:36,166 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-15 20:15:40,403 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-7] start processing request
+2022-10-15 20:15:41,713 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-8] start processing request
+2022-10-15 20:15:46,550 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-9] start processing request
+2022-10-15 20:15:51,298 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-10] start processing request
+2022-10-15 20:15:57,352 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-15 20:16:00,198 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-2] start processing request
+2022-10-15 20:16:04,037 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-15 20:16:11,632 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-4] start processing request
+2022-10-15 20:16:21,487 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-15 20:16:53,697 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-15 20:16:58,218 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-7] start processing request
+2022-10-15 20:17:02,866 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-8] start processing request
+2022-10-15 20:17:05,871 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-9] start processing request
+2022-10-15 20:17:15,778 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-10] start processing request
+2022-10-15 20:17:32,998 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-15 20:19:48,836 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-15 20:19:54,017 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-4] start processing request
+2022-10-15 20:19:55,583 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-15 20:20:01,821 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-15 20:20:06,917 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-7] start processing request
+2022-10-15 20:20:13,837 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-8] start processing request
+2022-10-15 20:21:31,978 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-10] start processing request
+2022-10-15 20:21:39,186 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-15 20:22:22,528 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-2] start processing request
+2022-10-15 20:22:26,086 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-4] start processing request
+2022-10-15 20:22:34,434 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-15 20:22:38,120 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-15 20:34:16,195 INFO c.d.e.c.p.i.c.ConfigLoader [main] Properties was loaded successfully
+2022-10-15 20:34:16,365 INFO c.d.e.c.p.i.c.d.ConfigDataSource [main] connection pool created
+2022-10-15 20:34:20,074 INFO c.d.e.c.p.i.c.d.ConfigLiquibase [main] Update database
+2022-10-15 20:34:20,102 INFO c.d.e.c.p.i.c.s.FrontServletInitializer [main] Front Servlet was started
+2022-10-15 20:34:20,455 INFO c.d.e.c.p.l.Application [main] start application --> org.apache.catalina.startup.Tomcat@7553ad52
+2022-10-15 20:34:28,680 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-15 20:34:28,755 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] trying to enter user with login: manager
+2022-10-15 20:34:28,765 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] User with login: manager, was entered
+2022-10-15 20:34:32,103 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-15 20:36:28,099 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-8] start processing request
+2022-10-15 20:42:18,161 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-10] start processing request
+2022-10-15 20:42:25,632 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-2] start processing request
+2022-10-15 20:42:32,402 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-15 20:42:32,403 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-5] trying to enter user with login: manager
+2022-10-15 20:42:32,404 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-5] User with login: manager, was entered
+2022-10-15 20:42:33,808 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-7] start processing request
+2022-10-15 20:42:35,001 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-8] start processing request
+2022-10-15 20:42:41,219 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-15 20:42:41,220 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-1] trying to enter user with login: manager
+2022-10-15 20:42:41,222 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-1] User with login: manager, was entered
+2022-10-15 20:42:44,176 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-4] start processing request
+2022-10-15 20:43:08,038 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-7] start processing request
+2022-10-15 20:43:08,038 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-7] trying to enter user with login: manager
+2022-10-15 20:43:08,039 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-7] User with login: manager, was entered
+2022-10-15 20:43:09,893 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-9] start processing request
+2022-10-15 20:45:12,336 INFO c.d.e.c.p.i.c.ConfigLoader [main] Properties was loaded successfully
+2022-10-15 20:45:12,524 INFO c.d.e.c.p.i.c.d.ConfigDataSource [main] connection pool created
+2022-10-15 20:45:16,593 INFO c.d.e.c.p.i.c.d.ConfigLiquibase [main] Update database
+2022-10-15 20:45:16,612 INFO c.d.e.c.p.i.c.s.FrontServletInitializer [main] Front Servlet was started
+2022-10-15 20:45:16,939 INFO c.d.e.c.p.l.Application [main] start application --> org.apache.catalina.startup.Tomcat@7553ad52
+2022-10-15 20:45:39,986 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-15 20:45:40,057 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-1] trying to enter user with login: manager
+2022-10-15 20:45:40,066 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-1] User with login: manager, was entered
+2022-10-15 20:45:41,904 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-15 20:45:59,416 INFO c.d.e.c.p.i.c.ConfigLoader [main] Properties was loaded successfully
+2022-10-15 20:45:59,609 INFO c.d.e.c.p.i.c.d.ConfigDataSource [main] connection pool created
+2022-10-15 20:46:03,866 INFO c.d.e.c.p.i.c.d.ConfigLiquibase [main] Update database
+2022-10-15 20:46:04,565 INFO c.d.e.c.p.i.c.s.FrontServletInitializer [main] Front Servlet was started
+2022-10-15 20:46:05,177 INFO c.d.e.c.p.l.Application [main] start application --> org.apache.catalina.startup.Tomcat@6ec3c680
+2022-10-15 20:46:12,354 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-2] start processing request
+2022-10-15 20:46:12,546 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-2] trying to enter user with login: manager
+2022-10-15 20:46:12,557 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-2] User with login: manager, was entered
+2022-10-15 20:46:13,571 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-4] start processing request
+2022-10-15 20:48:35,976 INFO c.d.e.c.p.i.c.ConfigLoader [main] Properties was loaded successfully
+2022-10-15 20:48:36,178 INFO c.d.e.c.p.i.c.d.ConfigDataSource [main] connection pool created
+2022-10-15 20:48:39,637 INFO c.d.e.c.p.i.c.d.ConfigLiquibase [main] Update database
+2022-10-15 20:48:39,664 INFO c.d.e.c.p.i.c.s.FrontServletInitializer [main] Front Servlet was started
+2022-10-15 20:48:40,039 INFO c.d.e.c.p.l.Application [main] start application --> org.apache.catalina.startup.Tomcat@7553ad52
+2022-10-15 20:48:49,494 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-4] start processing request
+2022-10-15 20:48:49,581 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-4] trying to enter user with login: manager
+2022-10-15 20:48:49,589 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-4] User with login: manager, was entered
+2022-10-15 20:48:51,293 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-15 20:49:13,298 INFO c.d.e.c.p.i.c.ConfigLoader [main] Properties was loaded successfully
+2022-10-15 20:49:13,489 INFO c.d.e.c.p.i.c.d.ConfigDataSource [main] connection pool created
+2022-10-15 20:49:17,467 INFO c.d.e.c.p.i.c.d.ConfigLiquibase [main] Update database
+2022-10-15 20:49:18,013 INFO c.d.e.c.p.i.c.s.FrontServletInitializer [main] Front Servlet was started
+2022-10-15 20:49:18,468 INFO c.d.e.c.p.l.Application [main] start application --> org.apache.catalina.startup.Tomcat@618cfd1
+2022-10-15 20:49:23,125 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-2] start processing request
+2022-10-15 20:49:23,534 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-2] trying to enter user with login: manager
+2022-10-15 20:49:23,543 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-2] User with login: manager, was entered
+2022-10-15 20:49:29,632 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-4] start processing request
+2022-10-15 20:51:48,500 INFO c.d.e.c.p.i.c.ConfigLoader [main] Properties was loaded successfully
+2022-10-15 20:51:48,692 INFO c.d.e.c.p.i.c.d.ConfigDataSource [main] connection pool created
+2022-10-15 20:51:52,699 INFO c.d.e.c.p.i.c.d.ConfigLiquibase [main] Update database
+2022-10-15 20:51:52,717 INFO c.d.e.c.p.i.c.s.FrontServletInitializer [main] Front Servlet was started
+2022-10-15 20:51:53,099 INFO c.d.e.c.p.l.Application [main] start application --> org.apache.catalina.startup.Tomcat@6233bca8
+2022-10-15 20:53:33,751 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-2] start processing request
+2022-10-15 20:53:33,834 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-2] trying to enter user with login: manager
+2022-10-15 20:53:33,841 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-2] User with login: manager, was entered
+2022-10-15 20:53:35,101 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-4] start processing request
+2022-10-15 20:53:59,744 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-16 18:13:40,823 INFO c.d.e.c.p.i.c.ConfigLoader [main] Properties was loaded successfully
+2022-10-16 18:13:41,295 INFO c.d.e.c.p.i.c.d.ConfigDataSource [main] connection pool created
+2022-10-16 18:13:49,302 INFO c.d.e.c.p.i.c.d.ConfigLiquibase [main] Update database
+2022-10-16 18:13:50,239 INFO c.d.e.c.p.i.c.s.FrontServletInitializer [main] Front Servlet was started
+2022-10-16 18:13:50,995 INFO c.d.e.c.p.l.Application [main] start application --> org.apache.catalina.startup.Tomcat@1741afaf
+2022-10-16 18:14:56,345 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-16 18:15:01,853 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-16 18:15:02,849 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] trying to enter user with login: admin
+2022-10-16 18:15:12,912 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-4] start processing request
+2022-10-16 18:15:12,922 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-4] trying to enter user with login: manager
+2022-10-16 18:15:12,947 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-4] User with login: manager, was entered
+2022-10-16 18:15:18,723 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-16 18:15:31,484 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-7] start processing request
+2022-10-16 18:51:25,907 INFO c.d.e.c.p.i.c.ConfigLoader [main] Properties was loaded successfully
+2022-10-16 18:51:26,307 INFO c.d.e.c.p.i.c.d.ConfigDataSource [main] connection pool created
+2022-10-16 18:51:32,641 INFO c.d.e.c.p.i.c.d.ConfigLiquibase [main] Update database
+2022-10-16 18:51:33,484 INFO c.d.e.c.p.i.c.s.FrontServletInitializer [main] Front Servlet was started
+2022-10-16 18:51:34,220 INFO c.d.e.c.p.l.Application [main] start application --> org.apache.catalina.startup.Tomcat@5cb7eb6c
+2022-10-16 18:52:10,268 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-16 18:52:10,719 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] trying to enter user with login: manager
+2022-10-16 18:52:10,730 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] User with login: manager, was entered
+2022-10-16 18:52:12,948 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-16 18:52:14,813 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-17 13:16:41,871 INFO c.d.e.c.p.i.c.ConfigLoader [main] Properties was loaded successfully
+2022-10-17 13:16:42,118 INFO c.d.e.c.p.i.c.d.ConfigDataSource [main] connection pool created
+2022-10-17 13:16:47,213 INFO c.d.e.c.p.i.c.d.ConfigLiquibase [main] Update database
+2022-10-17 13:16:47,242 INFO c.d.e.c.p.i.c.s.FrontServletInitializer [main] Front Servlet was started
+2022-10-17 13:16:47,605 INFO c.d.e.c.p.l.Application [main] start application --> org.apache.catalina.startup.Tomcat@3c247c8d
+2022-10-17 13:17:05,535 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-17 13:17:05,654 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] trying to enter user with login: manager
+2022-10-17 13:17:05,693 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] User with login: manager, was entered
+2022-10-17 13:17:07,560 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-17 13:17:11,359 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-17 13:17:12,484 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-7] start processing request
+2022-10-17 13:17:15,475 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-8] start processing request
+2022-10-17 13:17:21,852 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-9] start processing request
+2022-10-17 13:17:23,426 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-10] start processing request
+2022-10-17 13:17:29,075 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-17 13:17:32,773 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-2] start processing request
+2022-10-17 13:17:36,090 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-17 13:17:38,624 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-4] start processing request
+2022-10-17 13:17:45,428 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-17 13:17:50,165 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-17 13:17:53,491 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-7] start processing request
+2022-10-17 13:17:54,689 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-8] start processing request
+2022-10-17 13:18:00,702 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-9] start processing request
+2022-10-17 13:18:01,909 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-10] start processing request
+2022-10-17 13:18:03,908 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-17 13:18:05,017 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-2] start processing request
+2022-10-17 13:18:09,935 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-17 13:18:15,016 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-4] start processing request
+2022-10-17 13:18:19,258 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-17 13:18:24,766 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-17 13:18:28,142 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-7] start processing request
+2022-10-17 13:18:43,986 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-8] start processing request
+2022-10-17 13:18:47,212 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-9] start processing request
+2022-10-17 13:18:50,824 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-10] start processing request
+2022-10-17 13:18:53,556 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-17 13:18:54,826 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-2] start processing request
+2022-10-17 13:19:04,868 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-17 13:19:17,625 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-4] start processing request
+2022-10-17 13:19:23,519 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-17 13:19:26,619 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-17 14:45:42,418 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-9] start processing request
+2022-10-17 14:45:42,423 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-9] trying to enter user with login: manager
+2022-10-17 14:45:42,430 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-9] User with login: manager, was entered
+2022-10-17 17:29:44,929 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-17 17:49:27,516 INFO c.d.e.c.p.i.c.ConfigLoader [main] Properties was loaded successfully
+2022-10-17 17:49:27,682 INFO c.d.e.c.p.i.c.d.ConfigDataSource [main] connection pool created
+2022-10-17 17:49:30,975 INFO c.d.e.c.p.i.c.d.ConfigLiquibase [main] Update database
+2022-10-17 17:49:31,003 INFO c.d.e.c.p.i.c.s.FrontServletInitializer [main] Front Servlet was started
+2022-10-17 17:49:31,331 INFO c.d.e.c.p.l.Application [main] start application --> org.apache.catalina.startup.Tomcat@608707d
+2022-10-17 17:50:16,440 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-17 17:50:18,939 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-17 17:50:19,071 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] trying to enter user with login: manager
+2022-10-17 17:50:19,078 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] User with login: manager, was entered
+2022-10-17 17:55:20,937 INFO c.d.e.c.p.i.c.ConfigLoader [main] Properties was loaded successfully
+2022-10-17 17:55:21,454 INFO c.d.e.c.p.i.c.d.ConfigDataSource [main] connection pool created
+2022-10-17 17:55:26,303 INFO c.d.e.c.p.i.c.d.ConfigLiquibase [main] Update database
+2022-10-17 17:55:26,331 INFO c.d.e.c.p.i.c.s.FrontServletInitializer [main] Front Servlet was started
+2022-10-17 17:55:26,707 INFO c.d.e.c.p.l.Application [main] start application --> org.apache.catalina.startup.Tomcat@7553ad52
+2022-10-17 17:56:15,572 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-17 17:56:17,774 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-17 17:56:17,859 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] trying to enter user with login: manager
+2022-10-17 17:56:17,867 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] User with login: manager, was entered
+2022-10-17 18:00:21,581 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-2] start processing request
+2022-10-17 18:19:15,467 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-9] start processing request
+2022-10-17 18:20:33,667 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-17 18:20:35,986 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-17 18:20:35,987 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] trying to enter user with login: manager
+2022-10-17 18:20:35,989 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] User with login: manager, was entered
+2022-10-17 18:29:02,952 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-9] start processing request
+2022-10-17 18:29:05,496 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-17 18:30:28,035 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-17 18:30:28,036 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-5] trying to enter user with login: manager
+2022-10-17 18:30:28,038 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-5] User with login: manager, was entered
+2022-10-17 18:32:02,442 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-10] start processing request
+2022-10-17 18:38:06,388 INFO c.d.e.c.p.i.c.ConfigLoader [main] Properties was loaded successfully
+2022-10-17 18:38:06,573 INFO c.d.e.c.p.i.c.d.ConfigDataSource [main] connection pool created
+2022-10-17 18:38:11,112 INFO c.d.e.c.p.i.c.d.ConfigLiquibase [main] Update database
+2022-10-17 18:38:12,000 INFO c.d.e.c.p.i.c.s.FrontServletInitializer [main] Front Servlet was started
+2022-10-17 18:38:12,500 INFO c.d.e.c.p.l.Application [main] start application --> org.apache.catalina.startup.Tomcat@5cb7eb6c
+2022-10-17 18:38:18,736 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-2] start processing request
+2022-10-17 18:38:19,507 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-2] trying to enter user with login: manager
+2022-10-17 18:38:19,566 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-2] User with login: manager, was entered
+2022-10-17 18:38:35,661 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-4] start processing request
+2022-10-17 18:39:01,750 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-17 18:39:29,987 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-7] start processing request
+2022-10-17 18:40:19,820 INFO c.d.e.c.p.i.c.ConfigLoader [main] Properties was loaded successfully
+2022-10-17 18:40:20,015 INFO c.d.e.c.p.i.c.d.ConfigDataSource [main] connection pool created
+2022-10-17 18:40:25,381 INFO c.d.e.c.p.i.c.d.ConfigLiquibase [main] Update database
+2022-10-17 18:40:26,334 INFO c.d.e.c.p.i.c.s.FrontServletInitializer [main] Front Servlet was started
+2022-10-17 18:40:27,680 INFO c.d.e.c.p.l.Application [main] start application --> org.apache.catalina.startup.Tomcat@5cb7eb6c
+2022-10-17 18:40:43,639 INFO c.d.e.c.p.i.c.ConfigLoader [main] Properties was loaded successfully
+2022-10-17 18:40:43,839 INFO c.d.e.c.p.i.c.d.ConfigDataSource [main] connection pool created
+2022-10-17 18:40:48,461 INFO c.d.e.c.p.i.c.d.ConfigLiquibase [main] Update database
+2022-10-17 18:40:48,923 INFO c.d.e.c.p.i.c.s.FrontServletInitializer [main] Front Servlet was started
+2022-10-17 18:40:49,448 INFO c.d.e.c.p.l.Application [main] start application --> org.apache.catalina.startup.Tomcat@5cb7eb6c
+2022-10-17 18:41:00,227 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-17 18:41:00,685 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] trying to enter user with login: manager
+2022-10-17 18:41:00,695 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] User with login: manager, was entered
+2022-10-17 18:41:11,739 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-17 18:43:27,539 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-8] start processing request
+2022-10-17 18:43:27,541 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-8] trying to enter user with login: manager
+2022-10-17 18:43:27,543 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-8] User with login: manager, was entered
+2022-10-17 18:43:37,928 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-10] start processing request
+2022-10-17 18:44:01,902 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-17 18:44:35,560 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-2] start processing request
+2022-10-17 18:46:55,792 INFO c.d.e.c.p.i.c.ConfigLoader [main] Properties was loaded successfully
+2022-10-17 18:46:55,963 INFO c.d.e.c.p.i.c.d.ConfigDataSource [main] connection pool created
+2022-10-17 18:46:59,709 INFO c.d.e.c.p.i.c.d.ConfigLiquibase [main] Update database
+2022-10-17 18:46:59,727 INFO c.d.e.c.p.i.c.s.FrontServletInitializer [main] Front Servlet was started
+2022-10-17 18:47:00,067 INFO c.d.e.c.p.l.Application [main] start application --> org.apache.catalina.startup.Tomcat@337fd6a1
+2022-10-17 18:47:31,751 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-17 18:48:00,845 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-2] start processing request
+2022-10-17 18:48:02,861 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-4] start processing request
+2022-10-17 18:48:02,947 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-4] trying to enter user with login: vasya
+2022-10-17 18:48:02,951 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-4] User with login: vasya, was entered
+2022-10-17 18:48:05,473 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-17 18:48:13,304 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-7] start processing request
+2022-10-17 18:48:13,325 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-7] start processing request
+2022-10-17 18:48:15,707 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-9] start processing request
+2022-10-17 18:48:16,421 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-10] start processing request
+2022-10-17 18:48:42,706 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-17 18:50:10,292 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-17 18:50:42,137 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-4] start processing request
+2022-10-17 18:51:28,992 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-17 18:51:32,723 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-8] start processing request
+2022-10-17 18:51:32,724 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-8] trying to enter user with login: manager
+2022-10-17 18:51:32,726 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-8] User with login: manager, was entered
+2022-10-17 18:52:16,108 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-10] start processing request
+2022-10-17 19:11:18,148 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-2] start processing request
+2022-10-17 19:11:20,784 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-4] start processing request
+2022-10-17 19:11:20,784 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-4] trying to enter user with login: vasya
+2022-10-17 19:11:20,786 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-4] User with login: vasya, was entered
+2022-10-17 19:11:22,738 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-17 19:12:15,519 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-7] start processing request
+2022-10-17 19:13:24,831 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-9] start processing request
+2022-10-17 19:17:03,311 INFO c.d.e.c.p.i.c.ConfigLoader [main] Properties was loaded successfully
+2022-10-17 19:17:03,480 INFO c.d.e.c.p.i.c.d.ConfigDataSource [main] connection pool created
+2022-10-17 19:17:07,318 INFO c.d.e.c.p.i.c.d.ConfigLiquibase [main] Update database
+2022-10-17 19:17:07,347 INFO c.d.e.c.p.i.c.s.FrontServletInitializer [main] Front Servlet was started
+2022-10-17 19:17:07,597 INFO c.d.e.c.p.l.Application [main] start application --> org.apache.catalina.startup.Tomcat@6022cf7e
+2022-10-17 19:17:22,963 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-17 19:17:25,236 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-17 19:17:25,325 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] trying to enter user with login: manager
+2022-10-17 19:17:25,334 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] User with login: manager, was entered
+2022-10-17 19:17:27,680 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-17 19:17:34,698 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-17 19:17:39,064 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-8] start processing request
+2022-10-17 19:17:45,637 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-17 19:27:29,657 INFO c.d.e.c.p.i.c.ConfigLoader [main] Properties was loaded successfully
+2022-10-17 19:27:29,821 INFO c.d.e.c.p.i.c.d.ConfigDataSource [main] connection pool created
+2022-10-17 19:27:33,291 INFO c.d.e.c.p.i.c.d.ConfigLiquibase [main] Update database
+2022-10-17 19:27:33,324 INFO c.d.e.c.p.i.c.s.FrontServletInitializer [main] Front Servlet was started
+2022-10-17 19:27:33,659 INFO c.d.e.c.p.l.Application [main] start application --> org.apache.catalina.startup.Tomcat@76b17a78
+2022-10-17 19:27:36,912 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-17 19:27:40,302 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-17 19:27:40,383 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] trying to enter user with login: vasya
+2022-10-17 19:27:40,396 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] User with login: vasya, was entered
+2022-10-17 19:27:43,483 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-17 19:28:08,074 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-17 19:28:15,039 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-7] start processing request
+2022-10-17 19:28:20,704 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-8] start processing request
+2022-10-17 19:28:23,660 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-9] start processing request
+2022-10-17 19:28:28,165 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-10] start processing request
+2022-10-17 19:28:31,591 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-17 19:28:35,433 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-2] start processing request
+2022-10-17 19:28:39,156 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-17 19:28:44,575 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-4] start processing request
+2022-10-17 19:29:04,147 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-17 19:29:09,317 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-17 19:29:11,366 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-7] start processing request
+2022-10-17 19:29:38,857 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-8] start processing request
+2022-10-17 19:29:52,356 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-9] start processing request
+2022-10-17 19:29:58,137 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-10] start processing request
+2022-10-17 19:35:41,541 INFO c.d.e.c.p.i.c.ConfigLoader [main] Properties was loaded successfully
+2022-10-17 19:35:41,714 INFO c.d.e.c.p.i.c.d.ConfigDataSource [main] connection pool created
+2022-10-17 19:35:45,612 INFO c.d.e.c.p.i.c.d.ConfigLiquibase [main] Update database
+2022-10-17 19:35:45,630 INFO c.d.e.c.p.i.c.s.FrontServletInitializer [main] Front Servlet was started
+2022-10-17 19:35:46,036 INFO c.d.e.c.p.l.Application [main] start application --> org.apache.catalina.startup.Tomcat@8004b2d
+2022-10-17 19:35:49,888 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-17 19:35:53,039 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-17 19:35:53,126 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] trying to enter user with login: vasya
+2022-10-17 19:35:53,136 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] User with login: vasya, was entered
+2022-10-17 19:35:54,369 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-17 19:35:56,107 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-17 19:35:58,907 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-7] start processing request
+2022-10-17 19:36:06,109 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-8] start processing request
+2022-10-17 19:36:11,775 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-9] start processing request
+2022-10-17 19:36:20,319 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-10] start processing request
+2022-10-17 19:36:47,536 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-17 19:36:49,905 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-17 19:36:49,905 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] trying to enter user with login: manager
+2022-10-17 19:36:49,907 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] User with login: manager, was entered
+2022-10-17 19:36:52,356 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-17 19:36:57,193 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-17 19:39:01,032 INFO c.d.e.c.p.i.c.ConfigLoader [main] Properties was loaded successfully
+2022-10-17 19:39:01,200 INFO c.d.e.c.p.i.c.d.ConfigDataSource [main] connection pool created
+2022-10-17 19:39:04,862 INFO c.d.e.c.p.i.c.d.ConfigLiquibase [main] Update database
+2022-10-17 19:39:04,881 INFO c.d.e.c.p.i.c.s.FrontServletInitializer [main] Front Servlet was started
+2022-10-17 19:39:05,205 INFO c.d.e.c.p.l.Application [main] start application --> org.apache.catalina.startup.Tomcat@569242a8
+2022-10-17 19:39:19,361 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-17 19:39:23,760 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-17 19:39:23,847 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] trying to enter user with login: vasya
+2022-10-17 19:39:23,858 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] User with login: vasya, was entered
+2022-10-17 19:39:24,988 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-17 19:39:27,393 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-17 19:39:27,588 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-17 19:40:30,998 INFO c.d.e.c.p.i.c.ConfigLoader [main] Properties was loaded successfully
+2022-10-17 19:40:31,204 INFO c.d.e.c.p.i.c.d.ConfigDataSource [main] connection pool created
+2022-10-17 19:40:35,995 INFO c.d.e.c.p.i.c.d.ConfigLiquibase [main] Update database
+2022-10-17 19:40:36,013 INFO c.d.e.c.p.i.c.s.FrontServletInitializer [main] Front Servlet was started
+2022-10-17 19:40:36,261 INFO c.d.e.c.p.l.Application [main] start application --> org.apache.catalina.startup.Tomcat@63031e98
+2022-10-17 19:40:47,326 INFO c.d.e.c.p.i.c.ConfigLoader [main] Properties was loaded successfully
+2022-10-17 19:40:47,497 INFO c.d.e.c.p.i.c.d.ConfigDataSource [main] connection pool created
+2022-10-17 19:40:50,899 INFO c.d.e.c.p.i.c.d.ConfigLiquibase [main] Update database
+2022-10-17 19:40:50,916 INFO c.d.e.c.p.i.c.s.FrontServletInitializer [main] Front Servlet was started
+2022-10-17 19:40:51,259 INFO c.d.e.c.p.l.Application [main] start application --> org.apache.catalina.startup.Tomcat@301da01d
+2022-10-17 19:41:03,078 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-2] start processing request
+2022-10-17 19:41:03,181 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-2] trying to enter user with login: vasya
+2022-10-17 19:41:03,203 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-2] User with login: vasya, was entered
+2022-10-17 19:41:04,958 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-4] start processing request
+2022-10-17 19:41:08,425 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-17 19:41:33,123 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-17 20:43:58,883 INFO c.d.e.c.p.i.c.ConfigLoader [main] Properties was loaded successfully
+2022-10-17 20:43:59,048 INFO c.d.e.c.p.i.c.d.ConfigDataSource [main] connection pool created
+2022-10-17 20:44:02,942 INFO c.d.e.c.p.i.c.d.ConfigLiquibase [main] Update database
+2022-10-17 20:44:02,989 INFO c.d.e.c.p.i.c.s.FrontServletInitializer [main] Front Servlet was started
+2022-10-17 20:44:03,313 INFO c.d.e.c.p.l.Application [main] start application --> org.apache.catalina.startup.Tomcat@569242a8
+2022-10-17 20:45:33,865 INFO c.d.e.c.p.i.c.ConfigLoader [main] Properties was loaded successfully
+2022-10-17 20:45:34,030 INFO c.d.e.c.p.i.c.d.ConfigDataSource [main] connection pool created
+2022-10-17 20:45:37,224 INFO c.d.e.c.p.i.c.d.ConfigLiquibase [main] Update database
+2022-10-17 20:45:37,252 INFO c.d.e.c.p.i.c.s.FrontServletInitializer [main] Front Servlet was started
+2022-10-17 20:45:37,590 INFO c.d.e.c.p.l.Application [main] start application --> org.apache.catalina.startup.Tomcat@608707d
+2022-10-17 20:45:41,842 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-17 20:45:45,501 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-4] start processing request
+2022-10-17 20:45:45,585 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-4] trying to enter user with login: vasya
+2022-10-17 20:45:45,591 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-4] User with login: vasya, was entered
+2022-10-17 20:45:48,286 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-17 20:45:54,268 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-7] start processing request
+2022-10-17 22:14:55,056 INFO c.d.e.c.p.i.c.ConfigLoader [main] Properties was loaded successfully
+2022-10-17 22:14:55,251 INFO c.d.e.c.p.i.c.d.ConfigDataSource [main] connection pool created
+2022-10-17 22:14:59,792 INFO c.d.e.c.p.i.c.d.ConfigLiquibase [main] Update database
+2022-10-17 22:15:00,177 INFO c.d.e.c.p.i.c.s.FrontServletInitializer [main] Front Servlet was started
+2022-10-17 22:15:00,546 INFO c.d.e.c.p.l.Application [main] start application --> org.apache.catalina.startup.Tomcat@46110b82
+2022-10-17 22:15:06,548 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-17 22:15:07,042 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] trying to enter user with login: vasya
+2022-10-17 22:15:07,050 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] User with login: vasya, was entered
+2022-10-17 22:15:08,999 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-17 22:15:17,702 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-17 22:15:55,499 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-7] start processing request
+2022-10-17 22:17:29,368 INFO c.d.e.c.p.i.c.ConfigLoader [main] Properties was loaded successfully
+2022-10-17 22:17:29,577 INFO c.d.e.c.p.i.c.d.ConfigDataSource [main] connection pool created
+2022-10-17 22:17:34,150 INFO c.d.e.c.p.i.c.d.ConfigLiquibase [main] Update database
+2022-10-17 22:17:34,951 INFO c.d.e.c.p.i.c.s.FrontServletInitializer [main] Front Servlet was started
+2022-10-17 22:17:35,735 INFO c.d.e.c.p.l.Application [main] start application --> org.apache.catalina.startup.Tomcat@46110b82
+2022-10-17 22:17:58,365 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-17 22:18:06,766 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] trying to enter user with login: vasya
+2022-10-17 22:18:06,789 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] User with login: vasya, was entered
+2022-10-17 22:18:10,136 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-17 22:18:22,351 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-17 22:20:00,600 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-7] start processing request
+2022-10-17 22:21:02,602 INFO c.d.e.c.p.i.c.ConfigLoader [main] Properties was loaded successfully
+2022-10-17 22:21:03,005 INFO c.d.e.c.p.i.c.d.ConfigDataSource [main] connection pool created
+2022-10-17 22:21:06,474 INFO c.d.e.c.p.i.c.d.ConfigLiquibase [main] Update database
+2022-10-17 22:21:06,505 INFO c.d.e.c.p.i.c.s.FrontServletInitializer [main] Front Servlet was started
+2022-10-17 22:21:06,816 INFO c.d.e.c.p.l.Application [main] start application --> org.apache.catalina.startup.Tomcat@63031e98
+2022-10-17 22:21:11,788 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-17 22:21:14,487 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-17 22:21:14,608 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] trying to enter user with login: manager
+2022-10-17 22:21:14,654 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] User with login: manager, was entered
+2022-10-17 22:21:17,549 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-17 22:21:22,588 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-17 22:21:29,100 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-7] start processing request
+2022-10-17 22:21:42,426 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-9] start processing request
+2022-10-17 22:21:42,427 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-9] trying to enter user with login: vitya
+2022-10-17 22:21:42,431 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-9] User with login: vitya, was entered
+2022-10-17 22:21:44,430 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-17 22:21:53,487 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-2] start processing request
+2022-10-17 22:21:55,679 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-17 22:21:58,533 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-4] start processing request
+2022-10-17 22:22:07,886 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-17 22:22:11,911 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-17 22:22:14,196 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-7] start processing request
+2022-10-17 22:22:18,698 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-8] start processing request
+2022-10-17 22:22:20,685 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-9] start processing request
+2022-10-17 22:22:28,946 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-10] start processing request
+2022-10-17 22:22:30,783 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-17 22:23:00,154 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-2] start processing request
+2022-10-17 22:23:01,609 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-17 22:23:04,555 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-4] start processing request
+2022-10-17 22:23:15,549 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-17 22:23:15,550 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-6] trying to enter user with login: vasya
+2022-10-17 22:23:15,551 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-6] User with login: vasya, was entered
+2022-10-17 22:23:17,102 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-8] start processing request
+2022-10-17 22:23:28,323 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-9] start processing request
+2022-10-17 22:23:29,627 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-10] start processing request
+2022-10-17 23:03:03,591 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-2] start processing request
+2022-10-17 23:03:10,199 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-17 23:03:20,615 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-17 23:03:20,616 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-6] trying to enter user with login: manager
+2022-10-17 23:03:20,621 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-6] User with login: manager, was entered
+2022-10-17 23:03:22,144 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-8] start processing request
+2022-10-17 23:03:30,482 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-9] start processing request
+2022-10-17 23:03:37,926 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-2] start processing request
+2022-10-17 23:03:37,927 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-2] trying to enter user with login: manager
+2022-10-17 23:03:37,928 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-2] User with login: manager, was entered
+2022-10-17 23:03:39,476 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-4] start processing request
+2022-10-17 23:35:48,303 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-17 23:35:53,678 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-8] start processing request
+2022-10-17 23:36:01,390 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-2] start processing request
+2022-10-17 23:36:01,390 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-2] trying to enter user with login: manager
+2022-10-17 23:36:01,392 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-2] User with login: manager, was entered
+2022-10-17 23:36:02,518 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-4] start processing request
+2022-10-17 23:36:05,513 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-17 23:37:24,870 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-17 23:37:24,871 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-1] trying to enter user with login: manager
+2022-10-17 23:37:24,872 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-1] User with login: manager, was entered
+2022-10-17 23:37:26,254 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-17 23:37:45,261 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-4] start processing request
+2022-10-17 23:39:13,539 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-17 23:44:58,008 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-8] start processing request
+2022-10-17 23:46:12,696 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-10] start processing request
+2022-10-17 23:46:18,464 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-17 23:46:30,099 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-4] start processing request
+2022-10-17 23:46:32,996 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-17 23:46:41,248 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-17 23:47:09,263 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-7] start processing request
+2022-10-17 23:47:37,739 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-8] start processing request
+2022-10-17 23:49:46,914 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-10] start processing request
+2022-10-18 00:01:48,821 INFO c.d.e.c.p.i.c.ConfigLoader [main] Properties was loaded successfully
+2022-10-18 00:01:48,999 INFO c.d.e.c.p.i.c.d.ConfigDataSource [main] connection pool created
+2022-10-18 00:01:52,705 INFO c.d.e.c.p.i.c.d.ConfigLiquibase [main] Update database
+2022-10-18 00:01:52,733 INFO c.d.e.c.p.i.c.s.FrontServletInitializer [main] Front Servlet was started
+2022-10-18 00:01:53,109 INFO c.d.e.c.p.l.Application [main] start application --> org.apache.catalina.startup.Tomcat@b521697
+2022-10-18 00:02:57,394 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-18 00:02:59,498 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-18 00:02:59,577 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] trying to enter user with login: vasya
+2022-10-18 00:02:59,583 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] User with login: vasya, was entered
+2022-10-18 00:03:01,478 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-18 00:03:07,513 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-18 00:03:14,014 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-7] start processing request
+2022-10-18 00:04:00,621 INFO c.d.e.c.p.i.c.ConfigLoader [main] Properties was loaded successfully
+2022-10-18 00:04:00,796 INFO c.d.e.c.p.i.c.d.ConfigDataSource [main] connection pool created
+2022-10-18 00:04:04,372 INFO c.d.e.c.p.i.c.d.ConfigLiquibase [main] Update database
+2022-10-18 00:04:04,402 INFO c.d.e.c.p.i.c.s.FrontServletInitializer [main] Front Servlet was started
+2022-10-18 00:04:04,728 INFO c.d.e.c.p.l.Application [main] start application --> org.apache.catalina.startup.Tomcat@63031e98
+2022-10-18 00:05:00,656 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-18 00:05:02,867 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-18 00:05:02,982 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] trying to enter user with login: vasya
+2022-10-18 00:05:02,987 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] User with login: vasya, was entered
+2022-10-18 00:05:04,596 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-18 00:05:09,955 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-18 00:05:13,922 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-7] start processing request
+2022-10-18 00:05:19,300 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-8] start processing request
+2022-10-18 00:05:22,596 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-9] start processing request
+2022-10-18 00:05:27,552 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-10] start processing request
+2022-10-18 00:05:39,380 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-18 00:05:42,001 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-2] start processing request
+2022-10-18 00:19:13,490 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-4] start processing request
+2022-10-18 00:19:33,216 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-18 00:19:54,833 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-18 00:21:03,181 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-8] start processing request
+2022-10-18 00:21:34,583 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-9] start processing request
+2022-10-18 00:23:37,746 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-18 00:23:47,862 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-2] start processing request
+2022-10-18 00:30:27,249 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-4] start processing request
+2022-10-18 00:30:29,548 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-18 00:30:32,766 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-7] start processing request
+2022-10-18 00:30:35,339 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-8] start processing request
+2022-10-18 00:30:39,702 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-9] start processing request
+2022-10-18 00:30:49,807 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-10] start processing request
+2022-10-18 00:30:52,065 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-18 00:32:41,767 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-18 00:32:44,587 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-18 00:32:44,587 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-5] trying to enter user with login: vasya
+2022-10-18 00:32:44,589 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-5] User with login: vasya, was entered
+2022-10-18 00:32:45,965 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-7] start processing request
+2022-10-18 00:32:50,698 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-8] start processing request
+2022-10-18 00:33:28,006 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-9] start processing request
+2022-10-18 00:33:30,380 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-18 00:33:30,381 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-1] trying to enter user with login: manager
+2022-10-18 00:33:30,384 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-1] User with login: manager, was entered
+2022-10-18 00:33:42,173 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-18 00:33:47,438 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-4] start processing request
+2022-10-18 00:34:33,072 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-18 00:34:35,899 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-7] start processing request
+2022-10-18 00:34:35,900 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-7] trying to enter user with login: manager
+2022-10-18 00:34:35,963 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-7] User with login: manager, was entered
+2022-10-18 00:34:37,403 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-9] start processing request
+2022-10-18 00:34:48,822 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-10] start processing request
+2022-10-18 00:37:40,975 INFO c.d.e.c.p.i.c.ConfigLoader [main] Properties was loaded successfully
+2022-10-18 00:37:41,171 INFO c.d.e.c.p.i.c.d.ConfigDataSource [main] connection pool created
+2022-10-18 00:37:45,119 INFO c.d.e.c.p.i.c.d.ConfigLiquibase [main] Update database
+2022-10-18 00:37:45,140 INFO c.d.e.c.p.i.c.s.FrontServletInitializer [main] Front Servlet was started
+2022-10-18 00:37:45,493 INFO c.d.e.c.p.l.Application [main] start application --> org.apache.catalina.startup.Tomcat@8004b2d
+2022-10-18 00:37:51,719 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-18 00:37:54,151 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-18 00:37:54,241 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] trying to enter user with login: vasya
+2022-10-18 00:37:54,257 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] User with login: vasya, was entered
+2022-10-18 00:37:55,816 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-18 00:37:59,127 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-18 00:38:03,879 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-7] start processing request
+2022-10-18 00:38:05,887 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-9] start processing request
+2022-10-18 00:38:05,888 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-9] trying to enter user with login: manager
+2022-10-18 00:38:05,889 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-9] User with login: manager, was entered
+2022-10-18 00:38:07,466 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-18 00:38:12,330 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-2] start processing request
+2022-10-18 00:40:21,284 INFO c.d.e.c.p.i.c.ConfigLoader [main] Properties was loaded successfully
+2022-10-18 00:40:21,457 INFO c.d.e.c.p.i.c.d.ConfigDataSource [main] connection pool created
+2022-10-18 00:40:25,355 INFO c.d.e.c.p.i.c.d.ConfigLiquibase [main] Update database
+2022-10-18 00:40:25,376 INFO c.d.e.c.p.i.c.s.FrontServletInitializer [main] Front Servlet was started
+2022-10-18 00:40:25,824 INFO c.d.e.c.p.l.Application [main] start application --> org.apache.catalina.startup.Tomcat@b521697
+2022-10-18 00:40:28,841 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-18 00:40:32,375 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-18 00:40:32,485 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] trying to enter user with login: vasya
+2022-10-18 00:40:32,491 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] User with login: vasya, was entered
+2022-10-18 00:40:33,483 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-18 00:40:35,585 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-18 00:40:36,989 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-7] start processing request
+2022-10-18 00:40:42,085 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-8] start processing request
+2022-10-18 00:40:43,389 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-9] start processing request
+2022-10-18 00:40:54,159 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-10] start processing request
+2022-10-18 00:40:59,154 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-1] start processing request
+2022-10-18 00:41:01,509 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request
+2022-10-18 00:41:01,510 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] trying to enter user with login: manager
+2022-10-18 00:41:01,518 INFO c.d.e.c.p.l.s.UserService [http-nio-8080-exec-3] User with login: manager, was entered
+2022-10-18 00:41:02,974 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-5] start processing request
+2022-10-18 00:41:24,608 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-6] start processing request
+2022-10-18 00:41:28,349 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-8] start processing request
+2022-10-18 00:41:30,504 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-9] start processing request
+2022-10-18 00:41:30,674 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-10] start processing request
+2022-10-18 00:41:33,254 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-2] start processing request
+2022-10-18 00:42:25,170 INFO c.d.e.c.p.i.w.FrontServlet [http-nio-8080-exec-3] start processing request

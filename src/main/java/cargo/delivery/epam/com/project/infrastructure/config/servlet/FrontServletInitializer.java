@@ -54,11 +54,12 @@ public class FrontServletInitializer implements ServletContainerInitializer {
         DataSource dataSource = new ConfigDataSource().createDataSource(configLoader);
         ConfigLiquibase configLiquibase = new ConfigLiquibase(dataSource);
         configLiquibase.updateDatabase(configLoader);
+        PreparerQueryToReportFilteringDao preparerQuery = new PreparerQueryToReportFilteringDao();
 
         UserController userController = createUserController(requestParameterMapper, dataSource);
-        ClientController clientController = createClientController(requestParameterMapper, dataSource);
+        ClientController clientController = createClientController(requestParameterMapper, dataSource, preparerQuery);
         OrderController orderController = createOrderController(requestParameterMapper, dataSource);
-        ManagerController managerController = createManagerController(requestParameterMapper,dataSource);
+        ManagerController managerController = createManagerController(requestParameterMapper,dataSource, preparerQuery);
 
 
         placeholders.add(new Placeholder("POST", "login", userController::login));
@@ -72,10 +73,12 @@ public class FrontServletInitializer implements ServletContainerInitializer {
         placeholders.add(new Placeholder("GET", "client/getClientOrders", clientController::getClientOrders));
         placeholders.add(new Placeholder("GET", "client/getInvoice", clientController::getOrderForInvoice));
         placeholders.add(new Placeholder("POST", "client/payInvoice", clientController::payInvoice));
+        placeholders.add(new Placeholder("GET","client/getAllOrders/filter",clientController::filterOrders));
         placeholders.add(new Placeholder("GET", "manager/getAllOrders", managerController::getAllOrders));
         placeholders.add(new Placeholder("GET", "manager/getNotConfirmedOrders", managerController::getNotConfirmedOrders));
         placeholders.add(new Placeholder("POST", "manager/confirmOrder", managerController::confirmOrder));
-        placeholders.add(new Placeholder("GET","manager/getAllOrders/select",managerController::select));
+        placeholders.add(new Placeholder("GET","manager/getAllOrders/filter",managerController::filterReports));
+        placeholders.add(new Placeholder("GET","manager/getReport",managerController::getReportByDayAndDirection));
         placeholders.add(new Placeholder("GET", "routes", orderController::getRoutesForNonRegisterUser));
         placeholders.add(new Placeholder("GET", "calculateDelivery", orderController::getDeliveryCostForNotRegisteredUser));
 
@@ -89,10 +92,10 @@ public class FrontServletInitializer implements ServletContainerInitializer {
         return new UserController(userService, requestParameterMapper, mapView);
     }
 
-    private ClientController createClientController(RequestParameterMapper requestParameterMapper, DataSource dataSource) {
+    private ClientController createClientController(RequestParameterMapper requestParameterMapper, DataSource dataSource, PreparerQueryToReportFilteringDao preparerQuery) {
         ClientDAO clientDAO = new ClientDAO(dataSource);
-        SortingDAO sortingDAO = new SortingDAO(dataSource);
-        ClientService clientService = new ClientService(clientDAO, sortingDAO);
+        ReportFilteringDAO reportFilteringDAO = new ReportFilteringDAO(dataSource, preparerQuery);
+        ClientService clientService = new ClientService(clientDAO, reportFilteringDAO);
         return new ClientController(clientService, requestParameterMapper);
     }
 
@@ -102,10 +105,10 @@ public class FrontServletInitializer implements ServletContainerInitializer {
         return new OrderController(orderService, requestParameterMapper);
     }
 
-    private ManagerController createManagerController(RequestParameterMapper requestParameterMapper, DataSource dataSource){
+    private ManagerController createManagerController(RequestParameterMapper requestParameterMapper, DataSource dataSource, PreparerQueryToReportFilteringDao preparerQuery){
         ManagerDAO managerDAO = new ManagerDAO(dataSource);
-        SortingDAO sortingDAO = new SortingDAO(dataSource);
-        ManagerService managerService = new ManagerService(managerDAO,sortingDAO);
+        ReportFilteringDAO reportFilteringDAO = new ReportFilteringDAO(dataSource, preparerQuery);
+        ManagerService managerService = new ManagerService(managerDAO, reportFilteringDAO);
         return new ManagerController(managerService, requestParameterMapper);
     }
 

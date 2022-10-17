@@ -6,6 +6,7 @@ import cargo.delivery.epam.com.project.logic.entity.Client;
 import cargo.delivery.epam.com.project.logic.entity.Order;
 import cargo.delivery.epam.com.project.logic.entity.Report;
 import cargo.delivery.epam.com.project.logic.entity.dto.ClientCreateDto;
+import cargo.delivery.epam.com.project.logic.entity.dto.SortingDto;
 import cargo.delivery.epam.com.project.logic.services.ClientService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -86,6 +87,16 @@ public class ClientController {
         clientService.payInvoice(orderId,clientId,departureDate,arrivalDate);
         ModelAndView modelAndView = ModelAndView.withView("/cargo/client/getClientOrders?clientId="+clientId);
         modelAndView.setRedirect(true);
+        return modelAndView;
+    }
+
+    // /app/cargo/client/getAllOrders/filter
+    public ModelAndView filterOrders(HttpServletRequest request) {
+        SortingDto dto = requestParameterMapper.handleRequest(request, SortingDto.class);
+        Long clientId = Long.parseLong(request.getParameter("clientId"));
+        List<Report> reportList = clientService.filterOrders(dto,clientId);
+        ModelAndView modelAndView = ModelAndView.withView("/client/clientOrders.jsp");
+        modelAndView.addAttribute("reports", reportList);
         return modelAndView;
     }
 

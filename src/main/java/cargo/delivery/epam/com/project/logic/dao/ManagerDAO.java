@@ -6,10 +6,7 @@ import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +17,7 @@ public class ManagerDAO {
 
     @SneakyThrows
     public List<Report> getAllOrders() {
-        String sql = "select * from report order by order_id desc";
+        String sql = "select client_id, order_id from report join orders on report.order_id = orders.id join invoice on orders.invoice_id = invoice.id order by isConfirmed asc, isPaid asc, order_id desc";
         List<Report> reportList = new ArrayList<>();
         try (Connection connection = dataSource.getConnection();
              Statement statement = connection.createStatement();
@@ -41,7 +38,7 @@ public class ManagerDAO {
 
     @SneakyThrows
     public List<Report> getNotConfirmedOrders() {
-        String sql = "select client_id, order_id from report join orders on report.order_id=orders.id where orders.isConfirmed = false";
+        String sql = "select client_id, order_id from report join orders on report.order_id = orders.id where orders.isConfirmed = false order by order_id desc";
         List<Report> reportList = new ArrayList<>();
         try (Connection connection = dataSource.getConnection();
              Statement statement = connection.createStatement();
@@ -50,8 +47,34 @@ public class ManagerDAO {
                 Report report = new Report();
                 Client client = new Client();
                 Order order = new Order();
-                Long clientId = resultSet.getLong("client.id");
-                Long orderId = resultSet.getLong("orders.id");
+                Long clientId = resultSet.getLong("client_id");
+                Long orderId = resultSet.getLong("order_id");
+                client.setId(clientId);
+                order.setId(orderId);
+                report.setClient(client);
+                report.setOrder(order);
+                reportList.add(report);
+            }
+        }
+        return reportList;
+    }
+
+    @SneakyThrows
+    public List<Report> getReportByDayAndDirection(String arrivalDate, String senderCity, String recipientCity){
+        List<Report> reportList = new ArrayList<>();
+        String sql = "select client_id, order_id from report join orders on report.order_id = orders.id join delivery on orders.delivery_id = delivery.id join route on delivery.route_id = route.id where arrival_date = ? and sender_city = ? and recipient_city = ?";
+        try(Connection connection  = dataSource.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql)){
+            preparedStatement.setDate(1,Date.valueOf(arrivalDate));
+            preparedStatement.setString(2, senderCity);
+            preparedStatement.setString(3,recipientCity);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Report report = new Report();
+                Client client = new Client();
+                Order order = new Order();
+                Long clientId = resultSet.getLong("client_id");
+                Long orderId = resultSet.getLong("order_id");
                 client.setId(clientId);
                 order.setId(orderId);
                 report.setClient(client);
