@@ -7,9 +7,7 @@
             <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places&key=AIzaSyAyM6orVGgY2a7NzZPgLnYm2FmyrqFcQYc"></script>
         </head>
         <div align = "left">
-            <c:if test = "${user.id == null}">
-                <button class = "btn btn-primary" onclick="location.href='/app/index.jsp'">Back to registration</button>
-            </c:if>
+            <button class = "btn btn-primary" onclick="location.href='/app/index.jsp'">Back to registration</button>
             <h2 align = "center">
                 Calculate the delivery cost!
             </h2>
@@ -79,7 +77,6 @@
                     </div>
                 </c:if>
             </td>
-            <c:if test = "${user.id == null}">
                 <td align = "center">
                     <div id="mapa"> </div>
                 </td>
@@ -88,12 +85,6 @@
                         Some rules how to use this application...
                     </h5>
                 </td>
-            </c:if>
-            <c:if test = "${user.id != null}">
-                <td align = "right">
-                    <div id="mapa"> </div>
-                </td>
-            </c:if>
         </table>
         <br>
 

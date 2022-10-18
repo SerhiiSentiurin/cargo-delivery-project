@@ -5,6 +5,8 @@ import cargo.delivery.epam.com.project.infrastructure.config.db.ConfigDataSource
 import cargo.delivery.epam.com.project.infrastructure.config.db.ConfigLiquibase;
 import cargo.delivery.epam.com.project.infrastructure.web.*;
 import cargo.delivery.epam.com.project.infrastructure.web.exception.ExceptionHandler;
+import cargo.delivery.epam.com.project.infrastructure.web.filter.encoding.EncodingFilter;
+import cargo.delivery.epam.com.project.infrastructure.web.filter.security.SecurityFilter;
 import cargo.delivery.epam.com.project.logic.controllers.ClientController;
 import cargo.delivery.epam.com.project.logic.controllers.OrderController;
 import cargo.delivery.epam.com.project.logic.controllers.ManagerController;
@@ -28,6 +30,11 @@ public class FrontServletInitializer implements ServletContainerInitializer {
     public void onStartup(Set<Class<?>> c, ServletContext ctx) throws ServletException {
 
         // add listener
+
+        FilterRegistration.Dynamic security = ctx.addFilter("security", new SecurityFilter());
+        security.addMappingForUrlPatterns(null,false,"/*");
+        FilterRegistration.Dynamic encoding = ctx.addFilter("encoding", new EncodingFilter());
+        encoding.addMappingForUrlPatterns(null, false,"/*");
 
         FrontServlet frontServlet = createFrontServlet();
         ServletRegistration.Dynamic dynamic = ctx.addServlet("frontServlet", frontServlet);

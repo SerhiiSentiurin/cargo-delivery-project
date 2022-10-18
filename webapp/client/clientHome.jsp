@@ -13,13 +13,12 @@
         <div>
             <img src="https://dnepr-more.com/wp-content/uploads/2018/02/gruzoperevozki.jpg" alt="Зимняя равнина" style="float:left; margin-right:10px;" />
                 <h1>About Cargo Application</h1>
-                <b>
+                <p>
                     Some rules how to use it.....
-                </b>
+                </p>
         </div>
 
-
-
+    <%@ include file="/view/footer.jsp" %>
 
     </body>
 </html>

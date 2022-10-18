@@ -24,7 +24,7 @@
                     </form>
                 </td>
                 <td align="center">
-                    <input type = "submit" action ="/app/client/clientHome.jsp" class="btn btn-primary" value = 'Order delivery!'/>
+                    <button class="btn btn-primary" onclick="location.href='/app/client/getOrder.jsp'" >Order delivery!</button>
                 </td>
             </tr>
         </table><br>

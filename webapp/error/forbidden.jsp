@@ -10,6 +10,6 @@
         <p>
             Forbidden!
         </p>
-        <button class="btn btn-secondary" onclick="location.href='/app'" value='Back'></button>
+        <button class="btn btn-secondary" onclick="location.href='/app'" >Back</button>
     </body>
 </html>
