@@ -5,6 +5,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -13,6 +14,7 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class FrontServlet extends HttpServlet {
 
+    @Getter
     private final String servletName;
     private final ProcessorRequest processorRequest;
     private final ProcessorModelAndView processorModelAndView;

@@ -12,14 +12,6 @@ import java.util.List;
 public class OrderService {
     private final OrderDAO orderDAO;
 
-    public Route getRoute(String senderCity, String recipientCity) {
-        return orderDAO.getRoute(senderCity, recipientCity);
-    }
-
-//    public List<Route> getAllRoutes() {
-//        return orderDAO.getAllRoutes();
-//    }
-
     public void createOrder(ClientOrderDto dto){
         orderDAO.createOrder(dto);
     }
@@ -41,7 +33,6 @@ public class OrderService {
         return dto;
     }
 
-
     private double calculateTax(Double weight, Double volume, Double distance) {
         final double fuelCostPerKilometer = 7.5d;
         final double volumeTax = getVolumeTax(volume);
@@ -49,7 +40,6 @@ public class OrderService {
 
         return (fuelCostPerKilometer * distance) + (volumeTax * volume) + (weightTax * weight);
     }
-
 
     private double getVolumeTax(Double volume) {
         if (volume > 0d && volume <= 25d) {

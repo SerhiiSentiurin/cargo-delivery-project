@@ -1,7 +1,5 @@
 package cargo.delivery.epam.com.project.infrastructure.web.filter.security;
 
-
-import cargo.delivery.epam.com.project.infrastructure.web.Placeholder;
 import cargo.delivery.epam.com.project.logic.entity.User;
 import cargo.delivery.epam.com.project.logic.entity.UserRole;
 import jakarta.servlet.*;
@@ -33,7 +31,6 @@ public class SecurityFilter implements Filter {
         pathMatchers.add(new PathMatcher("/client/clientOrders.jsp", UserRole.CLIENT));
         pathMatchers.add(new PathMatcher("/client/clientWallet.jsp", UserRole.CLIENT));
         pathMatchers.add(new PathMatcher("/client/getOrder.jsp", UserRole.CLIENT));
-        pathMatchers.add(new PathMatcher("/client/successRegistration.jsp", UserRole.CLIENT));
         pathMatchers.add(new PathMatcher("/cargo/manager/getAllOrders", UserRole.MANAGER));
         pathMatchers.add(new PathMatcher("/cargo/manager/getNotConfirmedOrders", UserRole.MANAGER));
         pathMatchers.add(new PathMatcher("/cargo/manager/getAllOrders/filter", UserRole.MANAGER));

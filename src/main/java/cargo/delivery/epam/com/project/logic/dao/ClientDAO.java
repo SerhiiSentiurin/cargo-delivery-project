@@ -18,39 +18,60 @@ import java.util.List;
 public class ClientDAO {
     private final DataSource dataSource;
 
-    // divide at several methods!!!
     public void createNewClient(ClientCreateDto dto) {
-        String insertIntoUser = "INSERT INTO user (login, password, role) VALUES (?,?,?)";
-        String insertIntoClient = "INSERT INTO client (id, amount) VALUES(?, 0)";
         Connection connection = null;
-        PreparedStatement preparedStatement = null;
         try {
             connection = dataSource.getConnection();
             connection.setAutoCommit(false);
-            preparedStatement = connection.prepareStatement(insertIntoUser, Statement.RETURN_GENERATED_KEYS);
-            preparedStatement.setString(1, dto.getLogin());
-            preparedStatement.setString(2, dto.getPassword());
-            preparedStatement.setString(3, dto.getUserRole().toString());
-            preparedStatement.execute();
-            try (ResultSet resultSet = preparedStatement.getGeneratedKeys()) {
-                if (resultSet.next()) {
-                    long clientId = resultSet.getLong(1);
-                    try (PreparedStatement preparedStatement1 = connection.prepareStatement(insertIntoClient)) {
-                        preparedStatement1.setLong(1, clientId);
-                        preparedStatement1.execute();
-                        connection.commit();
-                    }
-                }
-            }
+            insertIntoClient(connection,dto);
+            connection.commit();
         } catch (Exception e) {
             rollback(connection);
             log.error(e.getMessage());
-            throw new AppException("Cannot create reader! Try to insert another login or password");
+            throw new AppException("Cannot create client! Try to insert another login or password");
         } finally {
-            close(preparedStatement);
             close(connection);
         }
+    }
 
+    private Long insertIntoUser(Connection connection, ClientCreateDto dto){
+        String insertIntoUser = "INSERT INTO user (login, password, role) VALUES (?,?,?)";
+        PreparedStatement preparedStatementUser = null;
+        ResultSet resultSetUser = null;
+        try{
+            preparedStatementUser = connection.prepareStatement(insertIntoUser, Statement.RETURN_GENERATED_KEYS);
+            preparedStatementUser.setString(1, dto.getLogin());
+            preparedStatementUser.setString(2, dto.getPassword());
+            preparedStatementUser.setString(3, dto.getUserRole().toString());
+            preparedStatementUser.execute();
+            resultSetUser = preparedStatementUser.getGeneratedKeys();
+            if (resultSetUser.next()){
+                return resultSetUser.getLong(1);
+            }
+            return 0L;
+        }catch (Exception e){
+            log.error(e.getMessage());
+            throw new AppException("Cannot insert User!");
+        }finally {
+            close(resultSetUser);
+            close(preparedStatementUser);
+        }
+    }
+
+    private void insertIntoClient(Connection connection, ClientCreateDto dto){
+        String insertIntoClient = "INSERT INTO client (id, amount) VALUES(?, 0)";
+        Long clientId = insertIntoUser(connection,dto);
+        PreparedStatement preparedStatementClient = null;
+        try{
+            preparedStatementClient = connection.prepareStatement(insertIntoClient);
+            preparedStatementClient.setLong(1, clientId);
+            preparedStatementClient.execute();
+        }catch (Exception e){
+            log.error(e.getMessage());
+            throw new AppException("Cannot insert Client!");
+        }finally {
+            close(preparedStatementClient);
+        }
     }
 
     @SneakyThrows
@@ -87,7 +108,6 @@ public class ClientDAO {
         return clientOrders;
     }
 
-    @SneakyThrows
     public void payInvoice(Long orderId, Long clientId, LocalDate departureDate, LocalDate arrivalDate, Double amountAfterPaid) {
         Connection connection = null;
         try {

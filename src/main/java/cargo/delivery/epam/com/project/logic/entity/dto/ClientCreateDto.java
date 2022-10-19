@@ -2,7 +2,6 @@ package cargo.delivery.epam.com.project.logic.entity.dto;
 
 import cargo.delivery.epam.com.project.logic.entity.UserRole;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
 public class ClientCreateDto {

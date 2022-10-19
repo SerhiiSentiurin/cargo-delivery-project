@@ -13,6 +13,7 @@
         </c:if>
 
         <c:if test = "${reports.size() > 0}">
+
             <table class="table caption-top">
                 <caption>Orders</caption>
                 <tr>
@@ -125,7 +126,7 @@
                             </c:if>
 
                             <c:if test = "${report.order.isConfirmed == false}">
-                                <c:if test = "${report.order.invoice.isPaid == true}">
+                                <c:if test = "${report.order.invoice.isPaid == false}">
                                     <td></td>
                                 </c:if>
                             </c:if>
@@ -133,9 +134,6 @@
                     </c:forEach>
                 </c:if>
             </table>
-        </c:if>
-        <c:if test = "${reports.size() == 0}">
-            <h2>No orders with this data</h2>
         </c:if>
     </body>
 </html>

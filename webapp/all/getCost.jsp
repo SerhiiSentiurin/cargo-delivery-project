@@ -77,17 +77,20 @@
                     </div>
                 </c:if>
             </td>
-                <td align = "center">
-                    <div id="mapa"> </div>
-                </td>
-                <td>
-                    <h5>
-                        Some rules how to use this application...
-                    </h5>
-                </td>
+            <td align = "center">
+                <div id="mapa"> </div>
+            </td>
+            <td>
+                <p class="lh-lg" style="margin-left: 20px;">
+                    Welcome, you are logged in as an unregistered user.<br>
+                    Here you can calculate the delivery cost by entering <br>
+                    the relevant data above. The cost of delivery <br>
+                    depends on the weight, the volume of the cargo, <br>
+                    as well as delivery distance.<br>
+                    It is also possible to build and view the route on the map.<br>
+                </p>
+            </td>
         </table>
-        <br>
-
 
 
 

@@ -7,7 +7,6 @@ import cargo.delivery.epam.com.project.logic.entity.Report;
 import cargo.delivery.epam.com.project.logic.entity.dto.SortingDto;
 import lombok.RequiredArgsConstructor;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +14,11 @@ import java.util.List;
 public class ManagerService {
     private final ManagerDAO managerDAO;
     private final ReportFilteringDAO reportFilteringDAO;
+
+    public int getCountPagesFilter(SortingDto sortingDto) {
+        int filterRows = reportFilteringDAO.getFilterCount(sortingDto);
+        return (filterRows + 5 - 1) / 5;
+    }
 
     public List<Report> getAllOrders() {
         List<Report> allOrders = managerDAO.getAllOrders();
@@ -31,9 +35,9 @@ public class ManagerService {
         return setOrdersAndClientToReport(filteredReportList);
     }
 
-    public List<Report> getReportByDayAndDirection(String arrivalDate, String senderCity, String recipientCity){
-        List<Report> reportsByDayAndDirection = managerDAO.getReportByDayAndDirection(arrivalDate,senderCity,recipientCity);
-        if (reportsByDayAndDirection.isEmpty()){
+    public List<Report> getReportByDayAndDirection(String arrivalDate, String senderCity, String recipientCity) {
+        List<Report> reportsByDayAndDirection = managerDAO.getReportByDayAndDirection(arrivalDate, senderCity, recipientCity);
+        if (reportsByDayAndDirection.isEmpty()) {
             throw new AppException("No orders with this data! Try to enter another date or cities!");
         }
         return setOrdersAndClientToReport(reportsByDayAndDirection);
@@ -42,8 +46,6 @@ public class ManagerService {
     public void confirmOrder(Long orderId) {
         managerDAO.confirmOrder(orderId);
     }
-
-
 
     private List<Report> setOrdersAndClientToReport(List<Report> allOrders) {
         List<Report> reportList = new ArrayList<>();

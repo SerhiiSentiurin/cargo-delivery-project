@@ -9,6 +9,7 @@
         <table class="table table-bordered caption-top">
             <caption>
                 <form action = "/app/cargo/manager/getAllOrders/filter" method = "GET" id = "filter">
+                    <input type="hidden" name="page" value="1"/>
                     <button type = "submit"  class="btn btn-dark btn-sm">Find Order</button>
                 </form>
             </caption>
@@ -110,8 +111,17 @@
                 </c:forEach>
             </c:if>
         </table>
-        <c:if test = "${reports.size() == 0}">
-            <h2>No orders with this data</h2>
-        </c:if>
+
+            <div class="d-flex justify-content-center">
+                <c:if test = "${!empty paginationLinks}">
+                <c:set var="count" value="0" scope="page" />
+                  <c:forEach var = "link" items="${paginationLinks}">
+                  <c:set var="count" value="${count + 1}" scope="page"/>
+                  <ul>
+                     <a href="${link}">${count}</a>
+                  </ul>
+                  </c:forEach>
+                </c:if>
+            </div>
     </body>
 </html>

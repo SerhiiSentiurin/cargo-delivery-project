@@ -4,8 +4,6 @@ import cargo.delivery.epam.com.project.logic.entity.Client;
 import cargo.delivery.epam.com.project.logic.entity.Manager;
 import cargo.delivery.epam.com.project.logic.entity.User;
 import cargo.delivery.epam.com.project.logic.entity.UserRole;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 

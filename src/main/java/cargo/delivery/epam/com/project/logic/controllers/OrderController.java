@@ -38,21 +38,6 @@ public class OrderController {
         return modelAndView;
     }
 
-//    // /app/cargo/calculateDelivery
-//    // /app/cargo/client/calculateDelivery
-//    public ModelAndView getDeliveryCost(HttpServletRequest request) {
-//        ClientOrderDto dto = requestParameterMapper.handleRequest(request, ClientOrderDto.class);
-//        ClientOrderDto newOrderDto = orderService.calculateDeliveryCost(dto);
-//        ModelAndView modelAndView;
-//        if (dto.getClientId() == null) {
-//            modelAndView = ModelAndView.withView("/cargo/routes");
-//        } else {
-//            modelAndView = ModelAndView.withView("/cargo/client/routes");
-//        }
-//        modelAndView.addAttribute("order", newOrderDto);
-//        return modelAndView;
-//    }
-
     // /app/cargo/calculateDelivery
     public ModelAndView getDeliveryCostForNotRegisteredUser(HttpServletRequest request) {
         ModelAndView modelAndView = viewWithOrders(request);

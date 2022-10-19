@@ -138,8 +138,9 @@ public class ReportFilteringDAO {
         return invoice;
     }
 
-
-
+    public int getFilterCount(SortingDto sortingDto) {
+        return 19;
+    }
 
 
     //    @SneakyThrows

@@ -1,6 +1,7 @@
 package cargo.delivery.epam.com.project.logic.controllers;
 
 import cargo.delivery.epam.com.project.infrastructure.web.ModelAndView;
+import cargo.delivery.epam.com.project.infrastructure.web.PaginationLinksBuilder;
 import cargo.delivery.epam.com.project.infrastructure.web.RequestParameterMapper;
 import cargo.delivery.epam.com.project.logic.entity.Report;
 import cargo.delivery.epam.com.project.logic.entity.dto.SortingDto;
@@ -16,6 +17,7 @@ import java.util.List;
 public class ManagerController {
     private final ManagerService managerService;
     private final RequestParameterMapper requestParameterMapper;
+    private final PaginationLinksBuilder paginationLinksBuilder;
 
 
     // /app/cargo/manager/getAllOrders
@@ -50,8 +52,11 @@ public class ManagerController {
     public ModelAndView filterReports(HttpServletRequest request) {
         SortingDto dto = requestParameterMapper.handleRequest(request, SortingDto.class);
         List<Report> reportList = managerService.filterReports(dto);
+        final int countPagesFilter = managerService.getCountPagesFilter(dto);
+        final List<String> paginationLinks = paginationLinksBuilder.buildLinks(request, countPagesFilter);
         ModelAndView modelAndView = ModelAndView.withView("/manager/allOrders.jsp");
         modelAndView.addAttribute("reports", reportList);
+        modelAndView.addAttribute("paginationLinks", paginationLinks);
         return modelAndView;
     }
 

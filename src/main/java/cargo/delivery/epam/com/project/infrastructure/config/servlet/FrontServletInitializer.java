@@ -37,7 +37,7 @@ public class FrontServletInitializer implements ServletContainerInitializer {
         encoding.addMappingForUrlPatterns(null, false,"/*");
 
         FrontServlet frontServlet = createFrontServlet();
-        ServletRegistration.Dynamic dynamic = ctx.addServlet("frontServlet", frontServlet);
+        ServletRegistration.Dynamic dynamic = ctx.addServlet(frontServlet.getServletName(), frontServlet);
         dynamic.setLoadOnStartup(0);
         dynamic.addMapping("/cargo/*");
         log.info("Front Servlet was started");
@@ -116,7 +116,8 @@ public class FrontServletInitializer implements ServletContainerInitializer {
         ManagerDAO managerDAO = new ManagerDAO(dataSource);
         ReportFilteringDAO reportFilteringDAO = new ReportFilteringDAO(dataSource, preparerQuery);
         ManagerService managerService = new ManagerService(managerDAO, reportFilteringDAO);
-        return new ManagerController(managerService, requestParameterMapper);
+        PaginationLinksBuilder linksBuilder = new PaginationLinksBuilder();
+        return new ManagerController(managerService, requestParameterMapper, linksBuilder);
     }
 
 

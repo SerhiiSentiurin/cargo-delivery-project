@@ -23,4 +23,5 @@ public class SortingDto {
     private Double price;
     private Boolean isConfirmed;
     private Boolean isPaid;
+    private int page;
 }
