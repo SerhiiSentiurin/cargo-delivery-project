@@ -36,6 +36,7 @@
                     <form action ="/app/cargo/client/payInvoice" method = "POST" id = "payInvoice">
                         <input type = "hidden" name = "clientId" value = "${sessionScope.user.id}" />
                         <input type = "hidden" name = "orderId" value = "${order.id}" />
+                        <input type="hidden" name="page" value="1"/>
                         <button type = "submit"  class = "btn btn-primary">Pay invoice</button>
                     </form>
                 </td>

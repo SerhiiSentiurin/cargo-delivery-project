@@ -79,6 +79,7 @@
                         <input type = "hidden" name = "type" value = "${order.type}"/>
                         <input type = "hidden" name = "weight" value = "${order.weight}" />
                         <input type = "hidden" name = "volume" value = "${order.volume}" />
+                        <input type="hidden" name="page" value="1"/>
                         <button type = "submit"  class = "btn btn-primary">Get delivery order</button>
                     </form>
                 </c:if>

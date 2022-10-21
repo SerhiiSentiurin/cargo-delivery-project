@@ -4,13 +4,11 @@ import cargo.delivery.epam.com.project.infrastructure.web.ModelAndView;
 import cargo.delivery.epam.com.project.infrastructure.web.PaginationLinksBuilder;
 import cargo.delivery.epam.com.project.infrastructure.web.RequestParameterMapper;
 import cargo.delivery.epam.com.project.logic.entity.Report;
-import cargo.delivery.epam.com.project.logic.entity.dto.SortingDto;
+import cargo.delivery.epam.com.project.logic.entity.dto.FilteringDto;
 import cargo.delivery.epam.com.project.logic.services.ManagerService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 
-import java.sql.Date;
-import java.time.LocalDate;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -23,9 +21,13 @@ public class ManagerController {
     // /app/cargo/manager/getAllOrders
     public ModelAndView getAllOrders(HttpServletRequest request) {
         ModelAndView modelAndView = new ModelAndView();
-        List<Report> reportList = managerService.getAllOrders();
+        int page = Integer.parseInt(request.getParameter("page"));
+        List<Report> reportList = managerService.getAllOrders(page);
+        int countPages = managerService.getCountPagesAllOrders();
+        List<String> paginationLinks = paginationLinksBuilder.buildLinks(request, countPages);
         modelAndView.setView("/manager/allOrders.jsp");
         modelAndView.addAttribute("reports", reportList);
+        modelAndView.addAttribute("paginationLinks", paginationLinks);
         return modelAndView;
     }
 
@@ -50,10 +52,10 @@ public class ManagerController {
 
     // app/cargo/manager/allOrders/filter
     public ModelAndView filterReports(HttpServletRequest request) {
-        SortingDto dto = requestParameterMapper.handleRequest(request, SortingDto.class);
+        FilteringDto dto = requestParameterMapper.handleRequest(request, FilteringDto.class);
         List<Report> reportList = managerService.filterReports(dto);
-        final int countPagesFilter = managerService.getCountPagesFilter(dto);
-        final List<String> paginationLinks = paginationLinksBuilder.buildLinks(request, countPagesFilter);
+        int countPages = managerService.getCountPagesFiltered(dto);
+        List<String> paginationLinks = paginationLinksBuilder.buildLinks(request, countPages);
         ModelAndView modelAndView = ModelAndView.withView("/manager/allOrders.jsp");
         modelAndView.addAttribute("reports", reportList);
         modelAndView.addAttribute("paginationLinks", paginationLinks);

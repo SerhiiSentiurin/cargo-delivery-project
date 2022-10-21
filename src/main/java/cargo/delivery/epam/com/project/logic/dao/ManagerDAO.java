@@ -1,6 +1,7 @@
 package cargo.delivery.epam.com.project.logic.dao;
 
 import cargo.delivery.epam.com.project.logic.entity.*;
+import jakarta.servlet.ServletRegistration;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;
@@ -16,12 +17,26 @@ public class ManagerDAO {
     private final DataSource dataSource;
 
     @SneakyThrows
-    public List<Report> getAllOrders() {
-        String sql = "select client_id, order_id from report join orders on report.order_id = orders.id join invoice on orders.invoice_id = invoice.id order by isConfirmed asc, isPaid asc, order_id desc";
+    public double getCountOfRowsAllOrders() {
+        String sql = "select count(*) from report";
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(sql);
+             ResultSet resultSet = preparedStatement.executeQuery()) {
+            if (resultSet.next()) {
+                return resultSet.getDouble(1);
+            }
+        }
+        return 0;
+    }
+
+    @SneakyThrows
+    public List<Report> getAllOrders(int index) {
+        String sql = "select client_id, order_id from report join orders on report.order_id = orders.id join invoice on orders.invoice_id = invoice.id order by isConfirmed asc, isPaid asc, order_id desc limit ?, 10;";
         List<Report> reportList = new ArrayList<>();
         try (Connection connection = dataSource.getConnection();
-             Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery(sql)) {
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setInt(1, index);
+            ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 Report report = new Report();
                 Order order = new Order();
@@ -60,14 +75,14 @@ public class ManagerDAO {
     }
 
     @SneakyThrows
-    public List<Report> getReportByDayAndDirection(String arrivalDate, String senderCity, String recipientCity){
+    public List<Report> getReportByDayAndDirection(String arrivalDate, String senderCity, String recipientCity) {
         List<Report> reportList = new ArrayList<>();
         String sql = "select client_id, order_id from report join orders on report.order_id = orders.id join delivery on orders.delivery_id = delivery.id join route on delivery.route_id = route.id where arrival_date = ? and sender_city = ? and recipient_city = ?";
-        try(Connection connection  = dataSource.getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement(sql)){
-            preparedStatement.setDate(1,Date.valueOf(arrivalDate));
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setDate(1, Date.valueOf(arrivalDate));
             preparedStatement.setString(2, senderCity);
-            preparedStatement.setString(3,recipientCity);
+            preparedStatement.setString(3, recipientCity);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 Report report = new Report();

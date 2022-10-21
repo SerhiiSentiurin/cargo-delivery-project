@@ -4,7 +4,7 @@ import cargo.delivery.epam.com.project.infrastructure.web.exception.AppException
 import cargo.delivery.epam.com.project.logic.dao.ManagerDAO;
 import cargo.delivery.epam.com.project.logic.dao.ReportFilteringDAO;
 import cargo.delivery.epam.com.project.logic.entity.Report;
-import cargo.delivery.epam.com.project.logic.entity.dto.SortingDto;
+import cargo.delivery.epam.com.project.logic.entity.dto.FilteringDto;
 import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
@@ -14,14 +14,21 @@ import java.util.List;
 public class ManagerService {
     private final ManagerDAO managerDAO;
     private final ReportFilteringDAO reportFilteringDAO;
+    private final static int ORDERS_PER_PAGE = 10;
 
-    public int getCountPagesFilter(SortingDto sortingDto) {
-        int filterRows = reportFilteringDAO.getFilterCount(sortingDto);
-        return (filterRows + 5 - 1) / 5;
+    public int getCountPagesFiltered(FilteringDto dto) {
+        double filteredRows = reportFilteringDAO.getCountFilteredRows(dto);
+        return (int) Math.ceil(filteredRows / ORDERS_PER_PAGE);
     }
 
-    public List<Report> getAllOrders() {
-        List<Report> allOrders = managerDAO.getAllOrders();
+    public int getCountPagesAllOrders() {
+        double countOfRows = managerDAO.getCountOfRowsAllOrders();
+        return (int) Math.ceil(countOfRows / ORDERS_PER_PAGE);
+    }
+
+    public List<Report> getAllOrders(int page) {
+        int index = (page - 1) * ORDERS_PER_PAGE;
+        List<Report> allOrders = managerDAO.getAllOrders(index);
         return setOrdersAndClientToReport(allOrders);
     }
 
@@ -30,7 +37,8 @@ public class ManagerService {
         return setOrdersAndClientToReport(notConfirmedOrders);
     }
 
-    public List<Report> filterReports(SortingDto dto) {
+    public List<Report> filterReports(FilteringDto dto) {
+        dto.setPage((dto.getPage() - 1) * ORDERS_PER_PAGE);
         List<Report> filteredReportList = reportFilteringDAO.filterReports(dto);
         return setOrdersAndClientToReport(filteredReportList);
     }

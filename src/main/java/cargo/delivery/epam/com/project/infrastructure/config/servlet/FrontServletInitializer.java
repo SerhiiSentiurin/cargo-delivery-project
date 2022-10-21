@@ -103,7 +103,8 @@ public class FrontServletInitializer implements ServletContainerInitializer {
         ClientDAO clientDAO = new ClientDAO(dataSource);
         ReportFilteringDAO reportFilteringDAO = new ReportFilteringDAO(dataSource, preparerQuery);
         ClientService clientService = new ClientService(clientDAO, reportFilteringDAO);
-        return new ClientController(clientService, requestParameterMapper);
+        PaginationLinksBuilder linksBuilder = new PaginationLinksBuilder();
+        return new ClientController(clientService, requestParameterMapper, linksBuilder);
     }
 
     private OrderController createOrderController(RequestParameterMapper requestParameterMapper, DataSource dataSource) {

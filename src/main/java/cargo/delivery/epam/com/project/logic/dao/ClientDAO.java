@@ -86,12 +86,13 @@ public class ClientDAO {
     }
 
     @SneakyThrows
-    public List<Report> getReportsByClientId(Long clientId) {
-        String sql = "select client_id, order_id from report join orders on report.order_id=orders.id join invoice on orders.invoice_id=invoice.id where client_id = ? order by isConfirmed asc, isPaid asc, order_id desc";
+    public List<Report> getReportsByClientId(Long clientId, int index) {
+        String sql = "select client_id, order_id from report join orders on report.order_id=orders.id join invoice on orders.invoice_id=invoice.id where client_id = ? order by isConfirmed asc, isPaid asc, order_id desc limit ?, 10";
         List<Report> clientOrders = new ArrayList<>();
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setLong(1, clientId);
+            preparedStatement.setInt(2, index);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 Report report = new Report();
@@ -154,6 +155,21 @@ public class ClientDAO {
             preparedStatementClient.setLong(2, clientId);
             preparedStatementClient.execute();
         }
+    }
+
+    @SneakyThrows
+    public double getCountOfRowsAllOrdersClient(Long clientId){
+        String sql = "select count(*) from report where client_id = ?";
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setLong(1, clientId);
+             ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                return resultSet.getDouble(1);
+            }
+        }
+        return 0;
+
     }
 
     @SneakyThrows

@@ -1,7 +1,7 @@
 package cargo.delivery.epam.com.project.logic.dao;
 
 import cargo.delivery.epam.com.project.logic.entity.*;
-import cargo.delivery.epam.com.project.logic.entity.dto.SortingDto;
+import cargo.delivery.epam.com.project.logic.entity.dto.FilteringDto;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 
@@ -16,7 +16,7 @@ public class ReportFilteringDAO {
     private final PreparerQueryToReportFilteringDao preparer;
 
     @SneakyThrows
-    public List<Report> filterReports(SortingDto dto) {
+    public List<Report> filterReports(FilteringDto dto) {
         List<Report> reportList = new ArrayList<>();
         String sqlQueryToFiltering = preparer.buildCheckedQueryToFiltering(dto);
 
@@ -138,8 +138,20 @@ public class ReportFilteringDAO {
         return invoice;
     }
 
-    public int getFilterCount(SortingDto sortingDto) {
-        return 19;
+    @SneakyThrows
+    public double getCountFilteredRows(FilteringDto dto) {
+
+        String queryCountOfFilteredRows = preparer.buildQueryToCountRows(dto);
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(queryCountOfFilteredRows)) {
+            dto.setPage(null);
+            preparer.checkSortingDtoToNull(preparedStatement, dto);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                return resultSet.getDouble(1);
+            }
+            return 0;
+        }
     }
 
 

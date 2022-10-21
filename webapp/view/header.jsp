@@ -22,6 +22,7 @@
 
                     <c:if test = "${sessionScope.user.userRole == 'MANAGER'}">
                         <form action = "/app/cargo/manager/getAllOrders" method "GET">
+                            <input type="hidden" name="page" value="1">
                             <input type = "submit" class="btn btn-primary" value = 'Get all orders'/>
                         </form>
                     </c:if>
@@ -54,6 +55,7 @@
 
                     <c:if test = "${sessionScope.user.userRole == 'CLIENT'}">
                         <form action ="/app/cargo/client/getClientOrders" method = "GET">
+                            <input type="hidden" name="page" value="1">
                             <input type = "hidden" name="clientId" value = "${sessionScope.user.id}"/>
                             <input type = "submit" class="btn btn-primary" value = ' My orders '/>
                         </form>

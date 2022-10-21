@@ -18,4 +18,5 @@ public class PaginationLinksBuilder {
             links.add(url.replaceFirst(REGEX, "page=" + i));
         }
         return links;
-    }}
+    }
+}

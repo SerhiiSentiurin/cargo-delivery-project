@@ -63,8 +63,9 @@
                     </th>
                     <th>
                         <form action = "/app/cargo/client/getAllOrders/filter" method = "GET" id = "filter">
+                            <input type="hidden" name="page" value="1">
                             <button type = "submit"  class="btn btn-dark btn-sm">Find Order</button>
-                            <input type = "hidden" name = "clientId" value = "${sessionScope.user.id}">
+                            <input type = "hidden" name = "login" value = "${sessionScope.user.login}">
                         </form>
                     </th>
                 </tr>
@@ -134,6 +135,17 @@
                     </c:forEach>
                 </c:if>
             </table>
+            <div class="d-flex justify-content-center">
+                            <c:if test = "${!empty paginationLinks}">
+                            <c:set var="count" value="0" scope="page" />
+                              <c:forEach var = "link" items="${paginationLinks}">
+                              <c:set var="count" value="${count + 1}" scope="page"/>
+                              <ul>
+                                 <a href="${link}">${count}</a>
+                              </ul>
+                              </c:forEach>
+                            </c:if>
+                        </div>
         </c:if>
     </body>
 </html>

@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SortingDto {
+public class FilteringDto {
     private Long orderId;
     private String login;
     private String type;
@@ -23,5 +23,5 @@ public class SortingDto {
     private Double price;
     private Boolean isConfirmed;
     private Boolean isPaid;
-    private int page;
+    private Integer page;
 }
