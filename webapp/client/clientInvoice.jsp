@@ -1,5 +1,6 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="/WEB-INF/tag/language.tld" prefix="lang" %>
 <html>
     <body>
         <head>
@@ -11,15 +12,15 @@
         <c:if test = "${order != null}">
         <table class="table table-bordered" vertical-align = "center" style = "width: 600px ">
             <caption align = "top">
-                <h3 align = "center">Invoice</h3>
+                <h3 align = "center"><lang:print message = "clientInvoice.jsp.invoice"/></h3>
             </caption>
             <tr>
-                <th>Cargo type</th>
-                <th>Delivery from</th>
-                <th>Delivery to</th>
-                <th>Distance (km)</th>
-                <th>Price (UAH)</th>
-                <th>Choose arrival date</th>
+                <th><lang:print message = "common.message.table.cargo.type"/></th>
+                <th><lang:print message = "common.message.table.delivery.from"/></th>
+                <th><lang:print message = "common.message.table.delivery.to"/></th>
+                <th><lang:print message = "common.message.table.distance"/> <lang:print message = "common.message.table.(km)"/></th>
+                <th><lang:print message = "common.message.table.price"/>Price <lang:print message = "common.message.(uah)"/></th>
+                <th><lang:print message = "clientInvoice.jsp.choose.arrival.date"/></th>
             </tr>
             <tr>
                 <td>${order.type}</td>
@@ -37,7 +38,7 @@
                         <input type = "hidden" name = "clientId" value = "${sessionScope.user.id}" />
                         <input type = "hidden" name = "orderId" value = "${order.id}" />
                         <input type="hidden" name="page" value="1"/>
-                        <button type = "submit"  class = "btn btn-primary">Pay invoice</button>
+                        <button type = "submit"  class = "btn btn-primary"><lang:print message = "clientInvoice.jsp.pay.invoice"/></button>
                     </form>
                 </td>
             </tr>

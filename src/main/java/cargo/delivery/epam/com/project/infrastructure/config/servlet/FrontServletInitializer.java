@@ -7,6 +7,8 @@ import cargo.delivery.epam.com.project.infrastructure.web.*;
 import cargo.delivery.epam.com.project.infrastructure.web.exception.ExceptionHandler;
 import cargo.delivery.epam.com.project.infrastructure.web.filter.encoding.EncodingFilter;
 import cargo.delivery.epam.com.project.infrastructure.web.filter.security.SecurityFilter;
+import cargo.delivery.epam.com.project.infrastructure.web.listener.SessionListenerLocales;
+import cargo.delivery.epam.com.project.infrastructure.web.pagination.PaginationLinksBuilder;
 import cargo.delivery.epam.com.project.logic.controllers.ClientController;
 import cargo.delivery.epam.com.project.logic.controllers.OrderController;
 import cargo.delivery.epam.com.project.logic.controllers.ManagerController;
@@ -19,29 +21,34 @@ import jakarta.servlet.*;
 import lombok.extern.log4j.Log4j2;
 
 import javax.sql.DataSource;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 @Log4j2
 public class FrontServletInitializer implements ServletContainerInitializer {
     @Override
-    public void onStartup(Set<Class<?>> c, ServletContext ctx) throws ServletException {
+    public void onStartup(Set<Class<?>> c, ServletContext servletContext) throws ServletException {
 
-        // add listener
+        servletContext.addListener(createSessionListenerLocales());
 
-        FilterRegistration.Dynamic security = ctx.addFilter("security", new SecurityFilter());
-        security.addMappingForUrlPatterns(null,false,"/*");
-        FilterRegistration.Dynamic encoding = ctx.addFilter("encoding", new EncodingFilter());
-        encoding.addMappingForUrlPatterns(null, false,"/*");
+        FilterRegistration.Dynamic security = servletContext.addFilter("security", new SecurityFilter());
+        security.addMappingForUrlPatterns(null, false, "/*");
+        FilterRegistration.Dynamic encoding = servletContext.addFilter("encoding", new EncodingFilter());
+        encoding.addMappingForUrlPatterns(null, false, "/*");
 
         FrontServlet frontServlet = createFrontServlet();
-        ServletRegistration.Dynamic dynamic = ctx.addServlet(frontServlet.getServletName(), frontServlet);
+        ServletRegistration.Dynamic dynamic = servletContext.addServlet(frontServlet.getServletName(), frontServlet);
         dynamic.setLoadOnStartup(0);
         dynamic.addMapping("/cargo/*");
         log.info("Front Servlet was started");
 
+    }
+
+    private SessionListenerLocales createSessionListenerLocales() {
+        List<Locale> locales = new ArrayList<>();
+        Locale selectedLocale = new Locale("en");
+        locales.add(selectedLocale);
+        locales.add(new Locale("ua"));
+        return new SessionListenerLocales(locales, selectedLocale);
     }
 
     private FrontServlet createFrontServlet() {
@@ -66,11 +73,12 @@ public class FrontServletInitializer implements ServletContainerInitializer {
         UserController userController = createUserController(requestParameterMapper, dataSource);
         ClientController clientController = createClientController(requestParameterMapper, dataSource, preparerQuery);
         OrderController orderController = createOrderController(requestParameterMapper, dataSource);
-        ManagerController managerController = createManagerController(requestParameterMapper,dataSource, preparerQuery);
+        ManagerController managerController = createManagerController(requestParameterMapper, dataSource, preparerQuery);
 
 
         placeholders.add(new Placeholder("POST", "login", userController::login));
         placeholders.add(new Placeholder("POST", "logout", userController::logout));
+        placeholders.add(new Placeholder("POST", "changeLocale", userController::changeLocale));
         placeholders.add(new Placeholder("POST", "client/create", clientController::createNewClient));
         placeholders.add(new Placeholder("GET", "client/getWalletInfo", clientController::getWalletInfo));
         placeholders.add(new Placeholder("POST", "client/topUpWallet", clientController::topUpClientWallet));
@@ -80,12 +88,12 @@ public class FrontServletInitializer implements ServletContainerInitializer {
         placeholders.add(new Placeholder("GET", "client/getClientOrders", clientController::getClientOrders));
         placeholders.add(new Placeholder("GET", "client/getInvoice", clientController::getOrderForInvoice));
         placeholders.add(new Placeholder("POST", "client/payInvoice", clientController::payInvoice));
-        placeholders.add(new Placeholder("GET","client/getAllOrders/filter",clientController::filterOrders));
+        placeholders.add(new Placeholder("GET", "client/getAllOrders/filter", clientController::filterOrders));
         placeholders.add(new Placeholder("GET", "manager/getAllOrders", managerController::getAllOrders));
         placeholders.add(new Placeholder("GET", "manager/getNotConfirmedOrders", managerController::getNotConfirmedOrders));
         placeholders.add(new Placeholder("POST", "manager/confirmOrder", managerController::confirmOrder));
-        placeholders.add(new Placeholder("GET","manager/getAllOrders/filter",managerController::filterReports));
-        placeholders.add(new Placeholder("GET","manager/getReport",managerController::getReportByDayAndDirection));
+        placeholders.add(new Placeholder("GET", "manager/getAllOrders/filter", managerController::filterReports));
+        placeholders.add(new Placeholder("GET", "manager/getReport", managerController::getReportByDayAndDirection));
         placeholders.add(new Placeholder("GET", "routes", orderController::getRoutesForNonRegisterUser));
         placeholders.add(new Placeholder("GET", "calculateDelivery", orderController::getDeliveryCostForNotRegisteredUser));
 
@@ -113,7 +121,7 @@ public class FrontServletInitializer implements ServletContainerInitializer {
         return new OrderController(orderService, requestParameterMapper);
     }
 
-    private ManagerController createManagerController(RequestParameterMapper requestParameterMapper, DataSource dataSource, PreparerQueryToReportFilteringDao preparerQuery){
+    private ManagerController createManagerController(RequestParameterMapper requestParameterMapper, DataSource dataSource, PreparerQueryToReportFilteringDao preparerQuery) {
         ManagerDAO managerDAO = new ManagerDAO(dataSource);
         ReportFilteringDAO reportFilteringDAO = new ReportFilteringDAO(dataSource, preparerQuery);
         ManagerService managerService = new ManagerService(managerDAO, reportFilteringDAO);

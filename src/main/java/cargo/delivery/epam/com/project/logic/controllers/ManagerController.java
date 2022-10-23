@@ -1,7 +1,7 @@
 package cargo.delivery.epam.com.project.logic.controllers;
 
 import cargo.delivery.epam.com.project.infrastructure.web.ModelAndView;
-import cargo.delivery.epam.com.project.infrastructure.web.PaginationLinksBuilder;
+import cargo.delivery.epam.com.project.infrastructure.web.pagination.PaginationLinksBuilder;
 import cargo.delivery.epam.com.project.infrastructure.web.RequestParameterMapper;
 import cargo.delivery.epam.com.project.logic.entity.Report;
 import cargo.delivery.epam.com.project.logic.entity.dto.FilteringDto;

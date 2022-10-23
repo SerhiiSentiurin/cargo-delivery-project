@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="/WEB-INF/tag/language.tld" prefix="lang" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,8 +9,8 @@
     </head>
     <body>
         <p>
-            Something went wrong :(
+            <lang:print message = "internalError.jsp.something.went.wrong"/>
         </p>
-        <button class="btn btn-secondary" onclick="location.href='/app'" >Back</button>
+        <button class="btn btn-secondary" onclick="location.href='/app'" ><lang:print message = "internalError.jsp.back"/></button>
     </body>
 </html>

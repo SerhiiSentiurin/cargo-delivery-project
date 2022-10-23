@@ -10,7 +10,7 @@
 
     <tag>
         <name>print</name>
-        <tag-class></tag-class>
+        <tag-class>cargo.delivery.epam.com.project.infrastructure.web.tag.LanguageTagSupport</tag-class>
         <body-content>empty</body-content>
         <attribute>
             <name>message</name>

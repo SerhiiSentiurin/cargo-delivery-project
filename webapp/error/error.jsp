@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="/WEB-INF/tag/language.tld" prefix="lang" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,9 +11,9 @@
     <body>
         <p>
             <jsp:text>
-                error: ${message}
+                <lang:print message = "error.jsp.error"/> ${message}
             </jsp:text>
         </p>
-        <input type="button" class="btn btn-secondary" onclick="history.back();" value='Back'>
+        <input type="button" class="btn btn-secondary" onclick="history.back();" value='<lang:print message = "internalError.jsp.back"/>'>
     </body>
 </html>

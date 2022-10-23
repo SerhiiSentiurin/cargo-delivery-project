@@ -1,5 +1,6 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="/WEB-INF/tag/language.tld" prefix="lang" %>
 <html>
     <body>
         <head>
@@ -10,7 +11,7 @@
             <caption>
                 <form action = "/app/cargo/manager/getAllOrders/filter" method = "GET" id = "filter">
                     <input type="hidden" name="page" value="1"/>
-                    <button type = "submit"  class="btn btn-dark btn-sm">Find Order</button>
+                    <button type = "submit"  class="btn btn-dark btn-sm"><lang:print message = "common.message.button.find.order"/></button>
                 </form>
             </caption>
             <tr>
@@ -50,32 +51,32 @@
                 <th>
                         <select name = "isConfirmed" form = "filter" >
                             <option value="" selected>Choose...</option>
-                            <option value="true">Confirmed</option>
-                            <option value="false">Not confirmed</option>
+                            <option value="true"><lang:print message = "common.message.table.confirmed"/></option>
+                            <option value="false"><lang:print message = "common.message.table.not.confirmed"/></option>
                         </select>
                 </th>
                 <th>
                         <select name = "isPaid" form = "filter" >
                             <option value="" selected>Choose...</option>
-                            <option value='true'>Paid</option>
-                            <option value='false'>Not paid</option>
+                            <option value='true'><lang:print message = "common.message.table.paid"/></option>
+                            <option value='false'><lang:print message = "common.message.table.not.paid"/></option>
                         </select>
                 </th>
             </tr>
             <tr>
-                <th>Order <br> number <br></th>
-                <th>Client</th>
-                <th>Cargo type</th>
-                <th>Cargo weight (kg)</th>
-                <th>Cargo volume (m³)</th>
-                <th>Delivery from</th>
-                <th>Delivery to</th>
-                <th>Distance (km)</th>
-                <th>Departure date</th>
-                <th>Arrival date</th>
-                <th>Price</th>
-                <th>Confirmation</th>
-                <th>Payment</th>
+                <th><lang:print message = "common.message.table.order"/><br><lang:print message = "common.message.table.number"/><br></th>
+                <th><lang:print message = "common.message.table.client"/></th>
+                <th><lang:print message = "common.message.table.cargo.type"/></th>
+                <th><lang:print message = "common.message.table.cargo.weight"/> <lang:print message = "common.message.table.(kg)"/></th>
+                <th><lang:print message = "common.message.table.cargo.volume"/> <lang:print message = "common.message.table.(m³)"/></th>
+                <th><lang:print message = "common.message.table.delivery.from"/></th>
+                <th><lang:print message = "common.message.table.delivery.to"/></th>
+                <th><lang:print message = "common.message.table.distance"/> <lang:print message = "common.message.table.(km)"/></th>
+                <th><lang:print message = "common.message.table.departure.date"/></th>
+                <th><lang:print message = "common.message.table.arrival.date"/></th>
+                <th><lang:print message = "common.message.table.price"/> <lang:print message = "common.message.(uah)"/></th>
+                <th><lang:print message = "common.message.table.confirmation"/></th>
+                <th><lang:print message = "common.message.table.payment"/></th>
             </tr>
             <c:if test = "${reports.size() > 0}">
                 <c:forEach items="${reports}" var="report">
@@ -93,18 +94,18 @@
                         <td>${report.order.invoice.price}</td>
                         <td>
                             <c:if test="${report.order.isConfirmed == false}">
-                                <h6 style = "color:red">Not confirmed</h6>
+                                <h6 style = "color:red"><lang:print message = "common.message.table.not.confirmed"/></h6>
                             </c:if>
                             <c:if test="${report.order.isConfirmed == true}">
-                                <h6 style = "color:green">Confirmed</h6>
+                                <h6 style = "color:green"><lang:print message = "common.message.table.confirmed"/></h6>
                             </c:if>
                         </td>
                         <td>
                             <c:if test="${report.order.invoice.isPaid == false}">
-                                <h6 style = "color:red">Not paid :( </h6>
+                                <h6 style = "color:red"><lang:print message = "common.message.table.not.paid"/></h6>
                             </c:if>
                             <c:if test="${report.order.invoice.isPaid == true}">
-                                <h6 style = "color:green">Paid :) </h6>
+                                <h6 style = "color:green"><lang:print message = "common.message.table.paid"/></h6>
                             </c:if>
                         </td>
                     </tr>

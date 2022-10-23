@@ -1,5 +1,6 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="/WEB-INF/tag/language.tld" prefix="lang" %>
 <html>
     <body>
         <head>
@@ -9,9 +10,9 @@
         </head>
 
         <div class="input-group mb-3">
-            <label class="input-group-text" for="senderCity">Choose departure city</label>
+            <label class="input-group-text" for="senderCity"><lang:print message = "common.message.choose.departure.city"/></label>
             <select class="form-select"  name = "senderCity" form = "calculateCost" required>
-                <option value="" selected>Choose...</option>
+                <option value="" selected><lang:print message = "common.message.choose"/></option>
                 <c:forEach items="${routeSender}" var="route">
                 <option value="${route.senderCity}">${route.senderCity}</option>
                 </c:forEach>
@@ -19,9 +20,9 @@
         </div>
 
         <div class="input-group mb-3">
-            <label class="input-group-text" for="recipientCity">Choose arrival city</label>
+            <label class="input-group-text" for="recipientCity"><lang:print message = "common.message.choose.arrival.city"/></label>
             <select class="form-select"  name = "recipientCity" form = "calculateCost" required>
-                <option value="" selected>Choose...</option>
+                <option value="" selected><lang:print message = "common.message.choose"/></option>
                 <c:forEach items="${routeRecipient}" var="route">
                 <option value="${route.recipientCity}">${route.recipientCity}</option>
                 </c:forEach>
@@ -29,44 +30,44 @@
         </div>
 
         <div class="input-group mb-3">
-            <label class="input-group-text" for="type">Choose cargo type</label>
+            <label class="input-group-text" for="type"><lang:print message = "common.message.choose.cargo.type"/></label>
             <select class="form-select"  name = "type" form = "calculateCost"  required>
-                <option value="" selected>Choose...</option>
-                <option value="metal products">metalwork</option>
-                <option value="wood products">woodwork</option>
-                <option value="furniture">furniture</option>
-                <option value="spare parts for cars">spare parts for cars</option>
-                <option value="goods in boxes">goods in boxes</option>
-                <option value="goods on pallets">furniture</option>
-                <option value="other">other</option>
+                <option value="" selected><lang:print message = "common.message.choose"/></option>
+                <option value="metal products"><lang:print message = "common.message.metalwork"/></option>
+                <option value="wood products"><lang:print message = "common.message.woodwork"/></option>
+                <option value="furniture"><lang:print message = "common.message.furniture"/></option>
+                <option value="spare parts for cars"><lang:print message = "common.message.spare.parts.for.cars"/></option>
+                <option value="goods in boxes"><lang:print message = "common.message.goods.in.boxes"/></option>
+                <option value="goods on pallets"><lang:print message = "common.message.fragile.cargo"/></option>
+                <option value="other"><lang:print message = "common.message.other"/></option>
             </select>
         </div>
 
         <table class="table table-striped">
             <td align = "center">
                 <form action = "/app/cargo/client/calculateDelivery" method = "GET" id = "calculateCost">
-                    <label for = "Weight" >Weight (kg)</label>
+                    <label for = "Weight" ><lang:print message = "common.message.table.cargo.weight"/> <lang:print message = "common.message.table.(kg)"/></label>
                     <input type = "number" min = "0" max= "5000" step = 0.01 name="weight" id = "Weight" required/><br><br>
-                    <label for = "Volume">Volume (m³)</label>
+                    <label for = "Volume"><lang:print message = "common.message.table.cargo.volume"/> <lang:print message = "common.message.table.(m³)"/></label>
                     <input type = "number" min = "0" max= "25" step = 0.01 name="volume" id = "Volume" required/><br><br>
                     <input type = "hidden" name = "clientId" value = "${user.id}"/>
-                    <button type = "submit"  class = "btn btn-secondary">Get cost!</button>
+                    <button type = "submit"  class = "btn btn-secondary"><lang:print message = "getOrder.jsp.get.cost"/></button>
                 </form>
 
             </td>
             <td>
                 <c:if test = "${order != null}">
                     <div id = "results">
-                        <h3>Results: </h4>
-                        <h5>Sender city: ${order.senderCity}</h5>
-                        <h5>Arrival city: ${order.recipientCity}</h5>
-                        <h5>Distance (km): ${order.distance}</h5>
-                        <h5>Delivery cost: ${order.deliveryCost} (UAH)</h5>
-                        <h5>Cargo type: ${order.type}</h5>
+                        <h3><lang:print message = "common.message.results"/></h4>
+                        <h5><lang:print message = "common.message.sender.city"/> ${order.senderCity}</h5>
+                        <h5><lang:print message = "common.message.arrival.city"/> ${order.recipientCity}</h5>
+                        <h5><lang:print message = "common.message.table.distance"/> ${order.distance} <lang:print message = "common.message.table.(km)"/></h5>
+                        <h5><lang:print message = "common.message.delivery.cost"/> ${order.deliveryCost} <lang:print message = "common.message.(uah)"/></h5>
+                        <h5><lang:print message = "common.message.table.cargo.type"/> ${order.type}</h5>
 
                         <input type = "hidden" id = "from" value = "${order.senderCity}"/>
                         <input type = "hidden" id = "to" value = "${order.recipientCity}"/>
-                        <button type = "submit" onclick="calcRoutee()" class = "btn btn-secondary">Build a route</button>
+                        <button type = "submit" onclick="calcRoutee()" class = "btn btn-secondary"><lang:print message = "common.message.build.a.route"/></button>
                     </div>
 
                     <br></br>
@@ -80,7 +81,7 @@
                         <input type = "hidden" name = "weight" value = "${order.weight}" />
                         <input type = "hidden" name = "volume" value = "${order.volume}" />
                         <input type="hidden" name="page" value="1"/>
-                        <button type = "submit"  class = "btn btn-primary">Get delivery order</button>
+                        <button type = "submit"  class = "btn btn-primary"><lang:print message = "getOrder.jsp.get.delivery.order"/></button>
                     </form>
                 </c:if>
             </td>

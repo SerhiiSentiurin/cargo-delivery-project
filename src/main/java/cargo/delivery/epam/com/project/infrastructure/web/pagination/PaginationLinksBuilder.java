@@ -1,5 +1,4 @@
-package cargo.delivery.epam.com.project.infrastructure.web;
-
+package cargo.delivery.epam.com.project.infrastructure.web.pagination;
 
 import jakarta.servlet.http.HttpServletRequest;
 

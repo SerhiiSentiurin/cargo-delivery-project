@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 
+import java.util.Locale;
 import java.util.Map;
 
 @RequiredArgsConstructor
@@ -36,6 +37,18 @@ public class UserController {
         }
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setView("/index.jsp");
+        modelAndView.setRedirect(true);
+        return modelAndView;
+    }
+
+    public ModelAndView changeLocale(HttpServletRequest request) {
+        String selectedLocale = request.getParameter("selectedLocale");
+        String view = request.getParameter("view");
+        Locale locale = new Locale(selectedLocale);
+        HttpSession session = request.getSession(false);
+        session.setAttribute("selectedLocale", locale);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setView(view);
         modelAndView.setRedirect(true);
         return modelAndView;
     }

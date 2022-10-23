@@ -1,5 +1,6 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="/WEB-INF/tag/language.tld" prefix="lang" %>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -10,38 +11,38 @@
 
                     <div class="card-body">
                         <div class="card-title">
-                            <h5> Cargo Application  </h5>
+                            <h5><lang:print message = "header.jsp.cargo.application"/></h5>
                         </div>
                     </div>
 
                     <c:if test = "${sessionScope.user.userRole == 'MANAGER'}">
                         <form action ="/app/manager/managerHome.jsp" method = "GET">
-                            <input type = "submit" class="btn btn-primary" value = ' Home '/>
+                            <input type = "submit" class="btn btn-primary" value = '<lang:print message = "header.jsp.home"/>'/>
                         </form>
                     </c:if>
 
                     <c:if test = "${sessionScope.user.userRole == 'MANAGER'}">
                         <form action = "/app/cargo/manager/getAllOrders" method "GET">
                             <input type="hidden" name="page" value="1">
-                            <input type = "submit" class="btn btn-primary" value = 'Get all orders'/>
+                            <input type = "submit" class="btn btn-primary" value = '<lang:print message = "header.jsp.get.all.orders"/>'/>
                         </form>
                     </c:if>
 
                     <c:if test = "${sessionScope.user.userRole == 'MANAGER'}">
                         <form action = "/app/cargo/manager/getNotConfirmedOrders" method "GET">
-                            <input type = "submit" class="btn btn-primary" value = 'Get not confirmed orders'/>
+                            <input type = "submit" class="btn btn-primary" value = '<lang:print message = "header.jsp.get.not.confirmed.orders"/>'/>
                         </form>
                     </c:if>
 
                     <c:if test = "${sessionScope.user.userRole == 'CLIENT'}">
                         <form action ="/app/cargo/client/routes" method = "GET">
-                            <input type = "submit" class="btn btn-primary" value = ' Place an order for delivery '/>
+                            <input type = "submit" class="btn btn-primary" value = '<lang:print message = "header.jsp.place.an.order.for.delivery"/>'/>
                         </form>
                     </c:if>
 
                     <c:if test = "${sessionScope.user.userRole == 'CLIENT'}">
                         <form action ="/app/client/clientHome.jsp" method = "GET">
-                            <input type = "submit" class="btn btn-primary" value = ' Home '/>
+                            <input type = "submit" class="btn btn-primary" value = '<lang:print message = "header.jsp.home"/>'/>
                         </form>
                     </c:if>
 
@@ -49,7 +50,7 @@
                     <c:if test = "${sessionScope.user.userRole == 'CLIENT'}">
                         <form action ="/app/cargo/client/getWalletInfo" method = "GET">
                             <input type = "hidden" name="clientId" value = "${sessionScope.user.id}"/>
-                            <input type = "submit" class="btn btn-primary" value = 'My Wallet'/>
+                            <input type = "submit" class="btn btn-primary" value = '<lang:print message = "header.jsp.my.wallet"/>'/>
                         </form>
                     </c:if>
 
@@ -57,13 +58,15 @@
                         <form action ="/app/cargo/client/getClientOrders" method = "GET">
                             <input type="hidden" name="page" value="1">
                             <input type = "hidden" name="clientId" value = "${sessionScope.user.id}"/>
-                            <input type = "submit" class="btn btn-primary" value = ' My orders '/>
+                            <input type = "submit" class="btn btn-primary" value = '<lang:print message = "header.jsp.my.orders"/>'/>
                         </form>
                     </c:if>
 
                     <form action = "/app/cargo/logout" method = "POST" >
-                        <input type = "submit" class="btn btn-primary" value = 'Logout'/>
+                        <input type = "submit" class="btn btn-primary" value = '<lang:print message = "header.jsp.logout"/>'/>
                     </form>
+
+
 
                     <c:if test = "${sessionScope.user.id != null}">
                         <div class="icon" style = "text-align: center; width: 100px; ">
