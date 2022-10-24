@@ -66,14 +66,23 @@
                         <input type = "submit" class="btn btn-primary" value = '<lang:print message = "header.jsp.logout"/>'/>
                     </form>
 
-
-
                     <c:if test = "${sessionScope.user.id != null}">
                         <div class="icon" style = "text-align: center; width: 100px; ">
                             <img src="https://cdn-icons-png.flaticon.com/512/2206/2206200.png" alt="user" style = "width: 60px; height: 60px; line-height: 60px; border-radius: 50%; font-size: 20px; background: #000" />
                             <p>${sessionScope.user.login}</p>
                         </div>
                     </c:if>
+
+                    <form action = "/app/cargo/changeLocale" method = "POST">
+                        <input type = "submit" class="btn btn-secondary btn-sm" value = '<lang:print message = "common.message.update"/>'><br>
+                        <select name = "selectedLocale" >
+                            <c:forEach var = "locale" items = "${sessionScope.locales}">
+                                <option value = "${locale}">
+                                    ${locale}
+                                </option>
+                            </c:forEach>
+                        </select>
+                    </form>
                 </div>
             </div>
         </div>

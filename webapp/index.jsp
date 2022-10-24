@@ -14,9 +14,9 @@
         <div align = "center">
             <form action = "/app/cargo/login" method = "POST" >
                 <label for="name" ><lang:print message = "index.jsp.login"/></label><br>
-                <input type="text" name="login" pattern=".{3,}" title='Three or more characters required' required ><br><br>
+                <input type="text" name="login" pattern=".{3,}" title='<lang:print message = "index.jsp.title.login"/>' required ><br><br>
                 <label for="pass"><lang:print message = "index.jsp.password"/></label><br>
-                <input type="password" name="password" pattern="(?=.*\d)(?=.*[a-zа-яії])(?=.*[A-ZА-ЯІЇ]).{8,}" title='Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters' required><br><br>
+                <input type="password" name="password" pattern="(?=.*\d)(?=.*[a-zа-яії])(?=.*[A-ZА-ЯІЇ]).{8,}" title='<lang:print message = "index.jsp.title.password"/>' required><br><br>
                 <input type = "submit" style="width: 8%" class="btn btn-primary" value='<lang:print message = "index.jsp.log.in"/>'>
                 <br><br>
                 <input type = "submit" style="width: 8%" class="btn btn-primary" formaction="/app/cargo/client/create" value='<lang:print message = "index.jsp.sign.up"/>'>
@@ -30,9 +30,9 @@
             <form action = "/app/cargo/routes" method = "GET">
             <input type = "submit" class = "btn btn-secondary" value = '<lang:print message = "index.jsp.get.cost"/>'/>
             </form>
-
+            <br><br><br>
             <form action = "/app/cargo/changeLocale" method = "POST">
-                <input type = "hidden" name = "view" value = "/index.jsp"/>
+                <input type = "submit" class="btn btn-secondary" value = '<lang:print message = "common.message.update"/>'><br>
                 <select name = "selectedLocale">
                     <c:forEach var = "locale" items = "${sessionScope.locales}">
                         <option value = "${locale}">
@@ -40,7 +40,6 @@
                         </option>
                     </c:forEach>
                 </select>
-                <input type = "submit" value = 'Update'>
             </form>
 
         </div>

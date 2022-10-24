@@ -16,9 +16,9 @@
             <label for = "date"><lang:print message = "managerHome.jsp.enter.arrivalDate"/></label><br>
             <input type = "date" name = "arrivalDate" style="width: 12%" required><br><br>
             <label for = "departureCity"><lang:print message = "managerHome.jsp.departure.city"/></label><br>
-            <input type = "text" name = "senderCity" pattern="([A-Za-z](-*?)([A-Za-z]?)){4,15}" style="width: 12%" title='Must contain only latin letters' required><br><br>
+            <input type = "text" name = "senderCity" pattern="([A-Za-z](-*?)([A-Za-z]?)){4,15}" style="width: 12%" title='<lang:print message = "common.message.title.must.contain.only.latin.letters"/>' required><br><br>
             <label for = "recipientCity"><lang:print message = "managerHome.jsp.recipient.city"/> </label><br>
-            <input type = "text" name = "recipientCity" pattern="([A-Za-z](-*?)([A-Za-z]?)){4,15}" style="width: 12%" title='Must contain only latin letters' required><br>
+            <input type = "text" name = "recipientCity" pattern="([A-Za-z](-*?)([A-Za-z]?)){4,15}" style="width: 12%" title='<lang:print message = "common.message.title.must.contain.only.latin.letters"/>' required><br>
             <input type = "submit" class="btn btn-primary" value = '<lang:print message = "managerHome.jsp.get.report"/>'/>
         </form>
 

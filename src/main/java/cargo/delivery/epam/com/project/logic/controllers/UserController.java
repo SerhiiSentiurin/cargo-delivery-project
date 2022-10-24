@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.Locale;
 import java.util.Map;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 public class UserController {
@@ -43,7 +44,7 @@ public class UserController {
 
     public ModelAndView changeLocale(HttpServletRequest request) {
         String selectedLocale = request.getParameter("selectedLocale");
-        String view = request.getParameter("view");
+        String view = request.getHeader("referer").substring(25);
         Locale locale = new Locale(selectedLocale);
         HttpSession session = request.getSession(false);
         session.setAttribute("selectedLocale", locale);

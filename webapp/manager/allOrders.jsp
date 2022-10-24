@@ -22,7 +22,7 @@
                         <input type = "text" name = "login" size = "5" form = "filter" /><br>
                 </th>
                 <th>
-                        <input type = "text" name = "type" size = "12" form ="filter" pattern = "([a-zA-Z ])*" title='Must contain only latin letters' /><br>
+                        <input type = "text" name = "type" size = "12" form ="filter" pattern = "([a-zA-Z ])*" title='<lang:print message = "common.message.title.must.contain.only.latin.letters"/>' /><br>
                 </th>
                 <th>
                         <input type = "number" name = "weight" min= "1" step = "0.1" size = "12" form = "filter" /><br>
@@ -31,19 +31,19 @@
                         <input type = "number" name = "volume" step = "0.1" min= "1" size = "12" form = "filter"  /><br>
                 </th>
                 <th>
-                        <input type = "text" name = "senderCity" size = "8" form = "filter" pattern = "([a-zA-Z ])*" title='Must contain only latin letters' /><br>
+                        <input type = "text" name = "senderCity" size = "8" form = "filter" pattern = "([a-zA-Z ])*" title='<lang:print message = "common.message.title.must.contain.only.latin.letters"/>' /><br>
                 </th>
                 <th>
-                        <input type = "text" name = "recipientCity" size = "8" form = "filter" pattern = "([a-zA-Z ])*" title='Must contain only latin letters' /><br>
+                        <input type = "text" name = "recipientCity" size = "8" form = "filter" pattern = "([a-zA-Z ])*" title='<lang:print message = "common.message.title.must.contain.only.latin.letters"/>' /><br>
                 </th>
                 <th>
                         <input type = "number" name = "distance" min= "1" step = "0.1" size = "8" form = "filter" /><br>
                 </th>
                 <th>
-                        <input type = "text" name = "departureDate" size = "10" form = "filter" pattern = "^[0-9]{4}-(((0[13578]|(10|12))-(0[1-9]|[1-2][0-9]|3[0-1]))|(02-(0[1-9]|[1-2][0-9]))|((0[469]|11)-(0[1-9]|[1-2][0-9]|30)))$" title='Format expected YYYY-MM-DD' /><br>
+                        <input type = "text" name = "departureDate" size = "10" form = "filter" pattern = "^[0-9]{4}-(((0[13578]|(10|12))-(0[1-9]|[1-2][0-9]|3[0-1]))|(02-(0[1-9]|[1-2][0-9]))|((0[469]|11)-(0[1-9]|[1-2][0-9]|30)))$" title='<lang:print message = "common.message.title.format.expected.yyyy.mm.dd"/>' /><br>
                 </th>
                 <th>
-                        <input type = "text" name = "arrivalDate" size = "10" form = "filter" pattern = "^[0-9]{4}-(((0[13578]|(10|12))-(0[1-9]|[1-2][0-9]|3[0-1]))|(02-(0[1-9]|[1-2][0-9]))|((0[469]|11)-(0[1-9]|[1-2][0-9]|30)))$" title='Format expected YYYY-MM-DD' /><br>
+                        <input type = "text" name = "arrivalDate" size = "10" form = "filter" pattern = "^[0-9]{4}-(((0[13578]|(10|12))-(0[1-9]|[1-2][0-9]|3[0-1]))|(02-(0[1-9]|[1-2][0-9]))|((0[469]|11)-(0[1-9]|[1-2][0-9]|30)))$" title='<lang:print message = "common.message.title.format.expected.yyyy.mm.dd"/>' /><br>
                 </th>
                 <th>
                         <input type = "number" name = "price" size = "5" min= "0" step = "0.1" form = "filter" /><br>
