@@ -15,7 +15,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ReportFilteringDAO {
     private final DataSource dataSource;
-//    private final PreparerQueryToReportFilteringDao preparer;
     private final PreparerQueryToFiltering preparerQuery;
     private final SetterFilteredFieldToPreparedStatement setterFilteredFieldToPreparedStatement;
 
@@ -26,8 +25,7 @@ public class ReportFilteringDAO {
 
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sqlQueryToFiltering)) {
-//            preparer.checkSortingDtoToNull(preparedStatement, dto);
-            setterFilteredFieldToPreparedStatement.setFieldsFromDtoToPreparedStatement(preparedStatement,dto);
+            setterFilteredFieldToPreparedStatement.setFieldsFromDtoToPreparedStatement(preparedStatement, dto);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 Report report = new Report();
@@ -150,8 +148,7 @@ public class ReportFilteringDAO {
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(queryCountOfFilteredRows)) {
             dto.setPage(null);
-//            preparer.checkSortingDtoToNull(preparedStatement, dto);
-            setterFilteredFieldToPreparedStatement.setFieldsFromDtoToPreparedStatement(preparedStatement,dto);
+            setterFilteredFieldToPreparedStatement.setFieldsFromDtoToPreparedStatement(preparedStatement, dto);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 return resultSet.getDouble(1);

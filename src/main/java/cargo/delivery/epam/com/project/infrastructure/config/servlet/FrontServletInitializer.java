@@ -71,13 +71,11 @@ public class FrontServletInitializer implements ServletContainerInitializer {
         DataSource dataSource = new ConfigDataSource().createDataSource(configLoader);
         ConfigLiquibase configLiquibase = new ConfigLiquibase(dataSource);
         configLiquibase.updateDatabase(configLoader);
-        PreparerQueryToReportFilteringDao preparerQuery = new PreparerQueryToReportFilteringDao();
 
         UserController userController = createUserController(requestParameterMapper, dataSource);
-        ClientController clientController = createClientController(requestParameterMapper, dataSource, preparerQuery);
+        ClientController clientController = createClientController(requestParameterMapper, dataSource);
         OrderController orderController = createOrderController(requestParameterMapper, dataSource);
-        ManagerController managerController = createManagerController(requestParameterMapper, dataSource, preparerQuery);
-
+        ManagerController managerController = createManagerController(requestParameterMapper, dataSource);
 
         placeholders.add(new Placeholder("POST", "login", userController::login));
         placeholders.add(new Placeholder("POST", "logout", userController::logout));
@@ -110,18 +108,9 @@ public class FrontServletInitializer implements ServletContainerInitializer {
         return new UserController(userService, requestParameterMapper, mapView);
     }
 
-    private ClientController createClientController(RequestParameterMapper requestParameterMapper, DataSource dataSource, PreparerQueryToReportFilteringDao preparerQuery) {
+    private ClientController createClientController(RequestParameterMapper requestParameterMapper, DataSource dataSource) {
         ClientDAO clientDAO = new ClientDAO(dataSource);
-        PreparerQueryToFiltering preparerQueryToFiltering = new PreparerQueryToFiltering();
-        List<MapDtoFieldToPreparedStatement> list = new ArrayList<>();
-        list.add(new MapStringToPreparedStatement());
-        list.add(new MapBooleanToPreparedStatement());
-        list.add(new MapIntegerToPreparedStatement());
-        list.add(new MapLongToPreparedStatement());
-        list.add(new MapDoubleToPreparedStatement());
-
-        SetterFilteredFieldToPreparedStatement setterFilteredFieldToPreparedStatement = new SetterFilteredFieldToPreparedStatement(list);
-        ReportFilteringDAO reportFilteringDAO = new ReportFilteringDAO(dataSource,preparerQueryToFiltering, setterFilteredFieldToPreparedStatement);
+        ReportFilteringDAO reportFilteringDAO = createReportFilteringDao(dataSource);
         ClientService clientService = new ClientService(clientDAO, reportFilteringDAO);
         PaginationLinksBuilder linksBuilder = new PaginationLinksBuilder();
         return new ClientController(clientService, requestParameterMapper, linksBuilder);
@@ -133,21 +122,24 @@ public class FrontServletInitializer implements ServletContainerInitializer {
         return new OrderController(orderService, requestParameterMapper);
     }
 
-    private ManagerController createManagerController(RequestParameterMapper requestParameterMapper, DataSource dataSource, PreparerQueryToReportFilteringDao preparerQuery) {
+    private ManagerController createManagerController(RequestParameterMapper requestParameterMapper, DataSource dataSource) {
         ManagerDAO managerDAO = new ManagerDAO(dataSource);
-        PreparerQueryToFiltering preparerQueryToFiltering = new PreparerQueryToFiltering();
-        List<MapDtoFieldToPreparedStatement> list = new ArrayList<>();
-        list.add(new MapStringToPreparedStatement());
-        list.add(new MapBooleanToPreparedStatement());
-        list.add(new MapIntegerToPreparedStatement());
-        list.add(new MapLongToPreparedStatement());
-        list.add(new MapDoubleToPreparedStatement());
-
-        SetterFilteredFieldToPreparedStatement setterFilteredFieldToPreparedStatement = new SetterFilteredFieldToPreparedStatement(list);
-        ReportFilteringDAO reportFilteringDAO = new ReportFilteringDAO(dataSource,preparerQueryToFiltering, setterFilteredFieldToPreparedStatement);
+        ReportFilteringDAO reportFilteringDAO = createReportFilteringDao(dataSource);
         ManagerService managerService = new ManagerService(managerDAO, reportFilteringDAO);
         PaginationLinksBuilder linksBuilder = new PaginationLinksBuilder();
-        return new ManagerController(managerService, requestParameterMapper, linksBuilder);
+        return new ManagerController(managerService,requestParameterMapper, linksBuilder);
+    }
+
+    private ReportFilteringDAO createReportFilteringDao(DataSource dataSource){
+        List<MapDtoFieldToPreparedStatement> filteringChain = new ArrayList<>();
+        filteringChain.add(new MapStringToPreparedStatement());
+        filteringChain.add(new MapBooleanToPreparedStatement());
+        filteringChain.add(new MapIntegerToPreparedStatement());
+        filteringChain.add(new MapLongToPreparedStatement());
+        filteringChain.add(new MapDoubleToPreparedStatement());
+        PreparerQueryToFiltering preparerQueryToFiltering = new PreparerQueryToFiltering();
+        SetterFilteredFieldToPreparedStatement setterFilteredFieldToPreparedStatement = new SetterFilteredFieldToPreparedStatement(filteringChain);
+        return new ReportFilteringDAO(dataSource,preparerQueryToFiltering, setterFilteredFieldToPreparedStatement);
     }
 
 

@@ -150,7 +150,7 @@ public class OrderDAO {
         try {
             connection = dataSource.getConnection();
             connection.setAutoCommit(false);
-            insertIntoReport(connection,dto);
+            insertIntoReport(connection, dto);
             connection.commit();
         } catch (Exception e) {
             rollback(connection);
@@ -209,13 +209,13 @@ public class OrderDAO {
     }
 
     @SneakyThrows
-    private Long insertIntoOrder(Connection connection, ClientOrderDto dto){
+    private Long insertIntoOrder(Connection connection, ClientOrderDto dto) {
         String insertIntoOrder = "insert into orders (type, weight, volume, delivery_id, invoice_id) values (?, ?, ?, ?, ?)"; // dto,dto,dto, KEYS_delivery, KEYS_invoice
         PreparedStatement preparedStatementOrder = null;
         ResultSet resultSetOrder = null;
-        Long invoiceId = insertIntoInvoice(connection,dto);
-        Long deliveryId = insertIntoDelivery(connection,dto);
-        try{
+        Long invoiceId = insertIntoInvoice(connection, dto);
+        Long deliveryId = insertIntoDelivery(connection, dto);
+        try {
             preparedStatementOrder = connection.prepareStatement(insertIntoOrder, Statement.RETURN_GENERATED_KEYS);
             preparedStatementOrder.setString(1, dto.getType());
             preparedStatementOrder.setDouble(2, dto.getWeight());
@@ -238,16 +238,16 @@ public class OrderDAO {
     }
 
     @SneakyThrows
-    private void insertIntoReport(Connection connection, ClientOrderDto dto){
+    private void insertIntoReport(Connection connection, ClientOrderDto dto) {
         String insertIntoReport = "insert into report (client_id, order_id) values(?, ?)"; // dto, KEYS_order
         PreparedStatement preparedStatementReport = null;
-        Long orderId = insertIntoOrder(connection,dto);
-        try{
+        Long orderId = insertIntoOrder(connection, dto);
+        try {
             preparedStatementReport = connection.prepareStatement(insertIntoReport);
             preparedStatementReport.setLong(1, dto.getClientId());
             preparedStatementReport.setLong(2, orderId);
             preparedStatementReport.execute();
-        }catch (Exception e) {
+        } catch (Exception e) {
             log.error(e.getMessage());
             throw new AppException("Cannot create order!");
         } finally {

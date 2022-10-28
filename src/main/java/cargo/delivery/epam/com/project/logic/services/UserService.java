@@ -17,11 +17,11 @@ public class UserService {
 
         User user = userDAO.getUserByLogin(userDto.getLogin())
                 .orElseThrow(() -> new AppException("User with this login does not exist!"));
-       if (!user.getPassword().equals(userDto.getPassword())){
+        if (!user.getPassword().equals(userDto.getPassword())) {
             throw new AppException("Password is incorrect!");
-       }
+        }
 
-       log.info("User with login: "+ userDto.getLogin()+", was entered");
-       return user;
+        log.info("User with login: " + userDto.getLogin() + ", was entered");
+        return user;
     }
 }

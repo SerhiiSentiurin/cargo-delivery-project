@@ -5,12 +5,12 @@ import lombok.SneakyThrows;
 
 import java.sql.PreparedStatement;
 
-public class MapLongToPreparedStatement implements MapDtoFieldToPreparedStatement{
+public class MapLongToPreparedStatement implements MapDtoFieldToPreparedStatement {
     @SneakyThrows
     @Override
     public void map(Object field, PreparedStatement preparedStatement, int index, FilteringDto dto) {
         Long longValue = (Long) field;
-            preparedStatement.setLong(index,longValue);
+        preparedStatement.setLong(index, longValue);
     }
 
     @Override

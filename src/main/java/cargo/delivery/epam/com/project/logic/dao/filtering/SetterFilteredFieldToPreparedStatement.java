@@ -5,6 +5,7 @@ import cargo.delivery.epam.com.project.logic.entity.dto.FilteringDto;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,10 +50,8 @@ public class SetterFilteredFieldToPreparedStatement {
     }
 
 
-
-
 //    @SneakyThrows
-//    public void checkSortingDtoToNull(PreparedStatement preparedStatement, FilteringDto dto) {
+//    public void setFieldsFromDtoToPreparedStatement(PreparedStatement preparedStatement, FilteringDto dto) {
 //        List<Object> dtoFields = collectToListDtoFields(dto);
 //        int index = 0;
 //        for (Object field : dtoFields) {

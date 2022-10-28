@@ -23,7 +23,7 @@ public class ClientDAO {
         try {
             connection = dataSource.getConnection();
             connection.setAutoCommit(false);
-            insertIntoClient(connection,dto);
+            insertIntoClient(connection, dto);
             connection.commit();
         } catch (Exception e) {
             rollback(connection);
@@ -34,42 +34,42 @@ public class ClientDAO {
         }
     }
 
-    private Long insertIntoUser(Connection connection, ClientCreateDto dto){
+    private Long insertIntoUser(Connection connection, ClientCreateDto dto) {
         String insertIntoUser = "INSERT INTO user (login, password, role) VALUES (?,?,?)";
         PreparedStatement preparedStatementUser = null;
         ResultSet resultSetUser = null;
-        try{
+        try {
             preparedStatementUser = connection.prepareStatement(insertIntoUser, Statement.RETURN_GENERATED_KEYS);
             preparedStatementUser.setString(1, dto.getLogin());
             preparedStatementUser.setString(2, dto.getPassword());
             preparedStatementUser.setString(3, dto.getUserRole().toString());
             preparedStatementUser.execute();
             resultSetUser = preparedStatementUser.getGeneratedKeys();
-            if (resultSetUser.next()){
+            if (resultSetUser.next()) {
                 return resultSetUser.getLong(1);
             }
             return 0L;
-        }catch (Exception e){
+        } catch (Exception e) {
             log.error(e.getMessage());
             throw new AppException("Cannot insert User!");
-        }finally {
+        } finally {
             close(resultSetUser);
             close(preparedStatementUser);
         }
     }
 
-    private void insertIntoClient(Connection connection, ClientCreateDto dto){
+    private void insertIntoClient(Connection connection, ClientCreateDto dto) {
         String insertIntoClient = "INSERT INTO client (id, amount) VALUES(?, 0)";
-        Long clientId = insertIntoUser(connection,dto);
+        Long clientId = insertIntoUser(connection, dto);
         PreparedStatement preparedStatementClient = null;
-        try{
+        try {
             preparedStatementClient = connection.prepareStatement(insertIntoClient);
             preparedStatementClient.setLong(1, clientId);
             preparedStatementClient.execute();
-        }catch (Exception e){
+        } catch (Exception e) {
             log.error(e.getMessage());
             throw new AppException("Cannot insert Client!");
-        }finally {
+        } finally {
             close(preparedStatementClient);
         }
     }
@@ -158,12 +158,12 @@ public class ClientDAO {
     }
 
     @SneakyThrows
-    public double getCountOfRowsAllOrdersClient(Long clientId){
+    public double getCountOfRowsAllOrdersClient(Long clientId) {
         String sql = "select count(*) from report where client_id = ?";
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setLong(1, clientId);
-             ResultSet resultSet = preparedStatement.executeQuery();
+            ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 return resultSet.getDouble(1);
             }

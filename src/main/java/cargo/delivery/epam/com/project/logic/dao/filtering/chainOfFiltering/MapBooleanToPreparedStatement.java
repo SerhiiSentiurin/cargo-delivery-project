@@ -5,7 +5,7 @@ import lombok.SneakyThrows;
 
 import java.sql.PreparedStatement;
 
-public class MapBooleanToPreparedStatement implements MapDtoFieldToPreparedStatement{
+public class MapBooleanToPreparedStatement implements MapDtoFieldToPreparedStatement {
     @SneakyThrows
     @Override
     public void map(Object field, PreparedStatement preparedStatement, int index, FilteringDto dto) {

@@ -11,12 +11,10 @@ public class PreparerQueryToFiltering {
     }
 
     public String buildCheckedQueryToCountRows(FilteringDto dto) {
-        String startQuery =  "select count(*) ";
+        String startQuery = "select count(*) ";
         String endQuery = checkFullQuery(dto);
         return startQuery.concat(endQuery);
     }
-
-
 
     private String checkFullQuery(FilteringDto dto) {
         String departureDateInQuery = checkDepartureDateDtoField(dto);

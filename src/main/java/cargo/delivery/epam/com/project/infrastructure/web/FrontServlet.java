@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
 import java.io.IOException;
+
 @Log4j2
 @RequiredArgsConstructor
 public class FrontServlet extends HttpServlet {
@@ -26,9 +27,9 @@ public class FrontServlet extends HttpServlet {
         ModelAndView modelAndView;
         try {
             modelAndView = processorRequest.processRequest(req);
-        }catch (Exception e){
+        } catch (Exception e) {
             modelAndView = exceptionHandler.handle(e);
         }
-        processorModelAndView.crateModelAndView(req,resp,modelAndView,this);
+        processorModelAndView.crateModelAndView(req, resp, modelAndView, this);
     }
 }

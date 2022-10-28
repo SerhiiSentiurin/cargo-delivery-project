@@ -14,11 +14,11 @@ public class ConfigLoader {
     @Getter
     private final Map<String, String> configs;
 
-    public ConfigLoader(){
+    public ConfigLoader() {
         this.configs = new HashMap<>();
     }
 
-    public void loadConfigurations(String configPath){
+    public void loadConfigurations(String configPath) {
         Properties properties = new Properties();
         try {
             InputStream inputStream = getClass().getClassLoader().getResourceAsStream(configPath);
@@ -26,9 +26,9 @@ public class ConfigLoader {
             properties.stringPropertyNames()
                     .stream()
                     .iterator()
-                    .forEachRemaining(name->configs.put(name,properties.getProperty(name)));
+                    .forEachRemaining(name -> configs.put(name, properties.getProperty(name)));
             log.info("Properties was loaded successfully");
-        }catch (IOException e){
+        } catch (IOException e) {
             log.error(e.getMessage());
         }
     }

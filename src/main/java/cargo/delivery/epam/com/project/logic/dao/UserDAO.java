@@ -23,16 +23,16 @@ public class UserDAO {
         User enteringUser;
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.setString(1,login);
+            preparedStatement.setString(1, login);
             ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()){
+            if (resultSet.next()) {
                 Long id = resultSet.getLong("id");
                 String password = resultSet.getString("password");
                 String userRole = resultSet.getString("role");
-                if (userRole.equals("MANAGER")){
-                    enteringUser= new Manager();
+                if (userRole.equals("MANAGER")) {
+                    enteringUser = new Manager();
                     enteringUser.setUserRole(UserRole.MANAGER);
-                }else {
+                } else {
                     enteringUser = new Client();
                     enteringUser.setUserRole(UserRole.CLIENT);
                 }

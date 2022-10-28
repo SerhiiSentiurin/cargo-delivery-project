@@ -5,10 +5,10 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class Client extends User{
+public class Client extends User {
     private Double amount;
 
-    public Client(){
+    public Client() {
         this.setUserRole(UserRole.CLIENT);
     }
 

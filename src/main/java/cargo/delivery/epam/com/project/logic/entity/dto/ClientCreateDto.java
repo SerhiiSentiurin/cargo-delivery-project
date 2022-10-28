@@ -10,11 +10,11 @@ public class ClientCreateDto {
     private String password;
     private UserRole userRole;
 
-    public ClientCreateDto(){
+    public ClientCreateDto() {
         this.userRole = UserRole.CLIENT;
     }
 
-    public ClientCreateDto(Long id, String login,String password){
+    public ClientCreateDto(Long id, String login, String password) {
         this.id = id;
         this.login = login;
         this.password = password;

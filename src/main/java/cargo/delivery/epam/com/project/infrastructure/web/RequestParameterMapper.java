@@ -13,16 +13,16 @@ import java.util.Map;
 public class RequestParameterMapper {
     private final ObjectMapper objectMapper;
 
-    public <T>T handleRequest(HttpServletRequest request, Class<T> tClass){
+    public <T> T handleRequest(HttpServletRequest request, Class<T> tClass) {
         Map<String, String> parameters = new HashMap<>();
         Enumeration<String> parameterNames = request.getParameterNames();
-        while (parameterNames.hasMoreElements()){
+        while (parameterNames.hasMoreElements()) {
             String nameOfParameter = parameterNames.nextElement();
             String valueOfParameter = request.getParameter(nameOfParameter);
             parameters.put(nameOfParameter, valueOfParameter);
             objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         }
-        return objectMapper.convertValue(parameters,tClass);
+        return objectMapper.convertValue(parameters, tClass);
 
     }
 }

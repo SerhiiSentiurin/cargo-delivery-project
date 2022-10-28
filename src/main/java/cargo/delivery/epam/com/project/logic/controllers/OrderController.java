@@ -65,7 +65,7 @@ public class OrderController {
     public ModelAndView createOrder(HttpServletRequest request) {
         ClientOrderDto dto = requestParameterMapper.handleRequest(request, ClientOrderDto.class);
         int page = Integer.parseInt(request.getParameter("page"));
-        ModelAndView modelAndView = ModelAndView.withView("/cargo/client/getClientOrders?clientId=" + dto.getClientId()+"&page="+page);
+        ModelAndView modelAndView = ModelAndView.withView("/cargo/client/getClientOrders?clientId=" + dto.getClientId() + "&page=" + page);
         orderService.createOrder(dto);
         modelAndView.setRedirect(true);
         return modelAndView;

@@ -12,7 +12,7 @@ import java.util.List;
 public class OrderService {
     private final OrderDAO orderDAO;
 
-    public void createOrder(ClientOrderDto dto){
+    public void createOrder(ClientOrderDto dto) {
         orderDAO.createOrder(dto);
     }
 
@@ -27,7 +27,7 @@ public class OrderService {
     public ClientOrderDto calculateDeliveryCost(ClientOrderDto dto) {
         Route route = orderDAO.getRoute(dto.getSenderCity(), dto.getRecipientCity());
         double distance = route.getDistance();
-        double deliveryCost = calculateTax(dto.getWeight(),dto.getVolume(), distance);
+        double deliveryCost = calculateTax(dto.getWeight(), dto.getVolume(), distance);
         dto.setDistance(distance);
         dto.setDeliveryCost(deliveryCost);
         return dto;

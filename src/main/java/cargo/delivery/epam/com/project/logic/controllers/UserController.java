@@ -20,8 +20,8 @@ public class UserController {
     private final RequestParameterMapper requestParameterMapper;
     private final Map<UserRole, String> mapView;
 
-    public ModelAndView login(HttpServletRequest request){
-        UserDto userDto = requestParameterMapper.handleRequest(request,UserDto.class);
+    public ModelAndView login(HttpServletRequest request) {
+        UserDto userDto = requestParameterMapper.handleRequest(request, UserDto.class);
         User user = userService.getUserByLogin(userDto);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setView(mapView.get(user.getUserRole()));

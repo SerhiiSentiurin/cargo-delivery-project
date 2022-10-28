@@ -7,14 +7,15 @@ import java.sql.PreparedStatement;
 
 public interface MapDtoFieldToPreparedStatement {
     @SneakyThrows
-    default boolean checkNullField (Object field, PreparedStatement preparedStatement, int index){
-        if (field!=null){
+    default boolean checkNullField(Object field, PreparedStatement preparedStatement, int index) {
+        if (field != null) {
 
             return true;
         }
-        preparedStatement.setString(index,"%%");
+        preparedStatement.setString(index, "%%");
         return false;
     }
+
     void map(Object field, PreparedStatement preparedStatement, int index, FilteringDto dto);
 
     boolean canMap(Object field);

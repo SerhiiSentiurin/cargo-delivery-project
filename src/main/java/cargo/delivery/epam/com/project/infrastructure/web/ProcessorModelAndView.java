@@ -17,10 +17,10 @@ public class ProcessorModelAndView {
         }
         RequestDispatcher requestDispatcher = servlet.getServletContext().getRequestDispatcher(modelAndView.getView());
         fillAttributes(request, modelAndView);
-        requestDispatcher.forward(request,response);
+        requestDispatcher.forward(request, response);
     }
 
-    private void fillAttributes(HttpServletRequest request, ModelAndView modelAndView){
+    private void fillAttributes(HttpServletRequest request, ModelAndView modelAndView) {
         modelAndView.getAttributes().forEach(request::setAttribute);
     }
 }
