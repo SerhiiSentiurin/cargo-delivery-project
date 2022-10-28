@@ -14,6 +14,9 @@ import cargo.delivery.epam.com.project.logic.controllers.OrderController;
 import cargo.delivery.epam.com.project.logic.controllers.ManagerController;
 import cargo.delivery.epam.com.project.logic.controllers.UserController;
 import cargo.delivery.epam.com.project.logic.dao.*;
+import cargo.delivery.epam.com.project.logic.dao.filtering.SetterFilteredFieldToPreparedStatement;
+import cargo.delivery.epam.com.project.logic.dao.filtering.PreparerQueryToFiltering;
+import cargo.delivery.epam.com.project.logic.dao.filtering.chainOfFiltering.*;
 import cargo.delivery.epam.com.project.logic.entity.UserRole;
 import cargo.delivery.epam.com.project.logic.services.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -109,7 +112,16 @@ public class FrontServletInitializer implements ServletContainerInitializer {
 
     private ClientController createClientController(RequestParameterMapper requestParameterMapper, DataSource dataSource, PreparerQueryToReportFilteringDao preparerQuery) {
         ClientDAO clientDAO = new ClientDAO(dataSource);
-        ReportFilteringDAO reportFilteringDAO = new ReportFilteringDAO(dataSource, preparerQuery);
+        PreparerQueryToFiltering preparerQueryToFiltering = new PreparerQueryToFiltering();
+        List<MapDtoFieldToPreparedStatement> list = new ArrayList<>();
+        list.add(new MapStringToPreparedStatement());
+        list.add(new MapBooleanToPreparedStatement());
+        list.add(new MapIntegerToPreparedStatement());
+        list.add(new MapLongToPreparedStatement());
+        list.add(new MapDoubleToPreparedStatement());
+
+        SetterFilteredFieldToPreparedStatement setterFilteredFieldToPreparedStatement = new SetterFilteredFieldToPreparedStatement(list);
+        ReportFilteringDAO reportFilteringDAO = new ReportFilteringDAO(dataSource,preparerQueryToFiltering, setterFilteredFieldToPreparedStatement);
         ClientService clientService = new ClientService(clientDAO, reportFilteringDAO);
         PaginationLinksBuilder linksBuilder = new PaginationLinksBuilder();
         return new ClientController(clientService, requestParameterMapper, linksBuilder);
@@ -123,7 +135,16 @@ public class FrontServletInitializer implements ServletContainerInitializer {
 
     private ManagerController createManagerController(RequestParameterMapper requestParameterMapper, DataSource dataSource, PreparerQueryToReportFilteringDao preparerQuery) {
         ManagerDAO managerDAO = new ManagerDAO(dataSource);
-        ReportFilteringDAO reportFilteringDAO = new ReportFilteringDAO(dataSource, preparerQuery);
+        PreparerQueryToFiltering preparerQueryToFiltering = new PreparerQueryToFiltering();
+        List<MapDtoFieldToPreparedStatement> list = new ArrayList<>();
+        list.add(new MapStringToPreparedStatement());
+        list.add(new MapBooleanToPreparedStatement());
+        list.add(new MapIntegerToPreparedStatement());
+        list.add(new MapLongToPreparedStatement());
+        list.add(new MapDoubleToPreparedStatement());
+
+        SetterFilteredFieldToPreparedStatement setterFilteredFieldToPreparedStatement = new SetterFilteredFieldToPreparedStatement(list);
+        ReportFilteringDAO reportFilteringDAO = new ReportFilteringDAO(dataSource,preparerQueryToFiltering, setterFilteredFieldToPreparedStatement);
         ManagerService managerService = new ManagerService(managerDAO, reportFilteringDAO);
         PaginationLinksBuilder linksBuilder = new PaginationLinksBuilder();
         return new ManagerController(managerService, requestParameterMapper, linksBuilder);

@@ -1,16 +1,8 @@
-package cargo.delivery.epam.com.project.logic.dao;
+package cargo.delivery.epam.com.project.logic.dao.filtering;
 
 import cargo.delivery.epam.com.project.logic.entity.dto.FilteringDto;
-import lombok.RequiredArgsConstructor;
-import lombok.SneakyThrows;
 
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.util.*;
-
-@RequiredArgsConstructor
-public class PreparerQueryToReportFilteringDao {
-
+public class PreparerQueryToFiltering {
     public String buildCheckedQueryToFiltering(FilteringDto dto) {
         String startQuery = "select client.id, orders.id ";
         String middleQuery = checkFullQuery(dto);
@@ -18,54 +10,13 @@ public class PreparerQueryToReportFilteringDao {
         return startQuery.concat(middleQuery).concat(endQuery);
     }
 
-
     public String buildCheckedQueryToCountRows(FilteringDto dto) {
         String startQuery =  "select count(*) ";
         String endQuery = checkFullQuery(dto);
         return startQuery.concat(endQuery);
     }
 
-    @SneakyThrows
-    public void checkSortingDtoToNull(PreparedStatement preparedStatement, FilteringDto dto) {
-        List<Object> dtoFields = collectToListDtoFields(dto);
-        int index = 0;
-        for (Object field : dtoFields) {
-            if (field == null || field.toString().isEmpty()) {
-                preparedStatement.setString(++index, "%%");
-            } else if (field.equals(dto.getDepartureDate()) || field.equals(dto.getArrivalDate())) {
-                preparedStatement.setDate(++index, Date.valueOf(field.toString()));
-            } else if (field.equals(dto.getOrderId())) {
-                preparedStatement.setLong(++index, (Long) field);
-            } else if (field.equals(dto.getPage())) {
-                preparedStatement.setInt(++index, (Integer) field);
-            } else if (field instanceof Boolean) {
-                preparedStatement.setBoolean(++index, (Boolean) field);
-            } else {
-                preparedStatement.setString(++index, "%" + field + "%");
-            }
-        }
-    }
 
-    private List<Object> collectToListDtoFields(FilteringDto dto) {
-        List<Object> dtoFields = new ArrayList<>();
-        dtoFields.add(dto.getOrderId());
-        dtoFields.add(dto.getLogin());
-        dtoFields.add(dto.getType());
-        dtoFields.add(dto.getWeight());
-        dtoFields.add(dto.getVolume());
-        dtoFields.add(dto.getSenderCity());
-        dtoFields.add(dto.getRecipientCity());
-        dtoFields.add(dto.getDistance());
-        dtoFields.add(dto.getDepartureDate());
-        dtoFields.add(dto.getArrivalDate());
-        dtoFields.add(dto.getPrice());
-        dtoFields.add(dto.getIsConfirmed());
-        dtoFields.add(dto.getIsPaid());
-        if (dto.getPage() != null) {
-            dtoFields.add(dto.getPage());
-        }
-        return dtoFields;
-    }
 
     private String checkFullQuery(FilteringDto dto) {
         String departureDateInQuery = checkDepartureDateDtoField(dto);
@@ -114,6 +65,4 @@ public class PreparerQueryToReportFilteringDao {
             return "= ?";
         }
     }
-
-
 }

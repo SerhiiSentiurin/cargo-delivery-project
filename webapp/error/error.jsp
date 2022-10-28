@@ -10,9 +10,7 @@
     </head>
     <body>
         <p>
-            <jsp:text>
                 <lang:print message = "error.jsp.error"/> ${message}
-            </jsp:text>
         </p>
         <input type="button" class="btn btn-secondary" onclick="history.back();" value='<lang:print message = "internalError.jsp.back"/>'>
     </body>
