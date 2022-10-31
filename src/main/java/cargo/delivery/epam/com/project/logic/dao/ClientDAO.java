@@ -34,7 +34,7 @@ public class ClientDAO {
         }
     }
 
-    private Long insertIntoUser(Connection connection, ClientCreateDto dto) {
+    protected Long insertIntoUser(Connection connection, ClientCreateDto dto) {
         String insertIntoUser = "INSERT INTO user (login, password, role) VALUES (?,?,?)";
         PreparedStatement preparedStatementUser = null;
         ResultSet resultSetUser = null;
@@ -58,7 +58,7 @@ public class ClientDAO {
         }
     }
 
-    private void insertIntoClient(Connection connection, ClientCreateDto dto) {
+    protected void insertIntoClient(Connection connection, ClientCreateDto dto) {
         String insertIntoClient = "INSERT INTO client (id, amount) VALUES(?, 0)";
         Long clientId = insertIntoUser(connection, dto);
         PreparedStatement preparedStatementClient = null;
@@ -116,7 +116,7 @@ public class ClientDAO {
             connection.setAutoCommit(false);
             updateDelivery(connection, orderId, departureDate, arrivalDate);
             updateInvoice(connection, orderId);
-            updateClient(connection, orderId, clientId, amountAfterPaid);
+            updateClient(connection, clientId, amountAfterPaid);
             connection.commit();
         } catch (Exception e) {
             rollback(connection);
@@ -148,7 +148,7 @@ public class ClientDAO {
     }
 
     @SneakyThrows
-    private void updateClient(Connection connection, Long orderId, Long clientId, Double amountAfterPaid) {
+    private void updateClient(Connection connection, Long clientId, Double amountAfterPaid) {
         String updateClient = "update client set amount = ? where id = ?";
         try (PreparedStatement preparedStatementClient = connection.prepareStatement(updateClient)) {
             preparedStatementClient.setDouble(1, amountAfterPaid);
