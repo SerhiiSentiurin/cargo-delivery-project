@@ -88,10 +88,8 @@ public class ReportFilteringDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 delivery.setId(deliveryId);
-                if (resultSet.getDate("departure_date") != null) {
+                if (resultSet.getDate("departure_date") != null && resultSet.getDate("arrival_date") != null) {
                     delivery.setDepartureDate(resultSet.getDate("departure_date").toLocalDate());
-                }
-                if (resultSet.getDate("arrival_date") != null) {
                     delivery.setArrivalDate(resultSet.getDate("arrival_date").toLocalDate());
                 }
                 Route route = getRouteById(resultSet.getLong("route_id"));
