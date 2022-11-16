@@ -81,7 +81,7 @@ public class OrderDAOTest {
         when(resultSet1.getString("sender_city")).thenReturn(route1.getSenderCity());
         when(resultSet1.getString("recipient_city")).thenReturn(route1.getRecipientCity());
 
-        Route resultRoute = orderDAO.getRoute("sender", "recipient");
+        Route resultRoute = orderDAO.getRouteByCities("sender", "recipient");
         assertNotNull(resultRoute);
         assertEquals(route1, resultRoute);
 

@@ -21,7 +21,7 @@ public class OrderDAO {
     private final DataSource dataSource;
 
     @SneakyThrows
-    public Route getRoute(String senderCity, String recipientCity) {
+    public Route getRouteByCities(String senderCity, String recipientCity) {
         String sql = "SELECT * FROM route WHERE sender_city = ? AND recipient_city = ?";
         Route route = new Route();
         try (Connection connection = dataSource.getConnection();

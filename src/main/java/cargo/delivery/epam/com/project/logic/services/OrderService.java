@@ -25,7 +25,7 @@ public class OrderService {
     }
 
     public ClientOrderDto calculateDeliveryCost(ClientOrderDto dto) {
-        Route route = orderDAO.getRoute(dto.getSenderCity(), dto.getRecipientCity());
+        Route route = orderDAO.getRouteByCities(dto.getSenderCity(), dto.getRecipientCity());
         double distance = route.getDistance();
         double deliveryCost = calculateTax(dto.getWeight(), dto.getVolume(), distance);
         dto.setDistance(distance);

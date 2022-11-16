@@ -81,20 +81,20 @@ public class FrontServletInitializer implements ServletContainerInitializer {
         placeholders.add(new Placeholder("POST", "logout", userController::logout));
         placeholders.add(new Placeholder("POST", "changeLocale", userController::changeLocale));
         placeholders.add(new Placeholder("POST", "client/create", clientController::createNewClient));
-        placeholders.add(new Placeholder("GET", "client/getWalletInfo", clientController::getWalletInfo));
-        placeholders.add(new Placeholder("POST", "client/topUpWallet", clientController::topUpClientWallet));
+        placeholders.add(new Placeholder("GET", "client/wallet", clientController::getWalletInfo)); //getWalletInfo
+        placeholders.add(new Placeholder("POST", "client/wallet", clientController::topUpClientWallet)); // topUpWallet
         placeholders.add(new Placeholder("GET", "client/routes", orderController::getRoutesForRegisterUser));
-        placeholders.add(new Placeholder("GET", "client/calculateDelivery", orderController::getDeliveryCostForRegisteredUser));
-        placeholders.add(new Placeholder("POST", "client/createOrder", orderController::createOrder));
-        placeholders.add(new Placeholder("GET", "client/getClientOrders", clientController::getClientOrders));
-        placeholders.add(new Placeholder("GET", "client/getInvoice", clientController::getOrderForInvoice));
-        placeholders.add(new Placeholder("POST", "client/payInvoice", clientController::payInvoice));
-        placeholders.add(new Placeholder("GET", "client/getAllOrders/filter", clientController::filterOrders));
-        placeholders.add(new Placeholder("GET", "manager/getAllOrders", managerController::getAllOrders));
-        placeholders.add(new Placeholder("GET", "manager/getNotConfirmedOrders", managerController::getNotConfirmedOrders));
-        placeholders.add(new Placeholder("POST", "manager/confirmOrder", managerController::confirmOrder));
-        placeholders.add(new Placeholder("GET", "manager/getAllOrders/filter", managerController::filterReports));
-        placeholders.add(new Placeholder("GET", "manager/getReport", managerController::getReportByDayAndDirection));
+        placeholders.add(new Placeholder("GET", "client/calculate/delivery", orderController::getDeliveryCostForRegisteredUser)); // calculateDelivery
+        placeholders.add(new Placeholder("POST", "client/create/order", orderController::createOrder)); // createOrder
+        placeholders.add(new Placeholder("GET", "client/orders", clientController::getClientOrders)); // getClientOrders
+        placeholders.add(new Placeholder("GET", "client/invoice", clientController::getOrderForInvoice)); // getInvoice
+        placeholders.add(new Placeholder("POST", "client/invoice", clientController::payInvoice)); // payInvoice
+        placeholders.add(new Placeholder("GET", "client/orders/filter", clientController::filterOrders)); // getAllOrders/filter
+        placeholders.add(new Placeholder("GET", "manager/orders", managerController::getAllOrders)); // getAllOrders
+        placeholders.add(new Placeholder("GET", "manager/orders/notConfirmed", managerController::getNotConfirmedOrders)); // getNotConfirmedOrders
+        placeholders.add(new Placeholder("POST", "manager/orders/confirm", managerController::confirmOrder)); // confirmOrder
+        placeholders.add(new Placeholder("GET", "manager/orders/filter", managerController::filterReports)); // getAllOrders/filter
+        placeholders.add(new Placeholder("GET", "manager/report", managerController::getReportByDayAndDirection)); // getReport
         placeholders.add(new Placeholder("GET", "routes", orderController::getRoutesForNonRegisterUser));
         placeholders.add(new Placeholder("GET", "calculateDelivery", orderController::getDeliveryCostForNotRegisteredUser));
 
