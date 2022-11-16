@@ -81,28 +81,28 @@ public class FrontServletInitializer implements ServletContainerInitializer {
         placeholders.add(new Placeholder("POST", "logout", userController::logout));
         placeholders.add(new Placeholder("POST", "changeLocale", userController::changeLocale));
         placeholders.add(new Placeholder("POST", "client/create", clientController::createNewClient));
-        placeholders.add(new Placeholder("GET", "client/wallet", clientController::getWalletInfo)); //getWalletInfo
-        placeholders.add(new Placeholder("POST", "client/wallet", clientController::topUpClientWallet)); // topUpWallet
+        placeholders.add(new Placeholder("GET", "client/wallet", clientController::getWalletInfo));
+        placeholders.add(new Placeholder("POST", "client/wallet", clientController::topUpClientWallet));
         placeholders.add(new Placeholder("GET", "client/routes", orderController::getRoutesForRegisterUser));
-        placeholders.add(new Placeholder("GET", "client/calculate/delivery", orderController::getDeliveryCostForRegisteredUser)); // calculateDelivery
-        placeholders.add(new Placeholder("POST", "client/create/order", orderController::createOrder)); // createOrder
-        placeholders.add(new Placeholder("GET", "client/orders", clientController::getClientOrders)); // getClientOrders
-        placeholders.add(new Placeholder("GET", "client/invoice", clientController::getOrderForInvoice)); // getInvoice
-        placeholders.add(new Placeholder("POST", "client/invoice", clientController::payInvoice)); // payInvoice
-        placeholders.add(new Placeholder("GET", "client/orders/filter", clientController::filterOrders)); // getAllOrders/filter
-        placeholders.add(new Placeholder("GET", "manager/orders", managerController::getAllOrders)); // getAllOrders
-        placeholders.add(new Placeholder("GET", "manager/orders/notConfirmed", managerController::getNotConfirmedOrders)); // getNotConfirmedOrders
-        placeholders.add(new Placeholder("POST", "manager/orders/confirm", managerController::confirmOrder)); // confirmOrder
-        placeholders.add(new Placeholder("GET", "manager/orders/filter", managerController::filterReports)); // getAllOrders/filter
-        placeholders.add(new Placeholder("GET", "manager/report", managerController::getReportByDayAndDirection)); // getReport
+        placeholders.add(new Placeholder("GET", "client/calculate/delivery", orderController::getDeliveryCostForRegisteredUser));
+        placeholders.add(new Placeholder("POST", "client/create/order", orderController::createOrder));
+        placeholders.add(new Placeholder("GET", "client/orders", clientController::getClientOrders));
+        placeholders.add(new Placeholder("GET", "client/invoice", clientController::getOrderForInvoice));
+        placeholders.add(new Placeholder("POST", "client/invoice", clientController::payInvoice));
+        placeholders.add(new Placeholder("GET", "client/orders/filter", clientController::filterOrders));
+        placeholders.add(new Placeholder("GET", "manager/orders", managerController::getAllOrders));
+        placeholders.add(new Placeholder("GET", "manager/orders/notConfirmed", managerController::getNotConfirmedOrders));
+        placeholders.add(new Placeholder("POST", "manager/orders/confirm", managerController::confirmOrder));
+        placeholders.add(new Placeholder("GET", "manager/orders/filter", managerController::filterReports));
+        placeholders.add(new Placeholder("GET", "manager/report", managerController::getReportByDayAndDirection));
         placeholders.add(new Placeholder("GET", "routes", orderController::getRoutesForNonRegisterUser));
-        placeholders.add(new Placeholder("GET", "calculateDelivery", orderController::getDeliveryCostForNotRegisteredUser));
+        placeholders.add(new Placeholder("GET", "calculate/delivery", orderController::getDeliveryCostForNotRegisteredUser));
 
         return new ProcessorRequest(placeholders);
     }
 
     private UserController createUserController(RequestParameterMapper requestParameterMapper, DataSource dataSource) {
-        Map<UserRole, String> mapView = Map.of(UserRole.MANAGER, "/manager/managerHome.jsp", UserRole.CLIENT, "/client/clientHome.jsp");
+        Map<UserRole, String> mapView = Map.of(UserRole.MANAGER, "/manager/home.jsp", UserRole.CLIENT, "/client/home.jsp");
         UserDAO userDAO = new UserDAO(dataSource);
         UserService userService = new UserService(userDAO);
         return new UserController(userService, requestParameterMapper, mapView);

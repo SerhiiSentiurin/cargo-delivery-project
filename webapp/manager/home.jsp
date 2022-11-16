@@ -12,7 +12,7 @@
         </h2>
 
         <br>
-        <form action = "/app/cargo/manager/getReport" method "GET">
+        <form action = "/app/cargo/manager/report" method "GET">
             <label for = "date"><lang:print message = "managerHome.jsp.enter.arrivalDate"/></label><br>
             <input type = "date" name = "arrivalDate" style="width: 12%" required><br><br>
             <label for = "departureCity"><lang:print message = "managerHome.jsp.departure.city"/></label><br>

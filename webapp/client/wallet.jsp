@@ -18,14 +18,16 @@
             </tr>
             <tr>
                 <td align="center">
-                    <form action ="/app/cargo/client/topUpWallet" method = "POST">
+                    <form action ="/app/cargo/client/wallet" method = "POST">
                         <input type = "hidden" name="clientId" value = "${sessionScope.user.id}"/>
                         <input type="number" min = "0" step = 0.01 name="amount" required><br><br>
                         <input type = "submit" class = "btn btn-primary" value ='<lang:print message = "clientWallet.jsp.top.up"/>'>
                     </form>
                 </td>
                 <td align="center">
-                    <button class="btn btn-primary" onclick="location.href='/app/client/getOrder.jsp'" ><lang:print message = "clientWallet.jsp.order.delivery"/></button>
+                    <form action ="/app/cargo/client/routes" method = "GET">
+                        <input type = "submit" class="btn btn-primary" value = '<lang:print message = "header.jsp.place.an.order.for.delivery"/>'/>
+                    </form>
                 </td>
             </tr>
         </table><br>

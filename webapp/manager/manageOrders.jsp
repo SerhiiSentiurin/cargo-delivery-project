@@ -49,7 +49,7 @@
                         </td>
                         <c:if test = "${report.order.isConfirmed == false}">
                             <td>
-                                <form action = "/app/cargo/manager/confirmOrder" method = "POST">
+                                <form action = "/app/cargo/manager/orders/confirm" method = "POST">
                                     <input type = "hidden" name = "orderId" value = "${report.order.id}" />
                                     <button type = "submit"  class="btn btn-success btn-sm"><lang:print message = "manageOrders.jsp.confirm"/></button>
                                 </form>

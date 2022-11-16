@@ -263,7 +263,7 @@ public final class clientWallet_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("                    </form>\r\n");
       out.write("                </td>\r\n");
       out.write("                <td align=\"center\">\r\n");
-      out.write("                    <button class=\"btn btn-primary\" onclick=\"location.href='/app/client/getOrder.jsp'\" >");
+      out.write("                    <button class=\"btn btn-primary\" onclick=\"location.href='/app/client/order.jsp'\" >");
       if (_jspx_meth_lang_005fprint_005f15(_jspx_page_context))
         return;
       out.write("</button>\r\n");
@@ -339,7 +339,7 @@ public final class clientWallet_jsp extends org.apache.jasper.runtime.HttpJspBas
       if (_jspx_eval_c_005fif_005f0 != jakarta.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
           out.write("\r\n");
-          out.write("                        <form action =\"/app/manager/managerHome.jsp\" method = \"GET\">\r\n");
+          out.write("                        <form action =\"/app/manager/home.jsp\" method = \"GET\">\r\n");
           out.write("                            <input type = \"submit\" class=\"btn btn-primary\" value = '");
           if (_jspx_meth_lang_005fprint_005f1(_jspx_th_c_005fif_005f0, _jspx_page_context))
             return true;
@@ -588,7 +588,7 @@ public final class clientWallet_jsp extends org.apache.jasper.runtime.HttpJspBas
       if (_jspx_eval_c_005fif_005f4 != jakarta.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
           out.write("\r\n");
-          out.write("                        <form action =\"/app/client/clientHome.jsp\" method = \"GET\">\r\n");
+          out.write("                        <form action =\"/app/client/home.jsp\" method = \"GET\">\r\n");
           out.write("                            <input type = \"submit\" class=\"btn btn-primary\" value = '");
           if (_jspx_meth_lang_005fprint_005f5(_jspx_th_c_005fif_005f4, _jspx_page_context))
             return true;
@@ -910,7 +910,7 @@ public final class clientWallet_jsp extends org.apache.jasper.runtime.HttpJspBas
     try {
       _jspx_th_lang_005fprint_005f10.setPageContext(_jspx_page_context);
       _jspx_th_lang_005fprint_005f10.setParent(null);
-      // /client/clientWallet.jsp(13,20) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /client/wallet.jsp(13,20) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_lang_005fprint_005f10.setMessage("clientWallet.jsp.wallet.balance");
       int _jspx_eval_lang_005fprint_005f10 = _jspx_th_lang_005fprint_005f10.doStartTag();
       if (_jspx_th_lang_005fprint_005f10.doEndTag() == jakarta.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -933,7 +933,7 @@ public final class clientWallet_jsp extends org.apache.jasper.runtime.HttpJspBas
     try {
       _jspx_th_lang_005fprint_005f11.setPageContext(_jspx_page_context);
       _jspx_th_lang_005fprint_005f11.setParent(null);
-      // /client/clientWallet.jsp(13,95) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /client/wallet.jsp(13,95) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_lang_005fprint_005f11.setMessage("common.message.(uah)");
       int _jspx_eval_lang_005fprint_005f11 = _jspx_th_lang_005fprint_005f11.doStartTag();
       if (_jspx_th_lang_005fprint_005f11.doEndTag() == jakarta.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -956,7 +956,7 @@ public final class clientWallet_jsp extends org.apache.jasper.runtime.HttpJspBas
     try {
       _jspx_th_lang_005fprint_005f12.setPageContext(_jspx_page_context);
       _jspx_th_lang_005fprint_005f12.setParent(null);
-      // /client/clientWallet.jsp(16,20) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /client/wallet.jsp(16,20) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_lang_005fprint_005f12.setMessage("clientWallet.jsp.top.up.your.wallet");
       int _jspx_eval_lang_005fprint_005f12 = _jspx_th_lang_005fprint_005f12.doStartTag();
       if (_jspx_th_lang_005fprint_005f12.doEndTag() == jakarta.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -979,7 +979,7 @@ public final class clientWallet_jsp extends org.apache.jasper.runtime.HttpJspBas
     try {
       _jspx_th_lang_005fprint_005f13.setPageContext(_jspx_page_context);
       _jspx_th_lang_005fprint_005f13.setParent(null);
-      // /client/clientWallet.jsp(17,20) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /client/wallet.jsp(17,20) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_lang_005fprint_005f13.setMessage("clientWallet.jsp.choose.delivery");
       int _jspx_eval_lang_005fprint_005f13 = _jspx_th_lang_005fprint_005f13.doStartTag();
       if (_jspx_th_lang_005fprint_005f13.doEndTag() == jakarta.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1002,7 +1002,7 @@ public final class clientWallet_jsp extends org.apache.jasper.runtime.HttpJspBas
     try {
       _jspx_th_lang_005fprint_005f14.setPageContext(_jspx_page_context);
       _jspx_th_lang_005fprint_005f14.setParent(null);
-      // /client/clientWallet.jsp(24,81) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /client/wallet.jsp(24,81) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_lang_005fprint_005f14.setMessage("clientWallet.jsp.top.up");
       int _jspx_eval_lang_005fprint_005f14 = _jspx_th_lang_005fprint_005f14.doStartTag();
       if (_jspx_th_lang_005fprint_005f14.doEndTag() == jakarta.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1025,7 +1025,7 @@ public final class clientWallet_jsp extends org.apache.jasper.runtime.HttpJspBas
     try {
       _jspx_th_lang_005fprint_005f15.setPageContext(_jspx_page_context);
       _jspx_th_lang_005fprint_005f15.setParent(null);
-      // /client/clientWallet.jsp(28,104) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /client/wallet.jsp(28,104) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_lang_005fprint_005f15.setMessage("clientWallet.jsp.order.delivery");
       int _jspx_eval_lang_005fprint_005f15 = _jspx_th_lang_005fprint_005f15.doStartTag();
       if (_jspx_th_lang_005fprint_005f15.doEndTag() == jakarta.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1048,7 +1048,7 @@ public final class clientWallet_jsp extends org.apache.jasper.runtime.HttpJspBas
     try {
       _jspx_th_lang_005fprint_005f16.setPageContext(_jspx_page_context);
       _jspx_th_lang_005fprint_005f16.setParent(null);
-      // /client/clientWallet.jsp(35,16) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /client/wallet.jsp(35,16) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_lang_005fprint_005f16.setMessage("clientWallet.jsp.here.you.may.replenish.balance.on.your.wallet");
       int _jspx_eval_lang_005fprint_005f16 = _jspx_th_lang_005fprint_005f16.doStartTag();
       if (_jspx_th_lang_005fprint_005f16.doEndTag() == jakarta.servlet.jsp.tagext.Tag.SKIP_PAGE) {

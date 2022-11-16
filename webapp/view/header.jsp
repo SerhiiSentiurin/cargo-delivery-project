@@ -16,20 +16,20 @@
                     </div>
 
                     <c:if test = "${sessionScope.user.userRole == 'MANAGER'}">
-                        <form action ="/app/manager/managerHome.jsp" method = "GET">
+                        <form action ="/app/manager/home.jsp" method = "GET">
                             <input type = "submit" class="btn btn-primary" value = '<lang:print message = "header.jsp.home"/>'/>
                         </form>
                     </c:if>
 
                     <c:if test = "${sessionScope.user.userRole == 'MANAGER'}">
-                        <form action = "/app/cargo/manager/getAllOrders" method "GET">
+                        <form action = "/app/cargo/manager/orders" method "GET">
                             <input type="hidden" name="page" value="1">
                             <input type = "submit" class="btn btn-primary" value = '<lang:print message = "header.jsp.get.all.orders"/>'/>
                         </form>
                     </c:if>
 
                     <c:if test = "${sessionScope.user.userRole == 'MANAGER'}">
-                        <form action = "/app/cargo/manager/getNotConfirmedOrders" method "GET">
+                        <form action = "/app/cargo/manager/orders/notConfirmed" method "GET">
                             <input type = "submit" class="btn btn-primary" value = '<lang:print message = "header.jsp.get.not.confirmed.orders"/>'/>
                         </form>
                     </c:if>
@@ -41,21 +41,21 @@
                     </c:if>
 
                     <c:if test = "${sessionScope.user.userRole == 'CLIENT'}">
-                        <form action ="/app/client/clientHome.jsp" method = "GET">
+                        <form action ="/app/client/home.jsp" method = "GET">
                             <input type = "submit" class="btn btn-primary" value = '<lang:print message = "header.jsp.home"/>'/>
                         </form>
                     </c:if>
 
 
                     <c:if test = "${sessionScope.user.userRole == 'CLIENT'}">
-                        <form action ="/app/cargo/client/getWalletInfo" method = "GET">
+                        <form action ="/app/cargo/client/wallet" method = "GET">
                             <input type = "hidden" name="clientId" value = "${sessionScope.user.id}"/>
                             <input type = "submit" class="btn btn-primary" value = '<lang:print message = "header.jsp.my.wallet"/>'/>
                         </form>
                     </c:if>
 
                     <c:if test = "${sessionScope.user.userRole == 'CLIENT'}">
-                        <form action ="/app/cargo/client/getClientOrders" method = "GET">
+                        <form action ="/app/cargo/client/orders" method = "GET">
                             <input type="hidden" name="page" value="1">
                             <input type = "hidden" name="clientId" value = "${sessionScope.user.id}"/>
                             <input type = "submit" class="btn btn-primary" value = '<lang:print message = "header.jsp.my.orders"/>'/>

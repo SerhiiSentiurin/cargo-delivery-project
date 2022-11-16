@@ -328,7 +328,7 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_eval_c_005fif_005f0 != jakarta.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
           out.write("\r\n");
-          out.write("                        <form action =\"/app/manager/managerHome.jsp\" method = \"GET\">\r\n");
+          out.write("                        <form action =\"/app/manager/home.jsp\" method = \"GET\">\r\n");
           out.write("                            <input type = \"submit\" class=\"btn btn-primary\" value = '");
           if (_jspx_meth_lang_005fprint_005f1(_jspx_th_c_005fif_005f0, _jspx_page_context))
             return true;
@@ -577,7 +577,7 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_eval_c_005fif_005f4 != jakarta.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
           out.write("\r\n");
-          out.write("                        <form action =\"/app/client/clientHome.jsp\" method = \"GET\">\r\n");
+          out.write("                        <form action =\"/app/client/home.jsp\" method = \"GET\">\r\n");
           out.write("                            <input type = \"submit\" class=\"btn btn-primary\" value = '");
           if (_jspx_meth_lang_005fprint_005f5(_jspx_th_c_005fif_005f4, _jspx_page_context))
             return true;
@@ -899,7 +899,7 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_lang_005fprint_005f10.setPageContext(_jspx_page_context);
       _jspx_th_lang_005fprint_005f10.setParent(null);
-      // /manager/managerHome.jsp(11,12) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /manager/home.jsp(11,12) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_lang_005fprint_005f10.setMessage("managerHome.jsp.this.is.manager.home.page");
       int _jspx_eval_lang_005fprint_005f10 = _jspx_th_lang_005fprint_005f10.doStartTag();
       if (_jspx_th_lang_005fprint_005f10.doEndTag() == jakarta.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -922,7 +922,7 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_lang_005fprint_005f11.setPageContext(_jspx_page_context);
       _jspx_th_lang_005fprint_005f11.setParent(null);
-      // /manager/managerHome.jsp(16,32) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /manager/home.jsp(16,32) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_lang_005fprint_005f11.setMessage("managerHome.jsp.enter.arrivalDate");
       int _jspx_eval_lang_005fprint_005f11 = _jspx_th_lang_005fprint_005f11.doStartTag();
       if (_jspx_th_lang_005fprint_005f11.doEndTag() == jakarta.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -945,7 +945,7 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_lang_005fprint_005f12.setPageContext(_jspx_page_context);
       _jspx_th_lang_005fprint_005f12.setParent(null);
-      // /manager/managerHome.jsp(18,41) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /manager/home.jsp(18,41) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_lang_005fprint_005f12.setMessage("managerHome.jsp.departure.city");
       int _jspx_eval_lang_005fprint_005f12 = _jspx_th_lang_005fprint_005f12.doStartTag();
       if (_jspx_th_lang_005fprint_005f12.doEndTag() == jakarta.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -968,7 +968,7 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_lang_005fprint_005f13.setPageContext(_jspx_page_context);
       _jspx_th_lang_005fprint_005f13.setParent(null);
-      // /manager/managerHome.jsp(19,122) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /manager/home.jsp(19,122) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_lang_005fprint_005f13.setMessage("common.message.title.must.contain.only.latin.letters");
       int _jspx_eval_lang_005fprint_005f13 = _jspx_th_lang_005fprint_005f13.doStartTag();
       if (_jspx_th_lang_005fprint_005f13.doEndTag() == jakarta.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -991,7 +991,7 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_lang_005fprint_005f14.setPageContext(_jspx_page_context);
       _jspx_th_lang_005fprint_005f14.setParent(null);
-      // /manager/managerHome.jsp(20,41) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /manager/home.jsp(20,41) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_lang_005fprint_005f14.setMessage("managerHome.jsp.recipient.city");
       int _jspx_eval_lang_005fprint_005f14 = _jspx_th_lang_005fprint_005f14.doStartTag();
       if (_jspx_th_lang_005fprint_005f14.doEndTag() == jakarta.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1014,7 +1014,7 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_lang_005fprint_005f15.setPageContext(_jspx_page_context);
       _jspx_th_lang_005fprint_005f15.setParent(null);
-      // /manager/managerHome.jsp(21,125) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /manager/home.jsp(21,125) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_lang_005fprint_005f15.setMessage("common.message.title.must.contain.only.latin.letters");
       int _jspx_eval_lang_005fprint_005f15 = _jspx_th_lang_005fprint_005f15.doStartTag();
       if (_jspx_th_lang_005fprint_005f15.doEndTag() == jakarta.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1037,7 +1037,7 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_lang_005fprint_005f16.setPageContext(_jspx_page_context);
       _jspx_th_lang_005fprint_005f16.setParent(null);
-      // /manager/managerHome.jsp(22,68) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /manager/home.jsp(22,68) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_lang_005fprint_005f16.setMessage("managerHome.jsp.get.report");
       int _jspx_eval_lang_005fprint_005f16 = _jspx_th_lang_005fprint_005f16.doStartTag();
       if (_jspx_th_lang_005fprint_005f16.doEndTag() == jakarta.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1061,7 +1061,7 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_c_005fif_005f8.setPageContext(_jspx_page_context);
       _jspx_th_c_005fif_005f8.setParent(null);
-      // /manager/managerHome.jsp(25,8) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /manager/home.jsp(25,8) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_c_005fif_005f8.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${reports.size() > 0}", boolean.class, (jakarta.servlet.jsp.PageContext)_jspx_page_context, null)).booleanValue());
       int _jspx_eval_c_005fif_005f8 = _jspx_th_c_005fif_005f8.doStartTag();
       if (_jspx_eval_c_005fif_005f8 != jakarta.servlet.jsp.tagext.Tag.SKIP_BODY) {
@@ -1172,7 +1172,7 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_lang_005fprint_005f17.setPageContext(_jspx_page_context);
       _jspx_th_lang_005fprint_005f17.setParent((jakarta.servlet.jsp.tagext.Tag) _jspx_th_c_005fif_005f8);
-      // /manager/managerHome.jsp(27,25) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /manager/home.jsp(27,25) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_lang_005fprint_005f17.setMessage("managerHome.jsp.report");
       int _jspx_eval_lang_005fprint_005f17 = _jspx_th_lang_005fprint_005f17.doStartTag();
       if (_jspx_th_lang_005fprint_005f17.doEndTag() == jakarta.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1195,7 +1195,7 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_lang_005fprint_005f18.setPageContext(_jspx_page_context);
       _jspx_th_lang_005fprint_005f18.setParent((jakarta.servlet.jsp.tagext.Tag) _jspx_th_c_005fif_005f8);
-      // /manager/managerHome.jsp(29,24) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /manager/home.jsp(29,24) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_lang_005fprint_005f18.setMessage("common.message.table.order");
       int _jspx_eval_lang_005fprint_005f18 = _jspx_th_lang_005fprint_005f18.doStartTag();
       if (_jspx_th_lang_005fprint_005f18.doEndTag() == jakarta.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1218,7 +1218,7 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_lang_005fprint_005f19.setPageContext(_jspx_page_context);
       _jspx_th_lang_005fprint_005f19.setParent((jakarta.servlet.jsp.tagext.Tag) _jspx_th_c_005fif_005f8);
-      // /manager/managerHome.jsp(29,82) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /manager/home.jsp(29,82) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_lang_005fprint_005f19.setMessage("common.message.table.number");
       int _jspx_eval_lang_005fprint_005f19 = _jspx_th_lang_005fprint_005f19.doStartTag();
       if (_jspx_th_lang_005fprint_005f19.doEndTag() == jakarta.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1241,7 +1241,7 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_lang_005fprint_005f20.setPageContext(_jspx_page_context);
       _jspx_th_lang_005fprint_005f20.setParent((jakarta.servlet.jsp.tagext.Tag) _jspx_th_c_005fif_005f8);
-      // /manager/managerHome.jsp(30,24) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /manager/home.jsp(30,24) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_lang_005fprint_005f20.setMessage("common.message.table.client");
       int _jspx_eval_lang_005fprint_005f20 = _jspx_th_lang_005fprint_005f20.doStartTag();
       if (_jspx_th_lang_005fprint_005f20.doEndTag() == jakarta.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1264,7 +1264,7 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_lang_005fprint_005f21.setPageContext(_jspx_page_context);
       _jspx_th_lang_005fprint_005f21.setParent((jakarta.servlet.jsp.tagext.Tag) _jspx_th_c_005fif_005f8);
-      // /manager/managerHome.jsp(31,24) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /manager/home.jsp(31,24) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_lang_005fprint_005f21.setMessage("common.message.table.cargo.type");
       int _jspx_eval_lang_005fprint_005f21 = _jspx_th_lang_005fprint_005f21.doStartTag();
       if (_jspx_th_lang_005fprint_005f21.doEndTag() == jakarta.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1287,7 +1287,7 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_lang_005fprint_005f22.setPageContext(_jspx_page_context);
       _jspx_th_lang_005fprint_005f22.setParent((jakarta.servlet.jsp.tagext.Tag) _jspx_th_c_005fif_005f8);
-      // /manager/managerHome.jsp(32,24) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /manager/home.jsp(32,24) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_lang_005fprint_005f22.setMessage("common.message.table.cargo.weight");
       int _jspx_eval_lang_005fprint_005f22 = _jspx_th_lang_005fprint_005f22.doStartTag();
       if (_jspx_th_lang_005fprint_005f22.doEndTag() == jakarta.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1310,7 +1310,7 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_lang_005fprint_005f23.setPageContext(_jspx_page_context);
       _jspx_th_lang_005fprint_005f23.setParent((jakarta.servlet.jsp.tagext.Tag) _jspx_th_c_005fif_005f8);
-      // /manager/managerHome.jsp(32,84) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /manager/home.jsp(32,84) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_lang_005fprint_005f23.setMessage("common.message.table.(kg)");
       int _jspx_eval_lang_005fprint_005f23 = _jspx_th_lang_005fprint_005f23.doStartTag();
       if (_jspx_th_lang_005fprint_005f23.doEndTag() == jakarta.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1333,7 +1333,7 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_lang_005fprint_005f24.setPageContext(_jspx_page_context);
       _jspx_th_lang_005fprint_005f24.setParent((jakarta.servlet.jsp.tagext.Tag) _jspx_th_c_005fif_005f8);
-      // /manager/managerHome.jsp(33,24) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /manager/home.jsp(33,24) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_lang_005fprint_005f24.setMessage("common.message.table.cargo.volume");
       int _jspx_eval_lang_005fprint_005f24 = _jspx_th_lang_005fprint_005f24.doStartTag();
       if (_jspx_th_lang_005fprint_005f24.doEndTag() == jakarta.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1356,7 +1356,7 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_lang_005fprint_005f25.setPageContext(_jspx_page_context);
       _jspx_th_lang_005fprint_005f25.setParent((jakarta.servlet.jsp.tagext.Tag) _jspx_th_c_005fif_005f8);
-      // /manager/managerHome.jsp(33,84) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /manager/home.jsp(33,84) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_lang_005fprint_005f25.setMessage("common.message.table.(m³)");
       int _jspx_eval_lang_005fprint_005f25 = _jspx_th_lang_005fprint_005f25.doStartTag();
       if (_jspx_th_lang_005fprint_005f25.doEndTag() == jakarta.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1379,7 +1379,7 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_lang_005fprint_005f26.setPageContext(_jspx_page_context);
       _jspx_th_lang_005fprint_005f26.setParent((jakarta.servlet.jsp.tagext.Tag) _jspx_th_c_005fif_005f8);
-      // /manager/managerHome.jsp(34,24) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /manager/home.jsp(34,24) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_lang_005fprint_005f26.setMessage("common.message.table.delivery.from");
       int _jspx_eval_lang_005fprint_005f26 = _jspx_th_lang_005fprint_005f26.doStartTag();
       if (_jspx_th_lang_005fprint_005f26.doEndTag() == jakarta.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1402,7 +1402,7 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_lang_005fprint_005f27.setPageContext(_jspx_page_context);
       _jspx_th_lang_005fprint_005f27.setParent((jakarta.servlet.jsp.tagext.Tag) _jspx_th_c_005fif_005f8);
-      // /manager/managerHome.jsp(35,24) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /manager/home.jsp(35,24) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_lang_005fprint_005f27.setMessage("common.message.table.delivery.to");
       int _jspx_eval_lang_005fprint_005f27 = _jspx_th_lang_005fprint_005f27.doStartTag();
       if (_jspx_th_lang_005fprint_005f27.doEndTag() == jakarta.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1425,7 +1425,7 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_lang_005fprint_005f28.setPageContext(_jspx_page_context);
       _jspx_th_lang_005fprint_005f28.setParent((jakarta.servlet.jsp.tagext.Tag) _jspx_th_c_005fif_005f8);
-      // /manager/managerHome.jsp(36,24) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /manager/home.jsp(36,24) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_lang_005fprint_005f28.setMessage("common.message.table.distance");
       int _jspx_eval_lang_005fprint_005f28 = _jspx_th_lang_005fprint_005f28.doStartTag();
       if (_jspx_th_lang_005fprint_005f28.doEndTag() == jakarta.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1448,7 +1448,7 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_lang_005fprint_005f29.setPageContext(_jspx_page_context);
       _jspx_th_lang_005fprint_005f29.setParent((jakarta.servlet.jsp.tagext.Tag) _jspx_th_c_005fif_005f8);
-      // /manager/managerHome.jsp(36,80) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /manager/home.jsp(36,80) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_lang_005fprint_005f29.setMessage("common.message.table.(km)");
       int _jspx_eval_lang_005fprint_005f29 = _jspx_th_lang_005fprint_005f29.doStartTag();
       if (_jspx_th_lang_005fprint_005f29.doEndTag() == jakarta.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1471,7 +1471,7 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_lang_005fprint_005f30.setPageContext(_jspx_page_context);
       _jspx_th_lang_005fprint_005f30.setParent((jakarta.servlet.jsp.tagext.Tag) _jspx_th_c_005fif_005f8);
-      // /manager/managerHome.jsp(37,24) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /manager/home.jsp(37,24) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_lang_005fprint_005f30.setMessage("common.message.table.departure.date");
       int _jspx_eval_lang_005fprint_005f30 = _jspx_th_lang_005fprint_005f30.doStartTag();
       if (_jspx_th_lang_005fprint_005f30.doEndTag() == jakarta.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1494,7 +1494,7 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_lang_005fprint_005f31.setPageContext(_jspx_page_context);
       _jspx_th_lang_005fprint_005f31.setParent((jakarta.servlet.jsp.tagext.Tag) _jspx_th_c_005fif_005f8);
-      // /manager/managerHome.jsp(38,24) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /manager/home.jsp(38,24) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_lang_005fprint_005f31.setMessage("common.message.table.arrival.date");
       int _jspx_eval_lang_005fprint_005f31 = _jspx_th_lang_005fprint_005f31.doStartTag();
       if (_jspx_th_lang_005fprint_005f31.doEndTag() == jakarta.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1517,7 +1517,7 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_lang_005fprint_005f32.setPageContext(_jspx_page_context);
       _jspx_th_lang_005fprint_005f32.setParent((jakarta.servlet.jsp.tagext.Tag) _jspx_th_c_005fif_005f8);
-      // /manager/managerHome.jsp(39,24) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /manager/home.jsp(39,24) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_lang_005fprint_005f32.setMessage("common.message.table.price");
       int _jspx_eval_lang_005fprint_005f32 = _jspx_th_lang_005fprint_005f32.doStartTag();
       if (_jspx_th_lang_005fprint_005f32.doEndTag() == jakarta.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1540,7 +1540,7 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_lang_005fprint_005f33.setPageContext(_jspx_page_context);
       _jspx_th_lang_005fprint_005f33.setParent((jakarta.servlet.jsp.tagext.Tag) _jspx_th_c_005fif_005f8);
-      // /manager/managerHome.jsp(39,77) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /manager/home.jsp(39,77) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_lang_005fprint_005f33.setMessage("common.message.(uah)");
       int _jspx_eval_lang_005fprint_005f33 = _jspx_th_lang_005fprint_005f33.doStartTag();
       if (_jspx_th_lang_005fprint_005f33.doEndTag() == jakarta.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1563,7 +1563,7 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_lang_005fprint_005f34.setPageContext(_jspx_page_context);
       _jspx_th_lang_005fprint_005f34.setParent((jakarta.servlet.jsp.tagext.Tag) _jspx_th_c_005fif_005f8);
-      // /manager/managerHome.jsp(40,24) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /manager/home.jsp(40,24) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_lang_005fprint_005f34.setMessage("common.message.table.confirmation");
       int _jspx_eval_lang_005fprint_005f34 = _jspx_th_lang_005fprint_005f34.doStartTag();
       if (_jspx_th_lang_005fprint_005f34.doEndTag() == jakarta.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1586,7 +1586,7 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_lang_005fprint_005f35.setPageContext(_jspx_page_context);
       _jspx_th_lang_005fprint_005f35.setParent((jakarta.servlet.jsp.tagext.Tag) _jspx_th_c_005fif_005f8);
-      // /manager/managerHome.jsp(41,24) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /manager/home.jsp(41,24) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_lang_005fprint_005f35.setMessage("common.message.table.payment");
       int _jspx_eval_lang_005fprint_005f35 = _jspx_th_lang_005fprint_005f35.doStartTag();
       if (_jspx_th_lang_005fprint_005f35.doEndTag() == jakarta.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1610,9 +1610,9 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_c_005fforEach_005f1.setPageContext(_jspx_page_context);
       _jspx_th_c_005fforEach_005f1.setParent((jakarta.servlet.jsp.tagext.Tag) _jspx_th_c_005fif_005f8);
-      // /manager/managerHome.jsp(43,16) name = items type = jakarta.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
-      _jspx_th_c_005fforEach_005f1.setItems(new org.apache.jasper.el.JspValueExpression("/manager/managerHome.jsp(43,16) '${reports}'",_jsp_getExpressionFactory().createValueExpression(_jspx_page_context.getELContext(),"${reports}",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
-      // /manager/managerHome.jsp(43,16) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /manager/home.jsp(43,16) name = items type = jakarta.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
+      _jspx_th_c_005fforEach_005f1.setItems(new org.apache.jasper.el.JspValueExpression("/manager/home.jsp(43,16) '${reports}'",_jsp_getExpressionFactory().createValueExpression(_jspx_page_context.getELContext(),"${reports}",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
+      // /manager/home.jsp(43,16) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_c_005fforEach_005f1.setVar("report");
       int[] _jspx_push_body_count_c_005fforEach_005f1 = new int[] { 0 };
       try {
@@ -1709,7 +1709,7 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_c_005fif_005f9.setPageContext(_jspx_page_context);
       _jspx_th_c_005fif_005f9.setParent((jakarta.servlet.jsp.tagext.Tag) _jspx_th_c_005fforEach_005f1);
-      // /manager/managerHome.jsp(57,28) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /manager/home.jsp(57,28) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_c_005fif_005f9.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${report.order.isConfirmed == false}", boolean.class, (jakarta.servlet.jsp.PageContext)_jspx_page_context, null)).booleanValue());
       int _jspx_eval_c_005fif_005f9 = _jspx_th_c_005fif_005f9.doStartTag();
       if (_jspx_eval_c_005fif_005f9 != jakarta.servlet.jsp.tagext.Tag.SKIP_BODY) {
@@ -1745,7 +1745,7 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_lang_005fprint_005f36.setPageContext(_jspx_page_context);
       _jspx_th_lang_005fprint_005f36.setParent((jakarta.servlet.jsp.tagext.Tag) _jspx_th_c_005fif_005f9);
-      // /manager/managerHome.jsp(58,56) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /manager/home.jsp(58,56) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_lang_005fprint_005f36.setMessage("common.message.table.not.confirmed");
       int _jspx_eval_lang_005fprint_005f36 = _jspx_th_lang_005fprint_005f36.doStartTag();
       if (_jspx_th_lang_005fprint_005f36.doEndTag() == jakarta.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1769,7 +1769,7 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_c_005fif_005f10.setPageContext(_jspx_page_context);
       _jspx_th_c_005fif_005f10.setParent((jakarta.servlet.jsp.tagext.Tag) _jspx_th_c_005fforEach_005f1);
-      // /manager/managerHome.jsp(60,28) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /manager/home.jsp(60,28) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_c_005fif_005f10.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${report.order.isConfirmed == true}", boolean.class, (jakarta.servlet.jsp.PageContext)_jspx_page_context, null)).booleanValue());
       int _jspx_eval_c_005fif_005f10 = _jspx_th_c_005fif_005f10.doStartTag();
       if (_jspx_eval_c_005fif_005f10 != jakarta.servlet.jsp.tagext.Tag.SKIP_BODY) {
@@ -1805,7 +1805,7 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_lang_005fprint_005f37.setPageContext(_jspx_page_context);
       _jspx_th_lang_005fprint_005f37.setParent((jakarta.servlet.jsp.tagext.Tag) _jspx_th_c_005fif_005f10);
-      // /manager/managerHome.jsp(61,58) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /manager/home.jsp(61,58) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_lang_005fprint_005f37.setMessage("common.message.table.confirmed");
       int _jspx_eval_lang_005fprint_005f37 = _jspx_th_lang_005fprint_005f37.doStartTag();
       if (_jspx_th_lang_005fprint_005f37.doEndTag() == jakarta.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1829,7 +1829,7 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_c_005fif_005f11.setPageContext(_jspx_page_context);
       _jspx_th_c_005fif_005f11.setParent((jakarta.servlet.jsp.tagext.Tag) _jspx_th_c_005fforEach_005f1);
-      // /manager/managerHome.jsp(65,28) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /manager/home.jsp(65,28) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_c_005fif_005f11.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${report.order.invoice.isPaid == false}", boolean.class, (jakarta.servlet.jsp.PageContext)_jspx_page_context, null)).booleanValue());
       int _jspx_eval_c_005fif_005f11 = _jspx_th_c_005fif_005f11.doStartTag();
       if (_jspx_eval_c_005fif_005f11 != jakarta.servlet.jsp.tagext.Tag.SKIP_BODY) {
@@ -1865,7 +1865,7 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_lang_005fprint_005f38.setPageContext(_jspx_page_context);
       _jspx_th_lang_005fprint_005f38.setParent((jakarta.servlet.jsp.tagext.Tag) _jspx_th_c_005fif_005f11);
-      // /manager/managerHome.jsp(66,56) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /manager/home.jsp(66,56) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_lang_005fprint_005f38.setMessage("common.message.table.not.paid");
       int _jspx_eval_lang_005fprint_005f38 = _jspx_th_lang_005fprint_005f38.doStartTag();
       if (_jspx_th_lang_005fprint_005f38.doEndTag() == jakarta.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1889,7 +1889,7 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_c_005fif_005f12.setPageContext(_jspx_page_context);
       _jspx_th_c_005fif_005f12.setParent((jakarta.servlet.jsp.tagext.Tag) _jspx_th_c_005fforEach_005f1);
-      // /manager/managerHome.jsp(68,28) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /manager/home.jsp(68,28) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_c_005fif_005f12.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${report.order.invoice.isPaid == true}", boolean.class, (jakarta.servlet.jsp.PageContext)_jspx_page_context, null)).booleanValue());
       int _jspx_eval_c_005fif_005f12 = _jspx_th_c_005fif_005f12.doStartTag();
       if (_jspx_eval_c_005fif_005f12 != jakarta.servlet.jsp.tagext.Tag.SKIP_BODY) {
@@ -1925,7 +1925,7 @@ public final class managerHome_jsp extends org.apache.jasper.runtime.HttpJspBase
     try {
       _jspx_th_lang_005fprint_005f39.setPageContext(_jspx_page_context);
       _jspx_th_lang_005fprint_005f39.setParent((jakarta.servlet.jsp.tagext.Tag) _jspx_th_c_005fif_005f12);
-      // /manager/managerHome.jsp(69,58) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /manager/home.jsp(69,58) name = message type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_lang_005fprint_005f39.setMessage("common.message.table.paid");
       int _jspx_eval_lang_005fprint_005f39 = _jspx_th_lang_005fprint_005f39.doStartTag();
       if (_jspx_th_lang_005fprint_005f39.doEndTag() == jakarta.servlet.jsp.tagext.Tag.SKIP_PAGE) {

@@ -63,7 +63,7 @@
                         </select>
                     </th>
                     <th>
-                        <form action = "/app/cargo/client/getAllOrders/filter" method = "GET" id = "filter">
+                        <form action = "/app/cargo/client/orders/filter" method = "GET" id = "filter">
                             <input type="hidden" name="page" value="1">
                             <button type = "submit"  class="btn btn-dark btn-sm"><lang:print message = "common.message.button.find.order"/></button>
                             <input type = "hidden" name = "login" value = "${sessionScope.user.login}">
@@ -118,7 +118,7 @@
                             <c:if test = "${report.order.isConfirmed == true}">
                                 <c:if test= "${report.order.invoice.isPaid == false}">
                                     <td>
-                                        <form action ="/app/cargo/client/getInvoice" method = "GET">
+                                        <form action ="/app/cargo/client/invoice" method = "GET">
                                             <input type = "hidden" name = "clientId" value = "${sessionScope.user.id}" />
                                             <input type = "hidden" name = "orderId" value = "${report.order.id}" />
                                             <button type = "submit"  class = "btn btn-secondary"><lang:print message = "clientOrders.jsp.get.invoice"/></button>

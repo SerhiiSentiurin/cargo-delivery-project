@@ -45,7 +45,7 @@ public class ManagerController {
     public ModelAndView confirmOrder(HttpServletRequest request) {
         Long orderId = Long.parseLong(request.getParameter("orderId"));
         managerService.confirmOrder(orderId);
-        ModelAndView modelAndView = ModelAndView.withView("/cargo/manager/getNotConfirmedOrders");
+        ModelAndView modelAndView = ModelAndView.withView("/cargo/manager/orders/notConfirmed");
         modelAndView.setRedirect(true);
         return modelAndView;
     }
@@ -69,7 +69,7 @@ public class ManagerController {
         String recipientCity = request.getParameter("recipientCity");
         List<Report> reports = managerService.getReportByDayAndDirection(arrivalDate, senderCity, recipientCity);
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setView("/manager/managerHome.jsp");
+        modelAndView.setView("/manager/home.jsp");
         modelAndView.addAttribute("reports", reports);
         return modelAndView;
     }

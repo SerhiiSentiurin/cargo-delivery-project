@@ -51,7 +51,7 @@
 
         <table class="table table-striped">
             <td align = "center">
-                <form action = "/app/cargo/calculateDelivery" method = "GET" id = "calculateCost">
+                <form action = "/app/cargo/calculate/delivery" method = "GET" id = "calculateCost">
                     <label for = "Weight" ><lang:print message = "common.message.table.cargo.weight"/> <lang:print message = "common.message.table.(kg)"/></label>
                     <input type = "number" min = "0" max= "5000" step = 0.01 name="weight" id = "Weight" required><br><br>
                     <label for = "Volume"><lang:print message = "common.message.table.cargo.volume"/> <lang:print message = "common.message.table.(m³)"/></label>

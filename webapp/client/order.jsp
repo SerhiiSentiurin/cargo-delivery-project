@@ -45,7 +45,7 @@
 
         <table class="table table-striped">
             <td align = "center">
-                <form action = "/app/cargo/client/calculateDelivery" method = "GET" id = "calculateCost">
+                <form action = "/app/cargo/client/calculate/delivery" method = "GET" id = "calculateCost">
                     <label for = "Weight" ><lang:print message = "common.message.table.cargo.weight"/> <lang:print message = "common.message.table.(kg)"/></label>
                     <input type = "number" min = "0" max= "5000" step = 0.01 name="weight" id = "Weight" required/><br><br>
                     <label for = "Volume"><lang:print message = "common.message.table.cargo.volume"/> <lang:print message = "common.message.table.(m³)"/></label>
@@ -71,7 +71,7 @@
                     </div>
 
                     <br></br>
-                    <form action = "/app/cargo/client/createOrder" method = "POST" id = "createOrder">
+                    <form action = "/app/cargo/client/create/order" method = "POST" id = "createOrder">
                         <input type = "hidden" name = "clientId" value = "${user.id}" />
                         <input type = "hidden" name = "senderCity" value = "${order.senderCity}"/>
                         <input type = "hidden" name = "recipientCity" value = "${order.recipientCity}"/>

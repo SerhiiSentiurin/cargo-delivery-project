@@ -19,25 +19,25 @@ public class SecurityFilter implements Filter {
     public void init(FilterConfig filterConfig) {
         List<PathMatcher> pathMatchers = new ArrayList<>();
 
-        pathMatchers.add(new PathMatcher("/manager/managerHome.jsp", UserRole.MANAGER));
-        pathMatchers.add(new PathMatcher("/cargo/client/getWalletInfo", UserRole.CLIENT));
-        pathMatchers.add(new PathMatcher("/cargo/client/getClientOrders", UserRole.CLIENT));
+        pathMatchers.add(new PathMatcher("/manager/home.jsp", UserRole.MANAGER));
+        pathMatchers.add(new PathMatcher("/cargo/client/wallet", UserRole.CLIENT));
+        pathMatchers.add(new PathMatcher("/cargo/client/orders", UserRole.CLIENT));
         pathMatchers.add(new PathMatcher("/cargo/client/routes", UserRole.CLIENT));
-        pathMatchers.add(new PathMatcher("/cargo/client/calculateDelivery", UserRole.CLIENT));
-        pathMatchers.add(new PathMatcher("/cargo/client/getInvoice", UserRole.CLIENT));
-        pathMatchers.add(new PathMatcher("/cargo/client/getAllOrders/filter", UserRole.CLIENT));
-        pathMatchers.add(new PathMatcher("/client/clientHome.jsp", UserRole.CLIENT));
-        pathMatchers.add(new PathMatcher("/client/clientInvoice.jsp", UserRole.CLIENT));
-        pathMatchers.add(new PathMatcher("/client/clientOrders.jsp", UserRole.CLIENT));
-        pathMatchers.add(new PathMatcher("/client/clientWallet.jsp", UserRole.CLIENT));
-        pathMatchers.add(new PathMatcher("/client/getOrder.jsp", UserRole.CLIENT));
-        pathMatchers.add(new PathMatcher("/cargo/manager/getAllOrders", UserRole.MANAGER));
-        pathMatchers.add(new PathMatcher("/cargo/manager/getNotConfirmedOrders", UserRole.MANAGER));
-        pathMatchers.add(new PathMatcher("/cargo/manager/getAllOrders/filter", UserRole.MANAGER));
-        pathMatchers.add(new PathMatcher("/cargo/manager/getReport", UserRole.MANAGER));
+        pathMatchers.add(new PathMatcher("/cargo/client/calculate/delivery", UserRole.CLIENT));
+        pathMatchers.add(new PathMatcher("/cargo/client/invoice", UserRole.CLIENT));
+        pathMatchers.add(new PathMatcher("/cargo/client/orders/filter", UserRole.CLIENT));
+        pathMatchers.add(new PathMatcher("/client/home.jsp", UserRole.CLIENT));
+        pathMatchers.add(new PathMatcher("/client/invoice.jsp", UserRole.CLIENT));
+        pathMatchers.add(new PathMatcher("/client/orders.jsp", UserRole.CLIENT));
+        pathMatchers.add(new PathMatcher("/client/wallet.jsp", UserRole.CLIENT));
+        pathMatchers.add(new PathMatcher("/client/order.jsp", UserRole.CLIENT));
+        pathMatchers.add(new PathMatcher("/cargo/manager/orders", UserRole.MANAGER));
+        pathMatchers.add(new PathMatcher("/cargo/manager/orders/notConfirmed", UserRole.MANAGER));
+        pathMatchers.add(new PathMatcher("/cargo/manager/orders/filter", UserRole.MANAGER));
+        pathMatchers.add(new PathMatcher("/cargo/manager/report", UserRole.MANAGER));
         pathMatchers.add(new PathMatcher("/manager/allOrders.jsp", UserRole.MANAGER));
         pathMatchers.add(new PathMatcher("/manager/manageOrders.jsp", UserRole.MANAGER));
-        pathMatchers.add(new PathMatcher("/manager/managerHome.jsp", UserRole.MANAGER));
+        pathMatchers.add(new PathMatcher("/manager/home.jsp", UserRole.MANAGER));
         pathMatchers.add(new PathMatcher("/view/header.jsp", UserRole.MANAGER, UserRole.CLIENT));
 
         this.pathMatchers = pathMatchers;

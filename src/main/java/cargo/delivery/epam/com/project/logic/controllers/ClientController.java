@@ -39,7 +39,7 @@ public class ClientController {
         Long clientId = Long.parseLong(request.getParameter("clientId"));
         Client client = clientService.getClientById(clientId);
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setView("/client/clientWallet.jsp");
+        modelAndView.setView("/client/wallet.jsp");
         modelAndView.addAttribute("client", client);
         return modelAndView;
     }
@@ -50,7 +50,7 @@ public class ClientController {
         Double amount = Double.parseDouble(request.getParameter("amount"));
         Long clientId = Long.parseLong(request.getParameter("clientId"));
         clientService.topUpClientWallet(amount, clientId);
-        ModelAndView modelAndView = ModelAndView.withView("/cargo/client/getWalletInfo?clientId=" + clientId);
+        ModelAndView modelAndView = ModelAndView.withView("/cargo/client/wallet?clientId=" + clientId);
         modelAndView.setRedirect(true);
         return modelAndView;
     }
@@ -63,7 +63,7 @@ public class ClientController {
         int countPages = clientService.getCountPagesAllOrdersClient(clientId);
         List<String> paginationLinks = paginationLinksBuilder.buildLinks(request, countPages);
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setView("/client/clientOrders.jsp");
+        modelAndView.setView("/client/orders.jsp");
         modelAndView.addAttribute("reports", clientOrders);
         modelAndView.addAttribute("paginationLinks", paginationLinks);
         return modelAndView;
@@ -76,7 +76,7 @@ public class ClientController {
         LocalDate date = LocalDate.now();
 
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setView("/client/clientInvoice.jsp");
+        modelAndView.setView("/client/invoice.jsp");
         modelAndView.addAttribute("order", order);
         modelAndView.addAttribute("date", date);
 
@@ -91,7 +91,7 @@ public class ClientController {
         LocalDate arrivalDate = Date.valueOf(request.getParameter("arrivalDate")).toLocalDate();
         LocalDate departureDate = arrivalDate.minusDays(DAYS_FOR_DELIVERY);
         clientService.payInvoice(orderId, clientId, departureDate, arrivalDate);
-        ModelAndView modelAndView = ModelAndView.withView("/cargo/client/getClientOrders?clientId=" + clientId + "&page=" + page);
+        ModelAndView modelAndView = ModelAndView.withView("/cargo/client/orders?clientId=" + clientId + "&page=" + page);
         modelAndView.setRedirect(true);
         return modelAndView;
     }
@@ -102,7 +102,7 @@ public class ClientController {
         List<Report> reportList = clientService.filterOrders(dto);
         int countPages = clientService.getCountPagesFiltered(dto);
         List<String> paginationLinks = paginationLinksBuilder.buildLinks(request, countPages);
-        ModelAndView modelAndView = ModelAndView.withView("/client/clientOrders.jsp");
+        ModelAndView modelAndView = ModelAndView.withView("/client/orders.jsp");
         modelAndView.addAttribute("reports", reportList);
         modelAndView.addAttribute("paginationLinks", paginationLinks);
         return modelAndView;

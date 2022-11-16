@@ -34,7 +34,7 @@
             </tr>
             <tr>
                 <td>
-                    <form action ="/app/cargo/client/payInvoice" method = "POST" id = "payInvoice">
+                    <form action ="/app/cargo/client/invoice" method = "POST" id = "payInvoice">
                         <input type = "hidden" name = "clientId" value = "${sessionScope.user.id}" />
                         <input type = "hidden" name = "orderId" value = "${order.id}" />
                         <input type="hidden" name="page" value="1"/>

@@ -9,7 +9,7 @@
         </head>
         <table class="table table-bordered caption-top">
             <caption>
-                <form action = "/app/cargo/manager/getAllOrders/filter" method = "GET" id = "filter">
+                <form action = "/app/cargo/manager/orders/filter" method = "GET" id = "filter">
                     <input type="hidden" name="page" value="1"/>
                     <button type = "submit"  class="btn btn-dark btn-sm"><lang:print message = "common.message.button.find.order"/></button>
                 </form>
