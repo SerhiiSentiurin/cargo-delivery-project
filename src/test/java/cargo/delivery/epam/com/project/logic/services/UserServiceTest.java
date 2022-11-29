@@ -27,10 +27,10 @@ public class UserServiceTest {
 
     private static final String LOGIN = "login";
     private static final String PASSWORD = "password";
-    private static final UserDto dto = new UserDto(LOGIN,PASSWORD);
+    private static final UserDto dto = new UserDto(LOGIN, PASSWORD);
 
     @Test
-    public void getUserByLoginWhenUserIsReaderTest(){
+    public void getUserByLoginWhenUserIsReaderTest() {
         User expectedClient = new Client();
         expectedClient.setLogin(LOGIN);
         expectedClient.setPassword(PASSWORD);
@@ -38,11 +38,11 @@ public class UserServiceTest {
         when(userDAO.getUserByLogin(LOGIN)).thenReturn(Optional.of(expectedClient));
 
         User resultClient = userService.getUserByLogin(dto);
-        assertEquals(expectedClient,resultClient);
+        assertEquals(expectedClient, resultClient);
     }
 
     @Test
-    public void getUserByLoginWhenUserIsAdminTest(){
+    public void getUserByLoginWhenUserIsAdminTest() {
         User expectedManager = new Manager();
         expectedManager.setLogin(LOGIN);
         expectedManager.setPassword(PASSWORD);
@@ -50,17 +50,17 @@ public class UserServiceTest {
         when(userDAO.getUserByLogin(LOGIN)).thenReturn(Optional.of(expectedManager));
 
         User resultManager = userService.getUserByLogin(dto);
-        assertEquals(expectedManager,resultManager);
+        assertEquals(expectedManager, resultManager);
     }
 
     @Test(expected = AppException.class)
-    public void getUserByLoginWhenUserNotFound(){
+    public void getUserByLoginWhenUserNotFound() {
         when(userDAO.getUserByLogin(LOGIN)).thenReturn(Optional.empty());
         userService.getUserByLogin(dto);
     }
 
     @Test(expected = AppException.class)
-    public void getUserByLoginWhenPasswordIncorrect(){
+    public void getUserByLoginWhenPasswordIncorrect() {
         User user = new Client();
         user.setLogin(LOGIN);
         user.setPassword("asdf");

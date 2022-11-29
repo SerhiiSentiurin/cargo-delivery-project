@@ -20,7 +20,6 @@ public class MapStringToPreparedStatement implements MapDtoFieldToPreparedStatem
         } else {
             preparedStatement.setString(index, "%" + stringValue + "%");
         }
-
     }
 
     @Override

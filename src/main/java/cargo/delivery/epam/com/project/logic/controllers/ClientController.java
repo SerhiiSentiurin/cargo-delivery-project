@@ -25,7 +25,6 @@ public class ClientController {
     private final static Long DAYS_FOR_DELIVERY = 3L;
 
 
-    // /app/cargo/client/create
     public ModelAndView createNewClient(HttpServletRequest request) {
         ClientCreateDto dto = requestParameterMapper.handleRequest(request, ClientCreateDto.class);
         ModelAndView modelAndView = ModelAndView.withView("/client/successRegistration.jsp");
@@ -34,7 +33,6 @@ public class ClientController {
         return modelAndView;
     }
 
-    // app/cargo/client/getWalletInfo
     public ModelAndView getWalletInfo(HttpServletRequest request) {
         Long clientId = Long.parseLong(request.getParameter("clientId"));
         Client client = clientService.getClientById(clientId);
@@ -44,8 +42,6 @@ public class ClientController {
         return modelAndView;
     }
 
-
-    // app/cargo/client/topUpWallet
     public ModelAndView topUpClientWallet(HttpServletRequest request) {
         Double amount = Double.parseDouble(request.getParameter("amount"));
         Long clientId = Long.parseLong(request.getParameter("clientId"));
@@ -55,7 +51,6 @@ public class ClientController {
         return modelAndView;
     }
 
-    // /app/cargo/client/getClientOrders
     public ModelAndView getClientOrders(HttpServletRequest request) {
         Long clientId = Long.parseLong(request.getParameter("clientId"));
         int page = Integer.parseInt(request.getParameter("page"));
@@ -69,7 +64,6 @@ public class ClientController {
         return modelAndView;
     }
 
-    // /app/cargo/client/getInvoice
     public ModelAndView getOrderForInvoice(HttpServletRequest request) {
         Long orderId = Long.parseLong(request.getParameter("orderId"));
         Order order = clientService.getOrderForInvoice(orderId);
@@ -79,11 +73,9 @@ public class ClientController {
         modelAndView.setView("/client/invoice.jsp");
         modelAndView.addAttribute("order", order);
         modelAndView.addAttribute("date", date);
-
         return modelAndView;
     }
 
-    // /app/cargo/client/payInvoice
     public ModelAndView payInvoice(HttpServletRequest request) {
         Long orderId = Long.parseLong(request.getParameter("orderId"));
         Long clientId = Long.parseLong(request.getParameter("clientId"));
@@ -96,7 +88,6 @@ public class ClientController {
         return modelAndView;
     }
 
-    // /app/cargo/client/getAllOrders/filter
     public ModelAndView filterOrders(HttpServletRequest request) {
         FilteringDto dto = requestParameterMapper.handleRequest(request, FilteringDto.class);
         List<Report> reportList = clientService.filterOrders(dto);
@@ -107,5 +98,4 @@ public class ClientController {
         modelAndView.addAttribute("paginationLinks", paginationLinks);
         return modelAndView;
     }
-
 }

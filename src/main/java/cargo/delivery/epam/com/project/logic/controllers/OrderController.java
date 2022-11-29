@@ -15,14 +15,12 @@ public class OrderController {
     private final OrderService orderService;
     private final RequestParameterMapper requestParameterMapper;
 
-    // /app/cargo/client/routes
     public ModelAndView getRoutesForRegisterUser(HttpServletRequest request) {
         ModelAndView modelAndView = viewWithRoutes();
         modelAndView.setView("/client/order.jsp");
         return modelAndView;
     }
 
-    // /app/cargo/routes
     public ModelAndView getRoutesForNonRegisterUser(HttpServletRequest request) {
         ModelAndView modelAndView = viewWithRoutes();
         modelAndView.setView("/notRegistered/getCost.jsp");
@@ -38,14 +36,12 @@ public class OrderController {
         return modelAndView;
     }
 
-    // /app/cargo/calculateDelivery
     public ModelAndView getDeliveryCostForNotRegisteredUser(HttpServletRequest request) {
         ModelAndView modelAndView = viewWithOrders(request);
         modelAndView.setView("/cargo/routes");
         return modelAndView;
     }
 
-    // /app/cargo/client/calculateDelivery
     public ModelAndView getDeliveryCostForRegisteredUser(HttpServletRequest request) {
         ModelAndView modelAndView = viewWithOrders(request);
         modelAndView.setView("/cargo/client/routes");
@@ -60,7 +56,6 @@ public class OrderController {
         return modelAndView;
     }
 
-    // app/cargo/client/createOrder
     public ModelAndView createOrder(HttpServletRequest request) {
         ClientOrderDto dto = requestParameterMapper.handleRequest(request, ClientOrderDto.class);
         int page = Integer.parseInt(request.getParameter("page"));
@@ -69,6 +64,4 @@ public class OrderController {
         modelAndView.setRedirect(true);
         return modelAndView;
     }
-
-
 }

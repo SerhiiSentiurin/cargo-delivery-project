@@ -83,7 +83,7 @@ public class ClientServiceTest {
     }
 
     @Test
-    public void getOrdersByClientIdTest(){
+    public void getOrdersByClientIdTest() {
         int index = (PAGE - 1) * ORDERS_PER_PAGE;
         Order order = Mockito.mock(Order.class);
         Client client = Mockito.mock(Client.class);
@@ -91,10 +91,10 @@ public class ClientServiceTest {
         List<Report> expectedList = new ArrayList<>();
         expectedList.add(report);
 
-        when(clientDAO.getReportsByClientId(CLIENT_ID,index)).thenReturn(expectedList);
+        when(clientDAO.getReportsByClientId(CLIENT_ID, index)).thenReturn(expectedList);
 
-        List<Report> resultList = clientService.getOrdersByClientId(CLIENT_ID,PAGE);
-        assertEquals(expectedList,resultList);
+        List<Report> resultList = clientService.getOrdersByClientId(CLIENT_ID, PAGE);
+        assertEquals(expectedList, resultList);
         assertNotNull(resultList);
 
         verify(reportFilteringDAO).getOrderById(order.getId());
@@ -102,29 +102,29 @@ public class ClientServiceTest {
     }
 
     @Test
-    public void getOrdersByClientIdEmptyTest(){
+    public void getOrdersByClientIdEmptyTest() {
         int index = (PAGE - 1) * ORDERS_PER_PAGE;
         List<Report> expectedList = new ArrayList<>();
 
-        when(clientDAO.getReportsByClientId(CLIENT_ID,index)).thenReturn(expectedList);
+        when(clientDAO.getReportsByClientId(CLIENT_ID, index)).thenReturn(expectedList);
 
-        List<Report> resultList = clientService.getOrdersByClientId(CLIENT_ID,PAGE);
-        assertEquals(expectedList,resultList);
+        List<Report> resultList = clientService.getOrdersByClientId(CLIENT_ID, PAGE);
+        assertEquals(expectedList, resultList);
         assertNotNull(resultList);
     }
 
     @Test
-    public void getOrderForInvoiceTest(){
+    public void getOrderForInvoiceTest() {
         Order expectedOrder = Mockito.mock(Order.class);
         when(reportFilteringDAO.getOrderById(ORDER_ID)).thenReturn(expectedOrder);
         Order resultOrder = clientService.getOrderForInvoice(ORDER_ID);
-        assertEquals(expectedOrder,resultOrder);
+        assertEquals(expectedOrder, resultOrder);
         assertNotNull(resultOrder);
         verify(reportFilteringDAO).getOrderById(ORDER_ID);
     }
 
     @Test
-    public void payInvoiceTest(){
+    public void payInvoiceTest() {
         Double amountAfterPay = 0d;
         Invoice invoice = new Invoice();
         invoice.setPrice(10d);
@@ -138,12 +138,12 @@ public class ClientServiceTest {
         when(reportFilteringDAO.getClientById(client.getId())).thenReturn(client);
         when(reportFilteringDAO.getOrderById(order.getId())).thenReturn(order);
 
-        clientService.payInvoice(ORDER_ID,CLIENT_ID, LocalDate.of(2000,1,1), LocalDate.of(2000,1,3));
-        verify(clientDAO).payInvoice(ORDER_ID,CLIENT_ID, LocalDate.of(2000,1,1), LocalDate.of(2000,1,3), amountAfterPay);
+        clientService.payInvoice(ORDER_ID, CLIENT_ID, LocalDate.of(2000, 1, 1), LocalDate.of(2000, 1, 3));
+        verify(clientDAO).payInvoice(ORDER_ID, CLIENT_ID, LocalDate.of(2000, 1, 1), LocalDate.of(2000, 1, 3), amountAfterPay);
     }
 
     @Test(expected = AppException.class)
-    public void payInvoiceWhenNotEnoughMoney(){
+    public void payInvoiceWhenNotEnoughMoney() {
         Invoice invoice = new Invoice();
         invoice.setPrice(10d);
         Client client = new Client();
@@ -155,6 +155,6 @@ public class ClientServiceTest {
 
         when(reportFilteringDAO.getClientById(client.getId())).thenReturn(client);
         when(reportFilteringDAO.getOrderById(order.getId())).thenReturn(order);
-        clientService.payInvoice(ORDER_ID,CLIENT_ID, LocalDate.of(2000,1,1), LocalDate.of(2000,1,3));
+        clientService.payInvoice(ORDER_ID, CLIENT_ID, LocalDate.of(2000, 1, 1), LocalDate.of(2000, 1, 3));
     }
 }

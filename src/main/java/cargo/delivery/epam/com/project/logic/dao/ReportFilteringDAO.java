@@ -45,7 +45,7 @@ public class ReportFilteringDAO {
 
     @SneakyThrows
     public Client getClientById(Long clientId) {
-        String sql = "SELECT amount, login FROM user join client on user.id = client.id WHERE client.id = ?";
+        String sql = "SELECT amount, login FROM user JOIN client ON user.id = client.id WHERE client.id = ?";
         Client client = new Client();
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
@@ -80,7 +80,7 @@ public class ReportFilteringDAO {
 
     @SneakyThrows
     public Delivery getDeliveryById(Long deliveryId) {
-        String sql = "SELECT * FROM delivery where id = ?";
+        String sql = "SELECT * FROM delivery WHERE id = ?";
         Delivery delivery = new Delivery();
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
@@ -101,7 +101,7 @@ public class ReportFilteringDAO {
 
     @SneakyThrows
     public Order getOrderById(Long orderId) {
-        String sql = "select * from orders where id = ?";
+        String sql = "SELECT * FROM orders WHERE id = ?";
         Order order = new Order();
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
@@ -154,79 +154,4 @@ public class ReportFilteringDAO {
             return 0;
         }
     }
-
-
-    //    @SneakyThrows
-//    private void checkSortingDtoToNull(PreparedStatement preparedStatement, SortingDto dto) {
-//        int index = 0;
-//        if (dto.getOrderId() == null) {
-//            preparedStatement.setString(++index, "%%");
-//        }
-//        if (dto.getOrderId() != null) {
-//            preparedStatement.setString(++index, dto.getOrderId().toString());
-//        }
-//
-//
-//        if (dto.getLogin() == null || dto.getLogin().isEmpty()) {
-//            preparedStatement.setString(++index, "%%");
-//        }else {
-//            preparedStatement.setString(++index, "%" + dto.getLogin() + "%");
-//        }
-//
-//
-//        if (dto.getType().isEmpty()) {
-//            preparedStatement.setString(++index, "%%");
-//        }
-//        if (!dto.getType().isEmpty()) {
-//            preparedStatement.setString(++index, "%" + dto.getType() + "%");
-//        }
-//        if (dto.getWeight() == null) {
-//            preparedStatement.setString(++index, "%%");
-//        }
-//        if (dto.getWeight() != null) {
-//            preparedStatement.setString(++index, "%" + dto.getWeight() + "%");
-//        }
-//        if (dto.getVolume() == null) {
-//            preparedStatement.setString(++index, "%%");
-//        }
-//        if (dto.getVolume() != null) {
-//            preparedStatement.setString(++index, "%" + dto.getVolume().toString() + "%");
-//        }
-//        if (dto.getSenderCity().isEmpty()) {
-//            preparedStatement.setString(++index, "%%");
-//        }
-//        if (!dto.getSenderCity().isEmpty()) {
-//            preparedStatement.setString(++index, "%" + dto.getSenderCity() + "%");
-//        }
-//        if (dto.getRecipientCity().isEmpty()) {
-//            preparedStatement.setString(++index, "%%");
-//        }
-//        if (!dto.getRecipientCity().isEmpty()) {
-//            preparedStatement.setString(++index, "%" + dto.getRecipientCity() + "%");
-//        }
-//        if (dto.getDistance() == null) {
-//            preparedStatement.setString(++index, "%%");
-//        }
-//        if (dto.getDistance() != null) {
-//            preparedStatement.setString(++index, "%" + dto.getDistance().toString() + "%");
-//        }
-//        if (!dto.getDepartureDate().isEmpty()) {
-//            preparedStatement.setDate(++index, Date.valueOf(dto.getDepartureDate()));
-//        }
-//        if (!dto.getArrivalDate().isEmpty()) {
-//            preparedStatement.setDate(++index, Date.valueOf(dto.getArrivalDate()));
-//        }
-//        if (dto.getPrice() == null) {
-//            preparedStatement.setString(++index, "%%");
-//        }
-//        if (dto.getPrice() != null) {
-//            preparedStatement.setString(++index, "%" + dto.getPrice().toString() + "%");
-//        }
-//        if (dto.getIsConfirmed() != null) {
-//            preparedStatement.setBoolean(++index, dto.getIsConfirmed());
-//        }
-//        if (dto.getIsPaid() != null) {
-//            preparedStatement.setBoolean(++index, dto.getIsPaid());
-//        }
-//    }
 }

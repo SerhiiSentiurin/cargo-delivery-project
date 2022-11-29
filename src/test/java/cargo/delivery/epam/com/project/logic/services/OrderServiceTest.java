@@ -31,72 +31,72 @@ public class OrderServiceTest {
     private static final Route route2 = Mockito.mock(Route.class);
 
     @Test
-    public void createOrderTest(){
+    public void createOrderTest() {
         orderService.createOrder(dto);
         verify(orderDAO).createOrder(dto);
     }
 
     @Test
-    public void getDistinctSenderCitiesTest(){
+    public void getDistinctSenderCitiesTest() {
         List<Route> expectedList = new ArrayList<>();
         expectedList.add(route1);
         expectedList.add(route2);
         when(orderDAO.getDistinctSenderCities()).thenReturn(expectedList);
 
         List<Route> resultList = orderService.getDistinctSenderCities();
-        assertEquals(expectedList,resultList);
+        assertEquals(expectedList, resultList);
         assertNotNull(resultList);
 
         verify(orderDAO).getDistinctSenderCities();
     }
 
     @Test
-    public void getDistinctSenderCitiesEmptyTest(){
+    public void getDistinctSenderCitiesEmptyTest() {
         List<Route> expectedList = new ArrayList<>();
         when(orderDAO.getDistinctSenderCities()).thenReturn(expectedList);
 
         List<Route> resultList = orderService.getDistinctSenderCities();
-        assertEquals(expectedList,resultList);
+        assertEquals(expectedList, resultList);
         assertNotNull(resultList);
         verify(orderDAO).getDistinctSenderCities();
     }
 
     @Test
-    public void getDistinctRecipientCitiesTest(){
+    public void getDistinctRecipientCitiesTest() {
         List<Route> expectedList = new ArrayList<>();
         expectedList.add(route1);
         expectedList.add(route2);
         when(orderDAO.getDistinctRecipientCities()).thenReturn(expectedList);
 
         List<Route> resultList = orderService.getDistinctRecipientCities();
-        assertEquals(expectedList,resultList);
+        assertEquals(expectedList, resultList);
         assertNotNull(resultList);
 
         verify(orderDAO).getDistinctRecipientCities();
     }
 
     @Test
-    public void getDistinctRecipientCitiesEmptyTest(){
+    public void getDistinctRecipientCitiesEmptyTest() {
         List<Route> expectedList = new ArrayList<>();
         when(orderDAO.getDistinctRecipientCities()).thenReturn(expectedList);
 
         List<Route> resultList = orderService.getDistinctRecipientCities();
-        assertEquals(expectedList,resultList);
+        assertEquals(expectedList, resultList);
         assertNotNull(resultList);
 
         verify(orderDAO).getDistinctRecipientCities();
     }
 
     @Test
-    public void calculateDeliveryCost(){
-        ClientOrderDto userInsertDto = new ClientOrderDto(1L, "type", 100d, 10d, "sender", "recipient",100d, null);
-        ClientOrderDto expectedDto = new ClientOrderDto(1L, "type", 100d, 10d, "sender", "recipient",100d, 1700d);
-        Route route = new Route(1L, expectedDto.getDistance(), expectedDto.getSenderCity(),expectedDto.getRecipientCity());
-        when(orderDAO.getRouteByCities(userInsertDto.getSenderCity(),userInsertDto.getRecipientCity())).thenReturn(route);
+    public void calculateDeliveryCost() {
+        ClientOrderDto userInsertDto = new ClientOrderDto(1L, "type", 100d, 10d, "sender", "recipient", 100d, null);
+        ClientOrderDto expectedDto = new ClientOrderDto(1L, "type", 100d, 10d, "sender", "recipient", 100d, 1700d);
+        Route route = new Route(1L, expectedDto.getDistance(), expectedDto.getSenderCity(), expectedDto.getRecipientCity());
+        when(orderDAO.getRouteByCities(userInsertDto.getSenderCity(), userInsertDto.getRecipientCity())).thenReturn(route);
 
         ClientOrderDto resultDto = orderService.calculateDeliveryCost(userInsertDto);
-        assertEquals(expectedDto,resultDto);
+        assertEquals(expectedDto, resultDto);
 
-        verify(orderDAO).getRouteByCities(userInsertDto.getSenderCity(),userInsertDto.getRecipientCity());
+        verify(orderDAO).getRouteByCities(userInsertDto.getSenderCity(), userInsertDto.getRecipientCity());
     }
 }

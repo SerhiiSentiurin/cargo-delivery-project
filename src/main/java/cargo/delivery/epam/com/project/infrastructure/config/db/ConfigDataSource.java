@@ -9,7 +9,7 @@ import javax.sql.DataSource;
 
 @Log4j2
 public class ConfigDataSource {
-    public DataSource createDataSource(ConfigLoader configLoader){
+    public DataSource createDataSource(ConfigLoader configLoader) {
         HikariConfig hikariConfig = new HikariConfig();
         hikariConfig.setJdbcUrl(configLoader.getConfigs().get("db.url"));
         hikariConfig.setUsername(configLoader.getConfigs().get("db.username"));
@@ -17,6 +17,4 @@ public class ConfigDataSource {
         log.info("connection pool created");
         return new HikariDataSource(hikariConfig);
     }
-
-
 }

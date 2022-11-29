@@ -5,7 +5,6 @@ import cargo.delivery.epam.com.project.logic.entity.dto.FilteringDto;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;

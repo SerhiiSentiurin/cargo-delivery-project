@@ -65,9 +65,9 @@ public class UserDAOTest {
         Optional<User> resultUser = userDAO.getUserByLogin(LOGIN);
         assertNotNull(resultUser);
         assertTrue(resultUser.isPresent());
-        assertEquals(expectedClient,resultUser.get());
+        assertEquals(expectedClient, resultUser.get());
 
-        verify(preparedStatement).setString(1,LOGIN);
+        verify(preparedStatement).setString(1, LOGIN);
     }
 
     @Test
@@ -84,21 +84,21 @@ public class UserDAOTest {
         Optional<User> resultUser = userDAO.getUserByLogin(LOGIN);
         assertNotNull(resultUser);
         assertTrue(resultUser.isPresent());
-        assertEquals(expectedManager,resultUser.get());
+        assertEquals(expectedManager, resultUser.get());
 
-        verify(preparedStatement).setString(1,LOGIN);
+        verify(preparedStatement).setString(1, LOGIN);
     }
 
     @Test
-    public void getGetUserByLoginWhenUserNotFound()throws SQLException{
+    public void getGetUserByLoginWhenUserNotFound() throws SQLException {
         when(resultSet.next()).thenReturn(false);
 
         Optional<User> resultUser = userDAO.getUserByLogin(LOGIN);
-        assertEquals(Optional.empty(),resultUser);
+        assertEquals(Optional.empty(), resultUser);
         assertFalse(resultUser.isPresent());
         assertNotNull(resultUser);
 
-        verify(preparedStatement).setString(1,LOGIN);
+        verify(preparedStatement).setString(1, LOGIN);
     }
 
 }

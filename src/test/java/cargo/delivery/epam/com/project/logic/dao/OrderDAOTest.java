@@ -47,12 +47,12 @@ public class OrderDAOTest {
     OrderDAO orderDAO;
 
     private static final String GET_ROUTE = "SELECT * FROM route WHERE sender_city = ? AND recipient_city = ?";
-    private static final String GET_DISTINCT_SENDER_CITIES = "select distinct sender_city from route";
-    private static final String GET_DISTINCT_RECIPIENT_CITIES = "select distinct recipient_city from route";
-    private static final String INSERT_INTO_INVOICE = "insert into invoice (price) value (?)";
-    private static final String INSERT_INTO_DELIVERY = "insert into delivery (route_id) value ((select id from route where sender_city = ? and recipient_city = ?))";
-    private static final String INSERT_INTO_ORDER = "insert into orders (type, weight, volume, delivery_id, invoice_id) values (?, ?, ?, ?, ?)";
-    private static final String INSERT_INTO_REPORT = "insert into report (client_id, order_id) values(?, ?)";
+    private static final String GET_DISTINCT_SENDER_CITIES = "SELECT DISTINCT sender_city FROM route";
+    private static final String GET_DISTINCT_RECIPIENT_CITIES = "SELECT DISTINCT recipient_city FROM route";
+    private static final String INSERT_INTO_INVOICE = "INSERT INTO invoice (price) VALUE (?)";
+    private static final String INSERT_INTO_DELIVERY = "INSERT INTO delivery (route_id) VALUE ((SELECT id FROM route WHERE sender_city = ? AND recipient_city = ?))";
+    private static final String INSERT_INTO_ORDER = "INSERT INTO orders (type, weight, volume, delivery_id, invoice_id) VALUES (?, ?, ?, ?, ?)";
+    private static final String INSERT_INTO_REPORT = "INSERT INTO report (client_id, order_id) VALUES (?, ?)";
     private static final Long DELIVERY_ID = 1L;
     private static final Long INVOICE_ID = 1L;
     private static final Long ORDER_ID = 1L;

@@ -40,12 +40,12 @@ public class ClientDAOTest {
 
     private static final String INSERT_INTO_USER = "INSERT INTO user (login, password, role) VALUES (?,?,?)";
     private static final String INSERT_INTO_CLIENT = "INSERT INTO client (id, amount) VALUES(?, 0)";
-    private static final String TOP_UP_CLIENT_WALLET = "UPDATE client SET amount = ? where id = ?";
-    private static final String GET_REPORTS_BY_CLIENT_ID = "select client_id, order_id from report join orders on report.order_id=orders.id join invoice on orders.invoice_id=invoice.id where client_id = ? order by isConfirmed asc, isPaid asc, order_id desc limit ?, 10";
-    private static final String UPDATE_DELIVERY = "update delivery join orders on delivery.id = orders.delivery_id set departure_date = ?, arrival_date = ? where orders.id = ?";
-    private static final String UPDATE_INVOICE = "update invoice join orders on invoice.id = orders.invoice_id set isPaid=true where orders.id = ?";
-    private static final String UPDATE_CLIENT = "update client set amount = ? where id = ?";
-    private static final String GET_COUNT_OF_ROWS_ALL_CLIENT_ORDERS = "select count(*) from report where client_id = ?";
+    private static final String TOP_UP_CLIENT_WALLET = "UPDATE client SET amount = ? WHERE id = ?";
+    private static final String GET_REPORTS_BY_CLIENT_ID = "SELECT client_id, order_id FROM report JOIN orders ON report.order_id=orders.id JOIN invoice ON orders.invoice_id=invoice.id WHERE client_id = ? ORDER BY isConfirmed ASC, isPaid ASC, order_id DESC limit ?, 10";
+    private static final String UPDATE_DELIVERY = "UPDATE delivery JOIN orders ON delivery.id = orders.delivery_id SET departure_date = ?, arrival_date = ? WHERE orders.id = ?";
+    private static final String UPDATE_INVOICE = "UPDATE invoice JOIN orders ON invoice.id = orders.invoice_id SET isPaid=true WHERE orders.id = ?";
+    private static final String UPDATE_CLIENT = "UPDATE client SET amount = ? WHERE id = ?";
+    private static final String GET_COUNT_OF_ROWS_ALL_CLIENT_ORDERS = "SELECT count(*) FROM report WHERE client_id = ?";
     private static final Long USER_ID = 1L;
     private static final Long ORDER_ID_1 = 1L;
     private static final Long ORDER_ID_2 = 2L;
@@ -290,7 +290,7 @@ public class ClientDAOTest {
     }
 
     @Test
-    public void getCountOfRowsAllOrdersClientTest()throws SQLException{
+    public void getCountOfRowsAllOrdersClientTest() throws SQLException {
         Double expectedCountOfRows = 10d;
         when(connection.prepareStatement(GET_COUNT_OF_ROWS_ALL_CLIENT_ORDERS)).thenReturn(preparedStatement1);
         when(preparedStatement1.executeQuery()).thenReturn(resultSet);
@@ -298,21 +298,21 @@ public class ClientDAOTest {
         when(resultSet.getDouble(1)).thenReturn(expectedCountOfRows);
 
         Double resultCountOfRows = clientDAO.getCountOfRowsAllOrdersClient(USER_ID);
-        assertEquals(expectedCountOfRows,resultCountOfRows);
+        assertEquals(expectedCountOfRows, resultCountOfRows);
 
-        verify(preparedStatement1).setLong(1,USER_ID);
+        verify(preparedStatement1).setLong(1, USER_ID);
     }
 
     @Test
-    public void getCountOfRowsAllOrdersClientEmptyTest()throws SQLException{
+    public void getCountOfRowsAllOrdersClientEmptyTest() throws SQLException {
         Double expectedCountOfRows = 0d;
         when(connection.prepareStatement(GET_COUNT_OF_ROWS_ALL_CLIENT_ORDERS)).thenReturn(preparedStatement1);
         when(preparedStatement1.executeQuery()).thenReturn(resultSet);
         when(resultSet.next()).thenReturn(false);
 
         Double resultCountOfRows = clientDAO.getCountOfRowsAllOrdersClient(USER_ID);
-        assertEquals(expectedCountOfRows,resultCountOfRows);
+        assertEquals(expectedCountOfRows, resultCountOfRows);
 
-        verify(preparedStatement1).setLong(1,USER_ID);
+        verify(preparedStatement1).setLong(1, USER_ID);
     }
 }

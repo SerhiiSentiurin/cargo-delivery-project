@@ -54,10 +54,10 @@ public class ReportFilteringDAOTest {
     @InjectMocks
     ReportFilteringDAO reportFilteringDAO;
 
-    private static final String GET_CLIENT_BY_ID = "SELECT amount, login FROM user join client on user.id = client.id WHERE client.id = ?";
+    private static final String GET_CLIENT_BY_ID = "SELECT amount, login FROM user JOIN client ON user.id = client.id WHERE client.id = ?";
     private static final String GET_ROUTE_BY_ID = "SELECT * FROM route WHERE id = ?";
-    private static final String GET_DELIVERY_BY_ID = "SELECT * FROM delivery where id = ?";
-    private static final String GET_ORDER_BY_ID = "select * from orders where id = ?";
+    private static final String GET_DELIVERY_BY_ID = "SELECT * FROM delivery WHERE id = ?";
+    private static final String GET_ORDER_BY_ID = "SELECT * FROM orders WHERE id = ?";
     private static final String GET_INVOICE_BY_ID = "SELECT * FROM invoice WHERE id = ?";
     private final FilteringDto filteringDto = new FilteringDto(1L, "login", "type", 10d, 5d, "sender", "recipient", 100d, "2000-01-01", "2000-01-03", 15d, true, true, 1);
     private static final Long USER_ID = 1L;
@@ -288,8 +288,8 @@ public class ReportFilteringDAOTest {
     }
 
     @Test
-    public void getInvoiceByIdTest()throws SQLException{
-        Invoice expectedInvoice = new Invoice(INVOICE_ID,20d,true);
+    public void getInvoiceByIdTest() throws SQLException {
+        Invoice expectedInvoice = new Invoice(INVOICE_ID, 20d, true);
 
         when(connection.prepareStatement(GET_INVOICE_BY_ID)).thenReturn(preparedStatement1);
         when(preparedStatement1.executeQuery()).thenReturn(resultSet1);
@@ -301,11 +301,11 @@ public class ReportFilteringDAOTest {
         assertNotNull(resultInvoice);
         assertEquals(expectedInvoice, resultInvoice);
 
-        verify(preparedStatement1).setLong(1,INVOICE_ID);
+        verify(preparedStatement1).setLong(1, INVOICE_ID);
     }
 
     @Test
-    public void getInvoiceByIdEmptyTest()throws SQLException{
+    public void getInvoiceByIdEmptyTest() throws SQLException {
         Invoice expectedInvoice = new Invoice();
 
         when(connection.prepareStatement(GET_INVOICE_BY_ID)).thenReturn(preparedStatement1);
@@ -316,11 +316,11 @@ public class ReportFilteringDAOTest {
         assertNotNull(resultInvoice);
         assertEquals(expectedInvoice, resultInvoice);
 
-        verify(preparedStatement1).setLong(1,INVOICE_ID);
+        verify(preparedStatement1).setLong(1, INVOICE_ID);
     }
 
     @Test(expected = AppException.class)
-    public void getInvoiceByIdExceptionTest()throws SQLException{
+    public void getInvoiceByIdExceptionTest() throws SQLException {
         Invoice expectedInvoice = new Invoice();
 
         when(connection.prepareStatement(GET_INVOICE_BY_ID)).thenReturn(preparedStatement1);
@@ -331,13 +331,13 @@ public class ReportFilteringDAOTest {
         assertNotNull(resultInvoice);
         assertEquals(expectedInvoice, resultInvoice);
 
-        verify(preparedStatement1).setLong(1,INVOICE_ID);
+        verify(preparedStatement1).setLong(1, INVOICE_ID);
     }
 
     @Test
     public void getOrderByIdTest() throws SQLException {
-        Delivery delivery = new Delivery(DELIVERY_ID, LocalDate.of(2000,1,1), LocalDate.of(2000,1,3), new Route(ROUTE_ID, 10d, "seder", "recipient"));
-        Invoice invoice = new Invoice(INVOICE_ID,200d,true);
+        Delivery delivery = new Delivery(DELIVERY_ID, LocalDate.of(2000, 1, 1), LocalDate.of(2000, 1, 3), new Route(ROUTE_ID, 10d, "seder", "recipient"));
+        Invoice invoice = new Invoice(INVOICE_ID, 200d, true);
         Order expectedOrder = new Order(ORDER_ID_1, "type", 10d, 10d, delivery, invoice, true);
 
         when(connection.prepareStatement(GET_ORDER_BY_ID)).thenReturn(preparedStatement1);
@@ -372,7 +372,7 @@ public class ReportFilteringDAOTest {
 
         Order resultOrder = reportFilteringDAO.getOrderById(ORDER_ID_1);
         assertNotNull(resultOrder);
-        assertEquals(expectedOrder,resultOrder);
+        assertEquals(expectedOrder, resultOrder);
 
         verify(preparedStatement1).setLong(1, ORDER_ID_1);
     }
@@ -387,7 +387,7 @@ public class ReportFilteringDAOTest {
 
         Order resultOrder = reportFilteringDAO.getOrderById(ORDER_ID_1);
         assertNotNull(resultOrder);
-        assertEquals(expectedOrder,resultOrder);
+        assertEquals(expectedOrder, resultOrder);
 
         verify(preparedStatement1).setLong(1, ORDER_ID_1);
     }
@@ -402,13 +402,13 @@ public class ReportFilteringDAOTest {
 
         Order resultOrder = reportFilteringDAO.getOrderById(ORDER_ID_1);
         assertNotNull(resultOrder);
-        assertEquals(expectedOrder,resultOrder);
+        assertEquals(expectedOrder, resultOrder);
 
         verify(preparedStatement1).setLong(1, ORDER_ID_1);
     }
 
     @Test
-    public void getCountOfFilteredRowsTest()throws SQLException{
+    public void getCountOfFilteredRowsTest() throws SQLException {
         Double expectedCount = 10d;
         FilteringDto filteringDto = Mockito.mock(FilteringDto.class);
         String query = preparerQuery.buildCheckedQueryToCountRows(filteringDto);
@@ -419,14 +419,14 @@ public class ReportFilteringDAOTest {
 
         Double resultCount = reportFilteringDAO.getCountFilteredRows(filteringDto);
         assertNotNull(resultCount);
-        assertEquals(expectedCount,resultCount);
+        assertEquals(expectedCount, resultCount);
 
         verify(filteringDto).setPage(null);
-        verify(setterFilteredFieldToPreparedStatement).setFieldsFromDtoToPreparedStatement(preparedStatement1,filteringDto);
+        verify(setterFilteredFieldToPreparedStatement).setFieldsFromDtoToPreparedStatement(preparedStatement1, filteringDto);
     }
 
     @Test
-    public void getCountOfFilteredRowsEmptyTest()throws SQLException{
+    public void getCountOfFilteredRowsEmptyTest() throws SQLException {
         Double expectedCount = 0d;
         FilteringDto filteringDto = Mockito.mock(FilteringDto.class);
         String query = preparerQuery.buildCheckedQueryToCountRows(filteringDto);
@@ -436,14 +436,14 @@ public class ReportFilteringDAOTest {
 
         Double resultCount = reportFilteringDAO.getCountFilteredRows(filteringDto);
         assertNotNull(resultCount);
-        assertEquals(expectedCount,resultCount);
+        assertEquals(expectedCount, resultCount);
 
         verify(filteringDto).setPage(null);
-        verify(setterFilteredFieldToPreparedStatement).setFieldsFromDtoToPreparedStatement(preparedStatement1,filteringDto);
+        verify(setterFilteredFieldToPreparedStatement).setFieldsFromDtoToPreparedStatement(preparedStatement1, filteringDto);
     }
 
     @Test(expected = AppException.class)
-    public void getCountOfFilteredRowsExceptionTest()throws SQLException{
+    public void getCountOfFilteredRowsExceptionTest() throws SQLException {
         Double expectedCount = 10d;
         FilteringDto filteringDto = Mockito.mock(FilteringDto.class);
         String query = preparerQuery.buildCheckedQueryToCountRows(filteringDto);
@@ -453,10 +453,10 @@ public class ReportFilteringDAOTest {
 
         Double resultCount = reportFilteringDAO.getCountFilteredRows(filteringDto);
         assertNotNull(resultCount);
-        assertEquals(expectedCount,resultCount);
+        assertEquals(expectedCount, resultCount);
 
         verify(filteringDto).setPage(null);
-        verify(setterFilteredFieldToPreparedStatement).setFieldsFromDtoToPreparedStatement(preparedStatement1,filteringDto);
+        verify(setterFilteredFieldToPreparedStatement).setFieldsFromDtoToPreparedStatement(preparedStatement1, filteringDto);
     }
 
     private static List<Report> createExpectedListReports() {

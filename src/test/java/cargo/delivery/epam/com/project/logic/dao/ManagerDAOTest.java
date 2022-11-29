@@ -37,11 +37,11 @@ public class ManagerDAOTest {
     @InjectMocks
     ManagerDAO managerDAO;
 
-    private static final String GET_COUNT_OF_ROWS_ALL_ORDERS = "select count(*) from report";
-    private static final String GET_ALL_ORDERS = "select client_id, order_id from report join orders on report.order_id = orders.id join invoice on orders.invoice_id = invoice.id order by isConfirmed asc, isPaid asc, order_id desc limit ?, 10;";
-    private static final String GET_NOT_CONFIRMED_ORDERS = "select client_id, order_id from report join orders on report.order_id = orders.id where orders.isConfirmed = false order by order_id desc";
-    private static final String GET_REPORTS_BY_DAY_AND_DIRECTION = "select client_id, order_id from report join orders on report.order_id = orders.id join delivery on orders.delivery_id = delivery.id join route on delivery.route_id = route.id where arrival_date = ? and sender_city = ? and recipient_city = ?";
-    private static final String CONFIRM_ORDER = "update orders set isConfirmed = true where id = ?";
+    private static final String GET_COUNT_OF_ROWS_ALL_ORDERS = "SELECT count(*) FROM report";
+    private static final String GET_ALL_ORDERS = "SELECT client_id, order_id FROM report JOIN orders ON report.order_id = orders.id JOIN invoice ON orders.invoice_id = invoice.id ORDER BY isConfirmed ASC, isPaid ASC, order_id DESC LIMIT ?, 10;";
+    private static final String GET_NOT_CONFIRMED_ORDERS = "SELECT client_id, order_id FROM report JOIN orders ON report.order_id = orders.id WHERE orders.isConfirmed = false ORDER BY order_id DESC";
+    private static final String GET_REPORTS_BY_DAY_AND_DIRECTION = "SELECT client_id, order_id FROM report JOIN orders ON report.order_id = orders.id JOIN delivery ON orders.delivery_id = delivery.id JOIN route ON delivery.route_id = route.id WHERE arrival_date = ? AND sender_city = ? AND recipient_city = ?";
+    private static final String CONFIRM_ORDER = "UPDATE orders SET isConfirmed = true WHERE id = ?";
     private static final int INDEX = 0;
     private static final Long ORDER_ID_1 = 1L;
     private static final Long ORDER_ID_2 = 2L;

@@ -144,7 +144,7 @@ public class ManagerServiceTest {
         when(managerDAO.getReportByDayAndDirection("2000-01-01", "sender", "recipient")).thenReturn(expectedList);
 
         List<Report> resultList = managerService.getReportByDayAndDirection("2000-01-01", "sender", "recipient");
-        assertEquals(expectedList,resultList);
+        assertEquals(expectedList, resultList);
         assertNotNull(resultList);
 
         verify(reportFilteringDAO).getOrderById(order.getId());
@@ -159,7 +159,7 @@ public class ManagerServiceTest {
     }
 
     @Test
-    public void confirmOrderTest(){
+    public void confirmOrderTest() {
         managerDAO.confirmOrder(anyLong());
         verify(managerDAO).confirmOrder(anyLong());
     }

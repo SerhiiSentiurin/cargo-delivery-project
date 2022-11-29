@@ -4,14 +4,14 @@ import cargo.delivery.epam.com.project.logic.entity.dto.FilteringDto;
 
 public class PreparerQueryToFiltering {
     public String buildCheckedQueryToFiltering(FilteringDto dto) {
-        String startQuery = "select client.id, orders.id ";
+        String startQuery = "SELECT client.id, orders.id ";
         String middleQuery = checkFullQuery(dto);
-        String endQuery = " order by isConfirmed asc, isPaid asc, order_id desc limit ?, 10";
+        String endQuery = " ORDER BY isConfirmed ASC, isPaid ASC, order_id DESC limit ?, 10";
         return startQuery.concat(middleQuery).concat(endQuery);
     }
 
     public String buildCheckedQueryToCountRows(FilteringDto dto) {
-        String startQuery = "select count(*) ";
+        String startQuery = "SELECT count(*) ";
         String endQuery = checkFullQuery(dto);
         return startQuery.concat(endQuery);
     }
@@ -21,17 +21,17 @@ public class PreparerQueryToFiltering {
         String arrivalDateInQuery = checkArrivalDateDtoField(dto);
         String isConformedInQuery = checkIsConfirmedDtoField(dto);
         String isPaidInQuery = checkIsPaidDtoField(dto);
-        return "from report join client on report.client_id=client.id join user on user.id=client.id join orders on report.order_id=orders.id " +
-                "join delivery on orders.delivery_id=delivery.id join invoice on orders.invoice_id=invoice.id join route on delivery.route_id=route.id " +
-                "where orders.id like ? and user.login like ? and orders.type like ? and orders.weight like ? and orders.volume like ? and route.sender_city like ? " +
-                "and route.recipient_city like ? and route.distance like ? and " + departureDateInQuery + " and " + arrivalDateInQuery + " and invoice.price like ? " +
-                "and orders.isConfirmed " + isConformedInQuery + " and invoice.isPaid " + isPaidInQuery;
+        return "FROM report JOIN client ON report.client_id=client.id JOIN user ON user.id=client.id JOIN orders ON report.order_id=orders.id " +
+                "JOIN delivery ON orders.delivery_id=delivery.id JOIN invoice ON orders.invoice_id=invoice.id JOIN route ON delivery.route_id=route.id " +
+                "WHERE orders.id LIKE ? AND user.login LIKE ? AND orders.type LIKE ? AND orders.weight LIKE ? AND orders.volume LIKE ? AND route.sender_city LIKE ? " +
+                "AND route.recipient_city LIKE ? AND route.distance LIKE ? AND " + departureDateInQuery + " AND " + arrivalDateInQuery + " AND invoice.price LIKE ? " +
+                "AND orders.isConfirmed " + isConformedInQuery + " AND invoice.isPaid " + isPaidInQuery;
     }
 
     private String checkDepartureDateDtoField(FilteringDto dto) {
         String departureDateInQuery;
         if (dto.getDepartureDate().isEmpty()) {
-            departureDateInQuery = "(delivery.departure_date like ? or delivery.departure_date is null)";
+            departureDateInQuery = "(delivery.departure_date LIKE ? OR delivery.departure_date IS NULL)";
         } else {
             departureDateInQuery = "delivery.departure_date = ?";
         }
@@ -41,7 +41,7 @@ public class PreparerQueryToFiltering {
     private String checkArrivalDateDtoField(FilteringDto dto) {
         String arrivalDateInQuery;
         if (dto.getArrivalDate().isEmpty()) {
-            arrivalDateInQuery = "(delivery.arrival_date like ? or delivery.arrival_date is null)";
+            arrivalDateInQuery = "(delivery.arrival_date LIKE ? OR delivery.arrival_date IS NULL)";
         } else {
             arrivalDateInQuery = "delivery.arrival_date = ?";
         }
@@ -58,7 +58,7 @@ public class PreparerQueryToFiltering {
 
     private String fieldIsNull(Object field) {
         if (field == null) {
-            return "like ?";
+            return "LIKE ?";
         } else {
             return "= ?";
         }

@@ -17,7 +17,7 @@ public class ManagerDAO {
 
     @SneakyThrows
     public double getCountOfRowsAllOrders() {
-        String sql = "select count(*) from report";
+        String sql = "SELECT count(*) FROM report";
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql);
              ResultSet resultSet = preparedStatement.executeQuery()) {
@@ -30,7 +30,8 @@ public class ManagerDAO {
 
     @SneakyThrows
     public List<Report> getAllOrders(int index) {
-        String sql = "select client_id, order_id from report join orders on report.order_id = orders.id join invoice on orders.invoice_id = invoice.id order by isConfirmed asc, isPaid asc, order_id desc limit ?, 10;";
+        String sql = "SELECT client_id, order_id FROM report JOIN orders ON report.order_id = orders.id JOIN invoice " +
+                "ON orders.invoice_id = invoice.id ORDER BY isConfirmed ASC, isPaid ASC, order_id DESC LIMIT ?, 10;";
         List<Report> reportList = new ArrayList<>();
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
@@ -52,7 +53,7 @@ public class ManagerDAO {
 
     @SneakyThrows
     public List<Report> getNotConfirmedOrders() {
-        String sql = "select client_id, order_id from report join orders on report.order_id = orders.id where orders.isConfirmed = false order by order_id desc";
+        String sql = "SELECT client_id, order_id FROM report JOIN orders ON report.order_id = orders.id WHERE orders.isConfirmed = false ORDER BY order_id DESC";
         List<Report> reportList = new ArrayList<>();
         try (Connection connection = dataSource.getConnection();
              Statement statement = connection.createStatement();
@@ -76,7 +77,8 @@ public class ManagerDAO {
     @SneakyThrows
     public List<Report> getReportByDayAndDirection(String arrivalDate, String senderCity, String recipientCity) {
         List<Report> reportList = new ArrayList<>();
-        String sql = "select client_id, order_id from report join orders on report.order_id = orders.id join delivery on orders.delivery_id = delivery.id join route on delivery.route_id = route.id where arrival_date = ? and sender_city = ? and recipient_city = ?";
+        String sql = "SELECT client_id, order_id FROM report JOIN orders ON report.order_id = orders.id JOIN delivery " +
+                "ON orders.delivery_id = delivery.id JOIN route ON delivery.route_id = route.id WHERE arrival_date = ? AND sender_city = ? AND recipient_city = ?";
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setDate(1, Date.valueOf(arrivalDate));
@@ -101,12 +103,11 @@ public class ManagerDAO {
 
     @SneakyThrows
     public void confirmOrder(Long orderId) {
-        String sql = "update orders set isConfirmed = true where id = ?";
+        String sql = "UPDATE orders SET isConfirmed = true WHERE id = ?";
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setLong(1, orderId);
             preparedStatement.execute();
         }
     }
-
 }

@@ -18,7 +18,6 @@ public class ManagerController {
     private final PaginationLinksBuilder paginationLinksBuilder;
 
 
-    // /app/cargo/manager/getAllOrders
     public ModelAndView getAllOrders(HttpServletRequest request) {
         ModelAndView modelAndView = new ModelAndView();
         int page = Integer.parseInt(request.getParameter("page"));
@@ -31,17 +30,14 @@ public class ManagerController {
         return modelAndView;
     }
 
-    // /app/cargo/manager/getNotConfirmedOrders
     public ModelAndView getNotConfirmedOrders(HttpServletRequest request) {
         ModelAndView modelAndView = new ModelAndView();
         List<Report> reportListWithNotConfirmedOrders = managerService.getNotConfirmedOrders();
         modelAndView.setView("/manager/manageOrders.jsp");
         modelAndView.addAttribute("reports", reportListWithNotConfirmedOrders);
-
         return modelAndView;
     }
 
-    // /app/cargo/manager/confirmOrder
     public ModelAndView confirmOrder(HttpServletRequest request) {
         Long orderId = Long.parseLong(request.getParameter("orderId"));
         managerService.confirmOrder(orderId);
@@ -50,7 +46,6 @@ public class ManagerController {
         return modelAndView;
     }
 
-    // app/cargo/manager/allOrders/filter
     public ModelAndView filterReports(HttpServletRequest request) {
         FilteringDto dto = requestParameterMapper.handleRequest(request, FilteringDto.class);
         List<Report> reportList = managerService.filterReports(dto);
@@ -62,7 +57,6 @@ public class ManagerController {
         return modelAndView;
     }
 
-    // /app/cargo/manager/getReport
     public ModelAndView getReportByDayAndDirection(HttpServletRequest request) {
         String arrivalDate = request.getParameter("arrivalDate");
         String senderCity = request.getParameter("senderCity");

@@ -9,7 +9,6 @@ public interface MapDtoFieldToPreparedStatement {
     @SneakyThrows
     default boolean checkNullField(Object field, PreparedStatement preparedStatement, int index) {
         if (field != null) {
-
             return true;
         }
         preparedStatement.setString(index, "%%");

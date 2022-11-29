@@ -18,11 +18,6 @@ public class ModelAndView {
     private boolean isRedirect;
 
     public static ModelAndView withView(String view) {
-//        ModelAndView modelAndView = new ModelAndView();
-//        modelAndView.attributes = new HashMap<>();
-//        modelAndView.isRedirect = false;
-//        modelAndView.view = view;
-//        return modelAndView;
         return ModelAndView.builder()
                 .attributes(new HashMap<>())
                 .isRedirect(false)

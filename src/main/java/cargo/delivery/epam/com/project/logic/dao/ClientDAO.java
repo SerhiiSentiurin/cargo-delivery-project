@@ -76,7 +76,7 @@ public class ClientDAO {
 
     @SneakyThrows
     public void topUpClientWallet(Double amountForTopUp, Long clientId, Double clientAmount) {
-        String sql = "UPDATE client SET amount = ? where id = ?";
+        String sql = "UPDATE client SET amount = ? WHERE id = ?";
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setDouble(1, amountForTopUp + clientAmount);
@@ -87,7 +87,8 @@ public class ClientDAO {
 
     @SneakyThrows
     public List<Report> getReportsByClientId(Long clientId, int index) {
-        String sql = "select client_id, order_id from report join orders on report.order_id=orders.id join invoice on orders.invoice_id=invoice.id where client_id = ? order by isConfirmed asc, isPaid asc, order_id desc limit ?, 10";
+        String sql = "SELECT client_id, order_id FROM report JOIN orders ON report.order_id=orders.id JOIN invoice " +
+                "ON orders.invoice_id=invoice.id WHERE client_id = ? ORDER BY isConfirmed ASC, isPaid ASC, order_id DESC limit ?, 10";
         List<Report> clientOrders = new ArrayList<>();
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
@@ -129,7 +130,7 @@ public class ClientDAO {
 
     @SneakyThrows
     private void updateDelivery(Connection connection, Long orderId, LocalDate departureDate, LocalDate arrivalDate) {
-        String updateDelivery = "update delivery join orders on delivery.id = orders.delivery_id set departure_date = ?, arrival_date = ? where orders.id = ?";
+        String updateDelivery = "UPDATE delivery JOIN orders ON delivery.id = orders.delivery_id SET departure_date = ?, arrival_date = ? WHERE orders.id = ?";
         try (PreparedStatement preparedStatementDelivery = connection.prepareStatement(updateDelivery)) {
             preparedStatementDelivery.setDate(1, Date.valueOf(departureDate));
             preparedStatementDelivery.setDate(2, Date.valueOf(arrivalDate));
@@ -140,7 +141,7 @@ public class ClientDAO {
 
     @SneakyThrows
     private void updateInvoice(Connection connection, Long orderId) {
-        String updateInvoice = "update invoice join orders on invoice.id = orders.invoice_id set isPaid=true where orders.id = ?";
+        String updateInvoice = "UPDATE invoice JOIN orders ON invoice.id = orders.invoice_id SET isPaid=true WHERE orders.id = ?";
         try (PreparedStatement preparedStatementInvoice = connection.prepareStatement(updateInvoice)) {
             preparedStatementInvoice.setLong(1, orderId);
             preparedStatementInvoice.execute();
@@ -149,7 +150,7 @@ public class ClientDAO {
 
     @SneakyThrows
     private void updateClient(Connection connection, Long clientId, Double amountAfterPaid) {
-        String updateClient = "update client set amount = ? where id = ?";
+        String updateClient = "UPDATE client SET amount = ? WHERE id = ?";
         try (PreparedStatement preparedStatementClient = connection.prepareStatement(updateClient)) {
             preparedStatementClient.setDouble(1, amountAfterPaid);
             preparedStatementClient.setLong(2, clientId);
@@ -159,7 +160,7 @@ public class ClientDAO {
 
     @SneakyThrows
     public double getCountOfRowsAllOrdersClient(Long clientId) {
-        String sql = "select count(*) from report where client_id = ?";
+        String sql = "SELECT count(*) FROM report WHERE client_id = ?";
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setLong(1, clientId);
@@ -169,7 +170,6 @@ public class ClientDAO {
             }
         }
         return 0;
-
     }
 
     @SneakyThrows
@@ -184,5 +184,4 @@ public class ClientDAO {
             autoCloseable.close();
         }
     }
-
 }

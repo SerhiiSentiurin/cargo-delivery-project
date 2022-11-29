@@ -13,7 +13,7 @@ public class UserService {
     private final UserDAO userDAO;
 
     public User getUserByLogin(UserDto userDto) {
-        log.info("trying to enter user with login: " + userDto.getLogin());
+        log.info("Trying to enter user with login: " + userDto.getLogin());
 
         User user = userDAO.getUserByLogin(userDto.getLogin())
                 .orElseThrow(() -> new AppException("User with this login does not exist!"));

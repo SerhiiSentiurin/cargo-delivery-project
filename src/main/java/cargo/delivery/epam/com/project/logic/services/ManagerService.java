@@ -64,5 +64,4 @@ public class ManagerService {
         }
         return reportList;
     }
-
 }

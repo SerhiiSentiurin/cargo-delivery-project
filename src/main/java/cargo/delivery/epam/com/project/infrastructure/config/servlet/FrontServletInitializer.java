@@ -29,7 +29,7 @@ import java.util.*;
 @Log4j2
 public class FrontServletInitializer implements ServletContainerInitializer {
     @Override
-    public void onStartup(Set<Class<?>> c, ServletContext servletContext) throws ServletException {
+    public void onStartup(Set<Class<?>> c, ServletContext servletContext) {
 
         servletContext.addListener(createSessionListenerLocales());
 
@@ -127,10 +127,10 @@ public class FrontServletInitializer implements ServletContainerInitializer {
         ReportFilteringDAO reportFilteringDAO = createReportFilteringDao(dataSource);
         ManagerService managerService = new ManagerService(managerDAO, reportFilteringDAO);
         PaginationLinksBuilder linksBuilder = new PaginationLinksBuilder();
-        return new ManagerController(managerService,requestParameterMapper, linksBuilder);
+        return new ManagerController(managerService, requestParameterMapper, linksBuilder);
     }
 
-    private ReportFilteringDAO createReportFilteringDao(DataSource dataSource){
+    private ReportFilteringDAO createReportFilteringDao(DataSource dataSource) {
         List<MapDtoFieldToPreparedStatement> filteringChain = new ArrayList<>();
         filteringChain.add(new MapStringToPreparedStatement());
         filteringChain.add(new MapBooleanToPreparedStatement());
@@ -139,8 +139,6 @@ public class FrontServletInitializer implements ServletContainerInitializer {
         filteringChain.add(new MapDoubleToPreparedStatement());
         PreparerQueryToFiltering preparerQueryToFiltering = new PreparerQueryToFiltering();
         SetterFilteredFieldToPreparedStatement setterFilteredFieldToPreparedStatement = new SetterFilteredFieldToPreparedStatement(filteringChain);
-        return new ReportFilteringDAO(dataSource,preparerQueryToFiltering, setterFilteredFieldToPreparedStatement);
+        return new ReportFilteringDAO(dataSource, preparerQueryToFiltering, setterFilteredFieldToPreparedStatement);
     }
-
-
 }
