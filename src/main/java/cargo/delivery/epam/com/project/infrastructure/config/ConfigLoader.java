@@ -9,6 +9,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+/**
+ * Load configuration database properties into map
+ */
 @Log4j2
 public class ConfigLoader {
     @Getter
@@ -18,6 +21,15 @@ public class ConfigLoader {
         this.configs = new HashMap<>();
     }
 
+    /**
+     * Load configuration database properties into map
+     *
+     * @param configPath path to resource file, witch should contain:
+     *                   - database URL;
+     *                   - database username;
+     *                   - database user password
+     *                   - path to changeLog file
+     */
     public void loadConfigurations(String configPath) {
         Properties properties = new Properties();
         try {

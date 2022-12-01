@@ -8,6 +8,13 @@ import lombok.NoArgsConstructor;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * This class is part of MVC pattern realization. Containing view (path to the view (JSP page)),
+ * model (hashMap with attributes), boolean field to set forward or redirect method in ProcessorModelAndView.
+ * Contain static factory method which return instance of this class with empty attributes and with view is came into.
+ *
+ * @see ProcessorModelAndView
+ */
 @Data
 @Builder
 @NoArgsConstructor

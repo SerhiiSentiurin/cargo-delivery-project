@@ -8,6 +8,12 @@ import java.io.IOException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+/**
+ * This is implementation of TagSupport class. Used for changing locale in web application interface (JSP pages).
+ * Used ResourceBundle to get i18n properties.
+ * @see TagSupport
+ * @see ResourceBundle
+ */
 @Log4j2
 public class LanguageTagSupport extends TagSupport {
 

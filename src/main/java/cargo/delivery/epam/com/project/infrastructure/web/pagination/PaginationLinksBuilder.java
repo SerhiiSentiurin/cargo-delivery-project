@@ -10,6 +10,13 @@ public class PaginationLinksBuilder {
 
     private static final String REGEX = "page=\\d+";
 
+    /**
+     * Build links with saving all parameters from income request, changing only page number.
+     *
+     * @param request The request to process
+     * @param countOfPages The number of pages that should be shown according to the request
+     * @return List of links with changed pages
+     */
     public List<String> buildLinks(HttpServletRequest request, int countOfPages) {
         List<String> links = new ArrayList<>();
         String url = request.getRequestURI() + "?" + Optional.ofNullable(request.getQueryString()).orElse("page=1");

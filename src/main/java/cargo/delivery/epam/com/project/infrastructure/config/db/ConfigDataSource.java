@@ -7,6 +7,10 @@ import lombok.extern.log4j.Log4j2;
 
 import javax.sql.DataSource;
 
+/**
+ * Creates connection pool (Hikari connection pool) from database properties
+ * @see ConfigLoader
+ */
 @Log4j2
 public class ConfigDataSource {
     public DataSource createDataSource(ConfigLoader configLoader) {

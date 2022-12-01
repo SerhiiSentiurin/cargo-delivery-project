@@ -5,6 +5,9 @@ import jakarta.servlet.http.HttpServletRequest;
 
 import java.io.IOException;
 
+/**
+ * Implementation of Filter. Set encoding to UTF-8 if the request does not specify a character encoding
+ */
 public class EncodingFilter implements Filter {
     private String encoding;
 

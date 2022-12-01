@@ -26,8 +26,22 @@ import lombok.extern.log4j.Log4j2;
 import javax.sql.DataSource;
 import java.util.*;
 
+/**
+ * This class is ServletContainerInitializer (SCI) implementation.
+ * Registered via an entry in the file META-INF/services/jakarta.servlet.ServletContainerInitializer that must be
+ * included in the JAR file that contains the SCI implementation
+ */
 @Log4j2
 public class FrontServletInitializer implements ServletContainerInitializer {
+    /**
+     * This method adds listeners and filters into ServletContext after that creates and
+     * register FrontServlet during startup of this web application.
+     *
+     * @param c The (possibly null) set of classes that met the specified criteria (Not used here)
+     * @param servletContext The ServletContext of this web application
+     * @see ServletContainerInitializer
+     * @see FrontServlet
+     */
     @Override
     public void onStartup(Set<Class<?>> c, ServletContext servletContext) {
 
@@ -43,7 +57,6 @@ public class FrontServletInitializer implements ServletContainerInitializer {
         dynamic.setLoadOnStartup(0);
         dynamic.addMapping("/cargo/*");
         log.info("Front Servlet was started");
-
     }
 
     private SessionListenerLocales createSessionListenerLocales() {

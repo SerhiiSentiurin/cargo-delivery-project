@@ -9,6 +9,10 @@ import lombok.Value;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * This is final class containing the path (the path the user is trying to go to) and list of user roles which this path is allowed to.
+ * @see SecurityFilter
+ */
 @Value
 public class PathMatcher {
 

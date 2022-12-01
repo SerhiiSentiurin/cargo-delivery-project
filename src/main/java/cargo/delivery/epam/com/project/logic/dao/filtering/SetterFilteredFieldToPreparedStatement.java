@@ -50,7 +50,7 @@ public class SetterFilteredFieldToPreparedStatement {
 
 
 //    @SneakyThrows
-//    public void setFieldsFromDtoToPreparedStatement(PreparedStatement preparedStatement, FilteringDto dto) {
+//    public void setFieldsFromDtoToPstmt(PreparedStatement preparedStatement, FilteringDto dto) {
 //        List<Object> dtoFields = collectToListDtoFields(dto);
 //        int index = 0;
 //        for (Object field : dtoFields) {
