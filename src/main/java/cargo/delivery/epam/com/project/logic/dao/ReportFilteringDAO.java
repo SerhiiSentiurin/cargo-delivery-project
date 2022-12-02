@@ -12,12 +12,27 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This is DAO-layer class. Uses for get data from database and build entity object.
+ */
 @RequiredArgsConstructor
 public class ReportFilteringDAO {
     private final DataSource dataSource;
     private final PreparerQueryToFiltering preparerQuery;
     private final SetterFilteredFieldToPreparedStatement setterFilteredFieldToPreparedStatement;
 
+    /**
+     * Gets from database needed data to build entity object with filtering criteria.
+     * Delegates building SQL query to PreparerQueryToFiltering.
+     * Delegates work with PreparedStatement to SetterFilteredFieldToPreparedStatement.
+     * If the filtering field was not selected by the user - it does not participate in filtering.
+     *
+     * @param dto data-transfer-object which contain all needed fields to filtering.
+     * @return list of Reports with chosen filters by user.
+     * @see PreparerQueryToFiltering
+     * @see SetterFilteredFieldToPreparedStatement
+     * @see Report
+     */
     @SneakyThrows
     public List<Report> filterReports(FilteringDto dto) {
         List<Report> reportList = new ArrayList<>();
@@ -139,6 +154,16 @@ public class ReportFilteringDAO {
         return invoice;
     }
 
+    /**
+     * Gets the number of rows from BD according to filtering criteria (for pagination).
+     * Delegates building SQL query to PreparerQueryToFiltering.
+     * Delegates work with PreparedStatement to SetterFilteredFieldToPreparedStatement.
+     *
+     * @param dto data-transfer-object with filtering criteria (fields)
+     * @return number of filtered rows
+     * @see PreparerQueryToFiltering
+     * @see SetterFilteredFieldToPreparedStatement
+     */
     @SneakyThrows
     public double getCountFilteredRows(FilteringDto dto) {
 
