@@ -24,8 +24,8 @@ public class RequestParameterMapper {
      * Feature "FAIL_ON_UNKNOWN_PROPERTIES" is disabled here.
      *
      * @param request object that contains the request the client made of the servlet.
-     * @param tClass object that is necessary to be built.
-     * @param <T> type of object is necessary to be built.
+     * @param tClass  object that is necessary to be built.
+     * @param <T>     type of object is necessary to be built.
      * @return the built object. (usually that is Data Transfer Object (DTO))
      * @see ObjectMapper
      * @see cargo.delivery.epam.com.project.infrastructure.config.servlet.FrontServletInitializer

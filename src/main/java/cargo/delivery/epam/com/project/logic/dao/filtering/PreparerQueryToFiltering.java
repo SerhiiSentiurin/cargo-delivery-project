@@ -8,6 +8,7 @@ import cargo.delivery.epam.com.project.logic.entity.dto.FilteringDto;
  * Second query type takes number of rows from DB according to filter criteria (for pagination).
  * If the filtering field in DTO class was not specified by the user - the value of this field
  * equals to null, so it does not participate in filtering.
+ *
  * @see cargo.delivery.epam.com.project.logic.dao.ReportFilteringDAO
  * @see SetterFilteredFieldToPreparedStatement
  */

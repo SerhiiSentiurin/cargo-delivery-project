@@ -33,7 +33,7 @@ public class ProcessorRequest {
                 .findFirst()
                 .map(Placeholder::getFunction)
                 .map(function -> function.apply(request))
-                .orElseThrow(() -> new AppException("page not found" + request.getRequestURL()));
+                .orElseThrow(() -> new AppException("page not found " + request.getRequestURL()));
         return modelAndView;
     }
 }

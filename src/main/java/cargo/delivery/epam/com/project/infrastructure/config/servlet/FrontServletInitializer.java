@@ -37,7 +37,7 @@ public class FrontServletInitializer implements ServletContainerInitializer {
      * This method adds listeners and filters into ServletContext after that creates and
      * register FrontServlet during startup of this web application.
      *
-     * @param c The (possibly null) set of classes that met the specified criteria (Not used here)
+     * @param c              The (possibly null) set of classes that met the specified criteria (Not used here)
      * @param servletContext The ServletContext of this web application
      * @see ServletContainerInitializer
      * @see FrontServlet

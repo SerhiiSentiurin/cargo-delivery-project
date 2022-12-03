@@ -9,6 +9,7 @@ import javax.sql.DataSource;
 
 /**
  * Creates connection pool (Hikari connection pool) from database properties
+ *
  * @see ConfigLoader
  */
 @Log4j2

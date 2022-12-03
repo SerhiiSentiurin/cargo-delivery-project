@@ -2,10 +2,12 @@ package cargo.delivery.epam.com.project.infrastructure.web.exception;
 
 import cargo.delivery.epam.com.project.infrastructure.web.ModelAndView;
 import cargo.delivery.epam.com.project.infrastructure.web.FrontServlet;
+import lombok.extern.log4j.Log4j2;
 
 /**
  * Exception handler for all types of exceptions
  */
+@Log4j2
 public class ExceptionHandler {
     /**
      * Checks caught exception for type of AppException, if it is not returns InternalError page.
@@ -22,8 +24,10 @@ public class ExceptionHandler {
             ModelAndView modelAndView = new ModelAndView();
             modelAndView.setView("/error/error.jsp");
             modelAndView.addAttribute("message", exception.getMessage());
+            log.error("Cause: " + exception.getMessage());
             return modelAndView;
         }
+        log.error("Internal error occur!" + exception.getMessage());
         return ModelAndView.withView("/error/internalError.jsp");
     }
 }

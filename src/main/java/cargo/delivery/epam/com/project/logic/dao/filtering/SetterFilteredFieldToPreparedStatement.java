@@ -52,7 +52,7 @@ public class SetterFilteredFieldToPreparedStatement {
      * Sets fields from DTO object to PreparedStatement. "Chain of responsibility pattern" applied here.
      *
      * @param preparedStatement created above instance of PreparedStatement
-     * @param dto data-transfer-object with filtering criteria (fields)
+     * @param dto               data-transfer-object with filtering criteria (fields)
      * @see MapDtoFieldToPreparedStatement
      */
     @SneakyThrows
@@ -72,7 +72,7 @@ public class SetterFilteredFieldToPreparedStatement {
 
     /**
      * @param preparedStatement created above instance of PreparedStatement
-     * @param dto data-transfer-object with filtering criteria (fields)
+     * @param dto               data-transfer-object with filtering criteria (fields)
      * @deprecated because method isn't readable. The solution is not optimal.
      */
     @Deprecated

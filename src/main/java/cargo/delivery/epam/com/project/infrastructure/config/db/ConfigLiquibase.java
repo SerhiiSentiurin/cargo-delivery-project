@@ -26,8 +26,6 @@ public class ConfigLiquibase {
 
     /**
      * Update database with every application launch.
-     * If you want to change DB schema or insert some data in DB you should create new changeLog file at
-     * "src/main/resources/db/liquibase" and include this file into "changelog-master.yaml" file.
      *
      * @param configLoader this is map with DB properties (URL, username, user password, path to changeLog file)
      * @see ConfigLoader

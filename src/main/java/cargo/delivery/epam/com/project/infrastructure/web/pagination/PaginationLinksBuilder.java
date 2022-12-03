@@ -13,7 +13,7 @@ public class PaginationLinksBuilder {
     /**
      * Build links with saving all parameters from income request, changing only page number.
      *
-     * @param request The request to process
+     * @param request      The request to process
      * @param countOfPages The number of pages that should be shown according to the request
      * @return List of links with changed pages
      */

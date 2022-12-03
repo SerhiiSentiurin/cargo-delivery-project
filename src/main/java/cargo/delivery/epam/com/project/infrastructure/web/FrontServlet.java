@@ -27,10 +27,10 @@ public class FrontServlet extends HttpServlet {
     /**
      * Method handling all requests in the system.
      *
-     * @param req object that contains the request the client made of the servlet.
+     * @param req  object that contains the request the client made of the servlet.
      * @param resp object that contains the response the servlet returns to the client.
      * @throws ServletException if the HTTP request cannot be handled.
-     * @throws IOException if an input or output error occurs while the servlet is handling the HTTP request.
+     * @throws IOException      if an input or output error occurs while the servlet is handling the HTTP request.
      * @see HttpServlet
      * @see ModelAndView
      * @see ProcessorRequest
@@ -38,13 +38,14 @@ public class FrontServlet extends HttpServlet {
      */
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        log.info("start processing request");
+        log.info("Start processing request " + "'" + req.getRequestURI() + "'" + " method: " + "'" + req.getMethod() + "'");
         ModelAndView modelAndView;
         try {
             modelAndView = processorRequest.processRequest(req);
         } catch (Exception e) {
             modelAndView = exceptionHandler.handle(e);
         }
-        processorModelAndView.crateModelAndView(req, resp, modelAndView, this);
+        processorModelAndView.createModelAndView(req, resp, modelAndView, this);
+        log.info("Request processed!");
     }
 }

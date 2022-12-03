@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 /**
  * This is implementation of TagSupport class. Used for changing locale in web application interface (JSP pages).
  * Used ResourceBundle to get i18n properties.
+ *
  * @see TagSupport
  * @see ResourceBundle
  */

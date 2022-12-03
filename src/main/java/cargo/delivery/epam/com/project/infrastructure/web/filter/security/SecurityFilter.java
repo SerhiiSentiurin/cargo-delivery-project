@@ -13,6 +13,7 @@ import java.util.List;
 
 /**
  * Implementation of Filter. Сompares user roles with the paths allowed to them.
+ *
  * @see Filter
  */
 public class SecurityFilter implements Filter {
@@ -64,10 +65,10 @@ public class SecurityFilter implements Filter {
      * to the next entity in the chain.
      * This method permit to user access if it permitted in PathMatcher, else forward to forbidden page.
      *
-     * @param servletRequest The request to process (converted to HttpServletRequest)
+     * @param servletRequest  The request to process (converted to HttpServletRequest)
      * @param servletResponse The response associated with the request (converted to HttpServletResponse)
-     * @param filterChain Provides access to the next filter in the chain for this filter to pass the request and response to for further processing
-     * @throws IOException if an I/O error occurs during this filter's processing of the request
+     * @param filterChain     Provides access to the next filter in the chain for this filter to pass the request and response to for further processing
+     * @throws IOException      if an I/O error occurs during this filter's processing of the request
      * @throws ServletException if the processing fails for any other reason
      * @see PathMatcher
      */
